@@ -27,5 +27,12 @@ production:
   pool: 5
   password:
 
+staging:
+  adapter: postgresql
+  encoding: unicode 
+  database: med_safe_labs_staging
+  pool: 5
+  password:
+
 cucumber:
   <<: *test

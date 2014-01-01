@@ -1,1 +1,13 @@
 http://secret-shelf-7790.herokuapp.com
+
+staging:
+http://obscure-meadow-8367.herokuapp.com
+
+production:
+http://medsafelabs.heroku.com
+
+
+# to push to staging:
+git push staging master
+heroku run rake db:migrate --remote staging
+heroku ps --remote staging
