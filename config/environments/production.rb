@@ -75,7 +75,7 @@ MedSafeLabs::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   
-  config.action_mailer.default_url_options = { :host => 'secret-shelf-7790.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'medsafelabs.herokuapp.com' }
   
   # set email to test to prevent spamming for now
   config.action_mailer.delivery_method = :test
