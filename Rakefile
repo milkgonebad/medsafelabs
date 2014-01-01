@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-OldPort::Application.load_tasks
+MedSafeLabs::Application.load_tasks

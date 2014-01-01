@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module OldPort
+module MedSafeLabs
   class Application < Rails::Application
     # set the sessions controller to use a different layout
     config.to_prepare do

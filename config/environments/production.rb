@@ -1,4 +1,4 @@
-OldPort::Application.configure do
+MedSafeLabs::Application.configure do
   config.cache_classes = true
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -91,7 +91,7 @@ OldPort::Application.configure do
   
 end
 
-OldPort::Application.config.middleware.use ExceptionNotification::Rack,
+MedSafeLabs::Application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[ERROR MedSafeLabs] ",
     :sender_address => %{"notifier" <notifier@medsafelabs.com>},

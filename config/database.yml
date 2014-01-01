@@ -23,7 +23,7 @@ test: &test
 production:
   adapter: postgresql
   encoding: unicode 
-  database: old_port_production
+  database: med_safe_labs_production
   pool: 5
   password:
 

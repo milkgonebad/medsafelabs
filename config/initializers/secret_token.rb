@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-OldPort::Application.config.secret_key_base = '3800f822721e3b7a93fe0969b2bba1b6bbc6c5e3153650884b207639a36def4054c0b4beff7e795c2e591e174a7c78247a75810a984f447952b399a990d32128'
+MedSafeLabs::Application.config.secret_key_base = '3800f822721e3b7a93fe0969b2bba1b6bbc6c5e3153650884b207639a36def4054c0b4beff7e795c2e591e174a7c78247a75810a984f447952b399a990d32128'
