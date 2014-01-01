@@ -1,0 +1,10 @@
+<h1>Import QR Codes</h1>
+
+<%= form_tag import_qr_codes_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+<p>
+	<%= link_to "Display Next Available QR Code", qr_code_path(@qr)%>
+</p>

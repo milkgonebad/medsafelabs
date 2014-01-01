@@ -1,0 +1,16 @@
+<%= simple_form_for(@order, url: (@order.new_record? ? user_orders_path(@customer) : user_order_path(@customer, @order))) do |f| %>
+
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+   	<%= f.input :quantity %>
+   	<%= f.input :payment_type, :collection => Order::PAYMENT_TYPES, :selected => @order.payment_type, :include_blank => true %>
+    <%= f.input :memo %>
+    <%= f.input :total, :label => 'Total in USD' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

@@ -1,0 +1,50 @@
+<%= simple_form_for(@test, url: user_test_path(@customer, @test)) do |f| %>
+  <%= f.error_notification %>
+  <%= display_errors(@test.errors) %>
+  <p>
+	<strong>Order #</strong>
+	<%= link_to @test.order_id, user_order_path(@customer, @test.order) %>
+  </p>
+  
+  <div class="form-inputs">
+  	<% if current_user.super_admin? %>
+  		<%= f.input :status, :collection => Test::STATUSES, :selected => @test.status %>
+  	<% else %>
+  		<div class="field">
+  			Status:  <%= @test.status %>
+  		</div>
+  	<% end %>
+  	
+  	<%= f.input :strain, :collection => Strain.all, :selected => @test.strain, :include_blank => true %>
+  	<%= f.input :notes %>
+  	<%= f.input :sample_type, :collection => Test::SAMPLE_TYPES, :selected => @test.sample_type, :include_blank => true %>
+  	
+  	<% if @test.in_progress? %>
+  		<%= f.input :cbd %>
+		<%= f.input :cbn %>
+	  	<%= f.input :thc %>
+	  	<%= f.input :thcv %>
+	  	<%= f.input :cbg %>
+	  	<%= f.input :cbc %>
+	  	<%= f.input :thca %>
+	  	<div class="field">
+  			<%= f.label :plate, "Plate Image" %><br/>
+  			<%= f.file_field :plate %>
+		</div>
+	<% end %>
+	
+	<% if defined? @has_qr %>
+		<%= f.input :qr_code_number, as: :hidden %>
+  	<% end %>
+  
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit %> 
+    <% unless @test.not_received? %>
+    	or
+    	<%= f.button :submit, :name => "update_status", :value => "Update and Set Status to " + @test.next_status  %>
+    <% end %>
+  </div>
+  
+<% end %>

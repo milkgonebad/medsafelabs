@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Order for <%= @customer.first_name %> <%= @customer.last_name %></h1>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order.quantity %>
+</p>
+
+<p>
+  <strong>Payment Type:</strong>
+  <%= @order.payment_type %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @order.memo %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @order.total %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @order.created_at %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @order.creator.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_order_path(@customer, @order) %> |
+<%= link_to 'Back', user_orders_path(@customer) %>  |
+<%= link_to 'View Tests', user_tests_path(@customer, :order_id => @order.id) %>

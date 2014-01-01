@@ -1,0 +1,83 @@
+Notes for Old Port Apothecary or MedSafe Labs, LLC
+
+Templating System:
+Twitter Bootstrap
+
+
+Scaffolding:
+
+If model exists:
+rails g scaffold_controller User first_name:string last_name:string email:string address1:string address2:string city:string state:string country:string role:integer
+
+Devise
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :invitable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable --migration false
+         
+         
+Migrating to postgresql
+
+Need to create sequences
+http://cmar.me/2011/03/03/mysql-to-postgres-id-column-sequences/
+
+I needed to create on user to seed the sequence.  They should be deleted.
+Create the sequence:
+
+SELECT setval('users_id_seq', (SELECT MAX(id) FROM users)+1);
+Then add it to the table:
+ALTER TABLE users ALTER COLUMN "id" set DEFAULT NEXTVAL('users_id_seq');
+
+
+Super Admin user:
+super@medsafelabs.com
+P0rtland!
+
+Test Admin user (on my laptop):
+meow@test.com
+12345678
+
+
+TODO
+- Add order history to customer view
+- Add QR code generator
+
+
+BACKLOG
+- notify user daily of completed tests - not one per test
+- strains need to be added/updated in the db
+- generate qr codes
+- add shopping cart
+- integrate with paypal or something
+- Clean up destroy
+- We should add an active flag or account status flag.
+- add a way to resend invites
+- Need ID registration info for dispensaries
+
+FIXME
+- add password constraints
+- security on result images
+- prevent deactivated users from logging in
+- https://github.com/phatworx/devise_security_extension
+
+
+DONE
+- Import QR codes
+- Cancel account yourself
+- should we disable resetting the password in the UI?
+- add fields to edit your own acct page
+- add password confirmation
+- mechanism for updating statuses
+- Add edit/show pages for tests
+- updated by - tested by fields on the test
+- Create QR code controller to do the following:
+-- add a new qr code
+-- find an existing qr code
+-- From there:  show - set received, in progress, complete statuses - need new date fields
+--> test pushing db to heroku to make sure sequence id is working
+--> Check that user fields are being set
+
+
+Hours
+previous - 4
+11/17 - 

@@ -1,0 +1,120 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Test for <%= @customer.first_name %> <%= @customer.last_name %></h1>
+
+<p>
+  <strong>Order #</strong>
+  <%= link_to @test.order_id, user_order_path(@customer, @test.order) %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @test.status %>
+</p>
+
+<p>
+  <strong>Strain</strong>
+  <%= @test.strain %>
+</p>
+
+<p>
+  <strong>Notes</strong>
+  <%= @test.notes %>
+</p>
+
+<p>
+  <strong>Sample Type</strong>
+  <%= @test.sample_type %>
+</p>
+
+<p>
+  <strong>QR Code</strong>
+  <%= @test.qr_code_number %>
+</p>
+
+<% if @test.complete? or @test.in_progress? %>
+	<p>
+	  <strong>CBD</strong>
+	  <%= @test.cbd %>%
+	</p>
+	<p>
+	  <strong>CBN</strong>
+	  <%= @test.cbn %>%
+	</p>
+	<p>
+	  <strong>THC</strong>
+	  <%= @test.thc %>%
+	</p>
+	<p>
+	  <strong>THCV</strong>
+	  <%= @test.thcv %>%
+	</p>
+	<p>
+	  <strong>CBG</strong>
+	  <%= @test.cbg %>%
+	</p>
+	<p>
+	  <strong>CBC</strong>
+	  <%= @test.cbc %>%
+	</p>
+	<p>
+	  <strong>THCA</strong>
+	  <%= @test.thca %>%
+	</p>
+	
+<% end %>
+
+<% if @test.plate.file? %>
+	<%= image_tag @test.plate.url %>
+<% end %>
+
+<p>
+  <strong>Created At</strong>
+  <%= @test.created_at %>
+</p>
+
+<p>
+  <strong>Created By</strong>
+  <%= @test.creator.email %>
+</p>
+
+<p>
+  <strong>Updated At</strong>
+  <%= @test.updated_at %>
+</p>
+
+<% if @test.received_at %>
+	<p>
+	  <strong>Received At</strong>
+	  <%= @test.received_at %>
+	  <br>
+	  <strong>Received By</strong>
+	  <%= @test.receiver.email %>
+	</p>
+<% end %>
+
+<% if @test.in_progress_at %>
+	<p>
+	  <strong>In Progress At</strong>
+	  <%= @test.in_progress_at %>
+	  <br>
+	  <strong>In Progress By</strong>
+	  <%= @test.in_progresser.email %>
+	</p>
+<% end %>
+
+<% if @test.completed_at %>
+	<p>
+	  <strong>Completed At</strong>
+	  <%= @test.completed_at %>
+	  <br>
+	  <strong>Completed By</strong>
+	  <%= @test.completer.email %>
+	</p>
+	<p>
+		<strong><%= link_to "Direct link to results page", result_path(@test) %></strong>
+	</p>
+<% end %>
+
+<%= link_to 'Edit', edit_user_test_path(@customer, @test) %> |
+<%= link_to 'Back', user_tests_path(@customer) %>

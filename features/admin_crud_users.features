@@ -1,0 +1,26 @@
+Feature:  admin can crud users
+
+	As an admin 
+	In order to create tests
+	I want to be able to create customers
+	
+Background: admin in db
+	Given I am an admin
+	And I am logged in
+	And the following users exist:
+  	| first_name | last_name | email 		   | password | active |
+  	! Peter 	 | Heppner	 | peter@test.com  | 12345678 | true   |
+  	| Miss		 | FD		 | missfd@test.com | 12345678 | true   |
+
+Scenario:  An admin can create a customer
+	When I click Add Customer 
+	Then I fill in the customer form fields 
+	And I click Submit
+	Then I should see the customer's name
+	
+Scenario:  An admin can edit a customer
+	Given I am on the customer index page
+	When I click "Peter Heppner"
+	And I update Active to false
+	Then I should see "Customer updated"
+	

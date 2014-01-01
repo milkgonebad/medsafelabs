@@ -1,0 +1,28 @@
+<h1>Listing Tests for <%= @customer.first_name %> <%= @customer.last_name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Created At</th>
+      <th>Status</th>
+      <th>Order ID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tests.each do |test| %>
+      <tr>
+      	<td><%= test.created_at %></td>
+      	<td><%= test.status %></td>
+      	<td><%= link_to test.order_id, user_order_path(@customer, test.order) %></td>
+        <td><%= link_to 'Show', user_test_path(@customer, test) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
