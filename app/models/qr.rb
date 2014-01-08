@@ -18,8 +18,17 @@ class Qr < ActiveRecord::Base
     [num_created, num_exists]
   end
   
+  def self.create_brand_new
+    # get max qr code number
+    
+    # convert the field to number
+    
+    # 
+    
+  end
+  
   def generate
-    "http://" + ActionMailer::Base.default_url_options[:host] + "/qr/" + qr_code_number
+    "https://" + ActionMailer::Base.default_url_options[:host] + "/qr/" + qr_code_number.to_s
   end
   
 end

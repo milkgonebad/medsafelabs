@@ -40,9 +40,11 @@
   </div>
   
   <div class="form-actions">
-    <%= f.button :submit %> 
-    <% unless @test.not_received? %>
+    <% if !@test.not_received? %>
+    	<%= f.button :submit %> 
     	or
+    	<%= f.button :submit, :name => "update_status", :value => "Update and Set Status to " + @test.next_status  %>
+    <% elsif @test.not_received? and defined? @has_qr %>
     	<%= f.button :submit, :name => "update_status", :value => "Update and Set Status to " + @test.next_status  %>
     <% end %>
   </div>

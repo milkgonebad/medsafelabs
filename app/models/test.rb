@@ -15,6 +15,7 @@ class Test < ActiveRecord::Base
   
   validates :order, :status, :user, :creator, presence: true # tests cannot exist without an order
   validates :qr_code_number, presence: true, if: :received?
+  validates :qr_code_number, absence: true, if: :not_received?
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, numericality: { less_than_or_equal_to: 50.00 }, allow_blank: true
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, :strain, :sample_type, presence: true, if: :complete? 
   
@@ -41,8 +42,9 @@ class Test < ActiveRecord::Base
   
   after_save :update_status_timestamps
   
-  after_save  do |t| 
+  after_save do |t| 
     t.send_test_result_email if t.complete?
+    t.mark_qr_code if t.received?
   end
   
   #FIXME:  These could be metaprogrammed into something smarter but rails 4.1 has that nice enum feature...
@@ -111,5 +113,12 @@ class Test < ActiveRecord::Base
       update_attribute(:completed_email_sent_at, Time.now)
     end
   end 
+  
+  #FIXME - qrs should probably be a first level object instead of this denormalized thing
+  def mark_qr_code
+    qr = Qr.find_by :qr_code_number => qr_code_number
+    qr.used = true
+    qr.save!
+  end
   
 end

@@ -14,13 +14,18 @@ MedSafeLabs::Application.routes.draw do
     resources :invitations
     resources :administrators
     resources :qr_codes do
-      collection { post :import }
+      collection do 
+        post :import
+        get :print_new_codes 
+        get :print_existing_codes 
+      end
     end
   end
   
   get '/dashboard' => 'dashboard#index'
   get '/qr/:id' => 'qr#index'
   
+  get '/admin/qr_codes/print_codes' => 'qr_codes#print_codes'
   resources :results
 
   # Example of regular route:

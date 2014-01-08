@@ -40,7 +40,7 @@ meow@test.com
 
 TODO
 - Add order history to customer view
-- Add QR code generator
+- Add QR code generator - generate new qr codes
 
 
 BACKLOG

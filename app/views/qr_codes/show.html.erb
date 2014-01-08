@@ -3,5 +3,17 @@
 <p id="notice"><%= notice %></p>
 
 
+<table border="0">
+	<tr align="center">
+		<td>&nbsp;</td>
+		<td><%= image_tag qr_code_path(1, :format => :jpeg) %></td>
+		<td>&nbsp;</td>
+		<td><%= image_tag qr_code_path(2, :format => :jpeg) %></td>
+		<td></td>
+	</tr>
+		
+
+
+
 
 <%= link_to 'Back', qr_codes_path %>
