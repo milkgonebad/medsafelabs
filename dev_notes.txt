@@ -37,10 +37,17 @@ Test Admin user (on my laptop):
 meow@test.com
 12345678
 
+Deploying:
+git push staging master - staging http://medsafelabs-staging.herokuapp.com
+git push heroku master - prod http://medsafelabs.herokuapp.com
+
+
 
 TODO
 - Add order history to customer view
-- Add QR code generator - generate new qr codes
+- Add QR code generator - generate new qr codes - need for staging
+- Convert qrs to real objects with IDs - normalize
+- Convert qr_code_number to a real number	
 
 
 BACKLOG

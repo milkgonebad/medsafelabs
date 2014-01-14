@@ -1,5 +1,6 @@
 class ConvertQrCodeNumberToNumber < ActiveRecord::Migration
   def change
-#    change_column :qrs, :qr_code_number, :integer
+    add_column :qrs, :qr_code, :integer
+    add_column :tests, :qr_id, :integer
   end
 end

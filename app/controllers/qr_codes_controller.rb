@@ -18,7 +18,7 @@ class QrCodesController < ApplicationController
   def print_new_codes
     @codes = []
     24.times do
-      @codes << Qr.create
+      @codes << Qr.create_brand_new
     end
     format_codes
     respond_to do |format|
@@ -50,7 +50,7 @@ class QrCodesController < ApplicationController
       data = RQRCode.render_qrcode(qr.generate, :png, {:unit => 3})
       filename = "/qr_codes/qr_code" + i.to_s + ".png"
       File.open("public" + filename, 'w+b') {|f| f.write(data) }
-      @qr_info << ['MedSafeLabs ' + qr.qr_code_number.last(5), filename]
+      @qr_info << ['MedSafeLabs ' + qr.qr_code.to_s, filename]
     end
   end
 

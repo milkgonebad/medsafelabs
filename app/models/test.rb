@@ -5,6 +5,7 @@ class Test < ActiveRecord::Base
   belongs_to :receiver, class_name: "User", foreign_key:  "received_by"
   belongs_to :in_progresser, class_name: "User", foreign_key:  "in_progress_by"
   belongs_to :completer, class_name: "User", foreign_key:  "completed_by"
+  has_one :qr
   
   has_attached_file :plate,  :default_url => "/images/:style/missing.png",
     styles: {
@@ -14,8 +15,8 @@ class Test < ActiveRecord::Base
     }
   
   validates :order, :status, :user, :creator, presence: true # tests cannot exist without an order
-  validates :qr_code_number, presence: true, if: :received?
-  validates :qr_code_number, absence: true, if: :not_received?
+  validates :qr_code, presence: true, if: :received?
+  validates :qr_code, absence: true, if: :not_received?
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, numericality: { less_than_or_equal_to: 50.00 }, allow_blank: true
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, :strain, :sample_type, presence: true, if: :complete? 
   
@@ -28,7 +29,7 @@ class Test < ActiveRecord::Base
   STATUSES = {not_received: 'NOT_RECEIVED', received: 'RECEIVED', in_progress: 'IN_PROGRESS', complete: 'COMPLETE'}
   SAMPLE_TYPES = ['Flower', 'Concentrate', 'Oil', 'Edible']
   
-  scope :no_qr_code, -> { where qr_code_number: nil }
+  scope :no_qr_code, -> { where qr_code: nil }
   scope :not_received, -> { where status: STATUSES[:not_received] }
   scope :received, -> { where status: STATUSES[:received] }
   scope :in_progress, -> { where status: STATUSES[:in_progress] }
@@ -116,7 +117,7 @@ class Test < ActiveRecord::Base
   
   #FIXME - qrs should probably be a first level object instead of this denormalized thing
   def mark_qr_code
-    qr = Qr.find_by :qr_code_number => qr_code_number
+    qr = Qr.find_by :qr_code => qr_code
     qr.used = true
     qr.save!
   end

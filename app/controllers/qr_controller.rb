@@ -2,9 +2,9 @@ class QrController < ApplicationController
   before_filter :authenticate_user!, :ensure_admin, :validate_qr
   
   def index
-    @test = Test.find_by qr_code_number: params[:id]
+    @test = Test.find_by qr_code: params[:id]
     if @test.nil?
-      @qr = Qr.available.find_by qr_code_number: params[:id]
+      @qr = Qr.available.find_by qr_code: params[:id]
       if @qr.nil?
         flash[:error] = "This QR code '" + params[:id] + "' is not in our system or has already been used."
         redirect_to '/dashboard' and return
@@ -28,7 +28,7 @@ class QrController < ApplicationController
       # ok, we have a customer, a good qr code, and available tests
       # push all of this good stuff to the tests controller and it can do the rest
       flash[:notice] = "Associating this QR code with a new test!"
-      redirect_to edit_user_test_path(@customer, tests.first, qr_code_number: params[:id]) and return
+      redirect_to edit_user_test_path(@customer, tests.first, qr_code: params[:id]) and return
     else
       # in this case we don't need the customer number which is ok!  Go right to the test since we will start testing!
       # TODO does this set the receive status? or in progress?  I think we need some shiny buttons on the show page

@@ -17,8 +17,8 @@ class TestsController < ApplicationController
     if @test.complete? and !current_user.super_admin?
       redirect_to :action => :show and return
     end
-    if params[:qr_code_number] and @test.qr_code_number.nil?
-      @test.qr_code_number = params[:qr_code_number] 
+    if params[:qr_code] and @test.qr_code.nil?
+      @test.qr_code = params[:qr_code] 
       @has_qr = true
     end
   end
@@ -56,10 +56,10 @@ class TestsController < ApplicationController
   private
   
     def check_qr_code
-      if params.include? :qr_code_number
-          @qr = Qr.available.find_by qr_code_number: params[:qr_code_number]
-          flash[:error] = "This QR code '" + params[:qr_code_number] + "' is not in our system or has already been used."
-          redirect_to :edit and return
+      if params.include? :qr_code          
+        @qr = Qr.available.find_by qr_code: params[:qr_code]
+        flash[:error] = "This QR code '" + params[:qr_code] + "' is not in our system or has already been used."
+        redirect_to :edit and return
       end
     end
   
@@ -74,7 +74,7 @@ class TestsController < ApplicationController
 
     def test_params
       params.require(:test).permit(
-        :status, :strain, :notes, :qr_code_number, :sample_type, :cbd, 
+        :status, :strain, :notes, :qr_code, :sample_type, :cbd, 
         :cbn, :thc, :thcv, :cbg, :cbc, :thca, :plate, :update_status)
     end
 

@@ -10,3 +10,7 @@ super_user = User.new(
 )
 
 super_user.save!
+
+first_qr = Qr.create(
+  qr_code: 1
+)
