@@ -5,7 +5,7 @@ class Test < ActiveRecord::Base
   belongs_to :receiver, class_name: "User", foreign_key:  "received_by"
   belongs_to :in_progresser, class_name: "User", foreign_key:  "in_progress_by"
   belongs_to :completer, class_name: "User", foreign_key:  "completed_by"
-  has_one :qr
+  belongs_to :qr
   
   has_attached_file :plate,  :default_url => "/images/:style/missing.png",
     styles: {
@@ -29,7 +29,7 @@ class Test < ActiveRecord::Base
   STATUSES = {not_received: 'NOT_RECEIVED', received: 'RECEIVED', in_progress: 'IN_PROGRESS', complete: 'COMPLETE'}
   SAMPLE_TYPES = ['Flower', 'Concentrate', 'Oil', 'Edible']
   
-  scope :no_qr_code, -> { where qr_code: nil }
+  scope :no_qr_code, -> { where qr_id: nil }
   scope :not_received, -> { where status: STATUSES[:not_received] }
   scope :received, -> { where status: STATUSES[:received] }
   scope :in_progress, -> { where status: STATUSES[:in_progress] }
@@ -115,9 +115,7 @@ class Test < ActiveRecord::Base
     end
   end 
   
-  #FIXME - qrs should probably be a first level object instead of this denormalized thing
   def mark_qr_code
-    qr = Qr.find_by :qr_code => qr_code
     qr.used = true
     qr.save!
   end

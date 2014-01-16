@@ -17,8 +17,8 @@ class TestsController < ApplicationController
     if @test.complete? and !current_user.super_admin?
       redirect_to :action => :show and return
     end
-    if params[:qr_code] and @test.qr_code.nil?
-      @test.qr_code = params[:qr_code] 
+    if params[:qr_code] and @test.qr.nil?
+      @test.qr_id = Qr.available.find_by!(qr_code: params[:qr_code]).id
       @has_qr = true
     end
   end
@@ -30,10 +30,6 @@ class TestsController < ApplicationController
     update_params.merge!(updated_by: current_user)
     respond_to do |format|
       if @test.update(update_params)
-        if defined? @qr # update the qr code so it can't be reused
-          @qr.availble = false
-          @qr.save!
-        end
         format.html { redirect_to user_test_path(@customer, @test), notice: 'Test was successfully updated.' }
         format.json { head :no_content }
       else
@@ -74,7 +70,7 @@ class TestsController < ApplicationController
 
     def test_params
       params.require(:test).permit(
-        :status, :strain, :notes, :qr_code, :sample_type, :cbd, 
+        :status, :strain, :notes, :qr_id, :sample_type, :cbd, 
         :cbn, :thc, :thcv, :cbg, :cbc, :thca, :plate, :update_status)
     end
 

@@ -2,14 +2,20 @@ class QrController < ApplicationController
   before_filter :authenticate_user!, :ensure_admin, :validate_qr
   
   def index
-    @test = Test.find_by qr_code: params[:id]
+    @qr = Qr.find_by qr_code: params[:id]
+    if @qr.nil?
+      flash[:error] = "This QR code '" + params[:id] + "' is not in our system."
+      redirect_to '/dashboard' and return
+    end
+    @test = Test.find_by qr_id: @qr.id
     if @test.nil?
-      @qr = Qr.available.find_by qr_code: params[:id]
-      if @qr.nil?
-        flash[:error] = "This QR code '" + params[:id] + "' is not in our system or has already been used."
+      
+      # make sure we haven't used this code yet
+      if @qr.used?
+        flash[:error] = "This QR code '" + params[:id] + "' has already been used."
         redirect_to '/dashboard' and return
       end
-    
+      
       # ok valid new qr code - do we have a customer
       if session[:customer_id].blank?
         # TODO:  we should give a way to look up customers but for now tough luck

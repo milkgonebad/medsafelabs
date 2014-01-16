@@ -40403,3 +40403,387 @@ ActionView::Template::Error (undefined method `qr_code' for #<Test:0x007fb3f22b4
   Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
   Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
   Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/admin/users/7/tests/5" for 127.0.0.1 at 2014-01-15 22:19:49 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"5"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.5ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mQr Load (15.0ms)[0m  SELECT "qrs".* FROM "qrs" WHERE "qrs"."test_id" = $1 ORDER BY "qrs"."id" ASC LIMIT 1  [[nil, 5]]
+PG::UndefinedColumn: ERROR:  column qrs.test_id does not exist
+LINE 1: SELECT  "qrs".* FROM "qrs"  WHERE "qrs"."test_id" = $1  ORDE...
+                                          ^
+: SELECT  "qrs".* FROM "qrs"  WHERE "qrs"."test_id" = $1  ORDER BY "qrs"."id" ASC LIMIT 1
+  Rendered tests/show.html.erb within layouts/application (731.7ms)
+Completed 500 Internal Server Error in 853ms
+
+ActionView::Template::Error (PG::UndefinedColumn: ERROR:  column qrs.test_id does not exist
+LINE 1: SELECT  "qrs".* FROM "qrs"  WHERE "qrs"."test_id" = $1  ORDE...
+                                          ^
+: SELECT  "qrs".* FROM "qrs"  WHERE "qrs"."test_id" = $1  ORDER BY "qrs"."id" ASC LIMIT 1):
+    29: 
+    30: <p>
+    31:   <strong>QR Code</strong>
+    32:   <%= @test.qr.qr_code %>
+    33: </p>
+    34: 
+    35: <% if @test.complete? or @test.in_progress? %>
+  app/views/tests/show.html.erb:32:in `_app_views_tests_show_html_erb___306274401014901215_70205418236460'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.1ms)
+
+
+Started GET "/admin/users/7/tests/5" for 127.0.0.1 at 2014-01-15 22:22:06 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "5"]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 9]]
+  Rendered tests/show.html.erb within layouts/application (16.3ms)
+Completed 500 Internal Server Error in 125ms
+
+ActionView::Template::Error (undefined method `qr_code' for nil:NilClass):
+    29: 
+    30: <p>
+    31:   <strong>QR Code</strong>
+    32:   <%= @test.qr.qr_code %>
+    33: </p>
+    34: 
+    35: <% if @test.complete? or @test.in_progress? %>
+  app/views/tests/show.html.erb:32:in `_app_views_tests_show_html_erb___306274401014901215_70205418236460'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/admin/users/7/tests" for 127.0.0.1 at 2014-01-15 22:22:19 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mTest Load (0.6ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."user_id" = 7[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 9]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 8]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 67ms (Views: 62.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/users/7/tests/8/edit" for 127.0.0.1 at 2014-01-15 22:22:25 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"7", "id"=>"8"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "8"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  Rendered tests/_form.html.erb (304.0ms)
+  Rendered tests/edit.html.erb within layouts/application (305.5ms)
+Completed 200 OK in 335ms (Views: 330.4ms | ActiveRecord: 1.7ms)
+
+
+Started PATCH "/admin/users/7/tests/8" for 127.0.0.1 at 2014-01-15 22:22:32 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+BiR90tFxPsUZu1PNHvU5dbJF+kBIXOA3IGbqK7xR7k=", "test"=>{"strain"=>"", "notes"=>"", "sample_type"=>"", "cbd"=>"", "cbn"=>"", "thc"=>"", "thcv"=>"", "cbg"=>"", "cbc"=>"", "thca"=>""}, "commit"=>"Update Test", "user_id"=>"7", "id"=>"8"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "8"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "tests" SET "in_progress_at" = $1, "updated_at" = $2 WHERE "tests"."id" = 8  [["in_progress_at", Thu, 16 Jan 2014 03:22:32 UTC +00:00], ["updated_at", Thu, 16 Jan 2014 03:22:32 UTC +00:00]]
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "tests" SET "in_progress_by" = $1, "updated_at" = $2 WHERE "tests"."id" = 8[0m  [["in_progress_by", 16], ["updated_at", Thu, 16 Jan 2014 03:22:32 UTC +00:00]]
+  [1m[35m (12.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users/7/tests/8
+Completed 302 Found in 32ms (ActiveRecord: 16.4ms)
+
+
+Started GET "/admin/users/7/tests/8" for 127.0.0.1 at 2014-01-15 22:22:32 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"8"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "8"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  Rendered tests/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (undefined method `qr_code' for nil:NilClass):
+    29: 
+    30: <p>
+    31:   <strong>QR Code</strong>
+    32:   <%= @test.qr.qr_code %>
+    33: </p>
+    34: 
+    35: <% if @test.complete? or @test.in_progress? %>
+  app/views/tests/show.html.erb:32:in `_app_views_tests_show_html_erb___306274401014901215_70205418236460'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.1ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-01-15 22:22:45 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7[0m
+  Rendered orders/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 47ms (Views: 42.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-01-15 22:22:51 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/qr/2" for 127.0.0.1 at 2014-01-15 22:23:23 -0500
+Processing by QrController#index as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."qr_code" = '2' LIMIT 1[0m
+PG::UndefinedColumn: ERROR:  column tests.qr_code does not exist
+LINE 1: SELECT  "tests".* FROM "tests"  WHERE "tests"."qr_code" = '2...
+                                              ^
+: SELECT  "tests".* FROM "tests"  WHERE "tests"."qr_code" = '2' LIMIT 1
+Completed 500 Internal Server Error in 3ms
+
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column tests.qr_code does not exist
+LINE 1: SELECT  "tests".* FROM "tests"  WHERE "tests"."qr_code" = '2...
+                                              ^
+: SELECT  "tests".* FROM "tests"  WHERE "tests"."qr_code" = '2' LIMIT 1):
+  app/controllers/qr_controller.rb:5:in `index'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.5ms)
+
+
+Started GET "/qr/2" for 127.0.0.1 at 2014-01-15 22:35:43 -0500
+Processing by QrController#index as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.5ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."qr_code" = 2 LIMIT 1[0m
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."qr_id" = 60 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL  [["user_id", 7]]
+  [1m[36mTest Load (1.4ms)[0m  [1mSELECT "tests".* FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL ORDER BY "tests"."id" ASC LIMIT 1[0m  [["user_id", 7]]
+Redirected to http://localhost:3000/admin/users/7/tests/3/edit?qr_code=2
+Completed 302 Found in 224ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/admin/users/7/tests/3/edit?qr_code=2" for 127.0.0.1 at 2014-01-15 22:35:43 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"qr_code"=>"2", "user_id"=>"7", "id"=>"3"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `qr_code' for #<Test:0x007fb3ec3842d8>):
+  app/controllers/tests_controller.rb:20:in `edit'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.7ms)
+
+
+Started GET "/admin/users/7/tests/3/edit?qr_code=2" for 127.0.0.1 at 2014-01-15 22:36:33 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"qr_code"=>"2", "user_id"=>"7", "id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mQr Load (0.3ms)[0m  SELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL AND "qrs"."qr_code" = 2 LIMIT 1
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  Rendered tests/_form.html.erb (132.5ms)
+  Rendered tests/edit.html.erb within layouts/application (133.7ms)
+Completed 200 OK in 277ms (Views: 158.0ms | ActiveRecord: 10.1ms)
+
+
+Started PATCH "/admin/users/7/tests/3" for 127.0.0.1 at 2014-01-15 22:36:56 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+BiR90tFxPsUZu1PNHvU5dbJF+kBIXOA3IGbqK7xR7k=", "test"=>{"strain"=>"Regret", "notes"=>"notes and stuff", "sample_type"=>"Flower", "cbd"=>"", "cbn"=>"0.03", "thc"=>"0", "thcv"=>"15", "cbg"=>"", "cbc"=>"", "thca"=>"", "qr_id"=>"60"}, "commit"=>"Update Test", "user_id"=>"7", "id"=>"3"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "tests" SET "qr_id" = $1, "sample_type" = $2, "updated_at" = $3 WHERE "tests"."id" = 3[0m  [["qr_id", 60], ["sample_type", "Flower"], ["updated_at", Thu, 16 Jan 2014 03:36:56 UTC +00:00]]
+  [1m[35mSQL (0.5ms)[0m  UPDATE "tests" SET "qr_id" = $1, "sample_type" = $2, "updated_at" = $3, "in_progress_at" = $4 WHERE "tests"."id" = 3  [["qr_id", 60], ["sample_type", "Flower"], ["updated_at", Thu, 16 Jan 2014 03:36:56 UTC +00:00], ["in_progress_at", Thu, 16 Jan 2014 03:36:56 UTC +00:00]]
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "tests" SET "in_progress_by" = $1, "updated_at" = $2 WHERE "tests"."id" = 3[0m  [["in_progress_by", 16], ["updated_at", Thu, 16 Jan 2014 03:36:56 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users/7/tests/3
+Completed 302 Found in 20ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/admin/users/7/tests/3" for 127.0.0.1 at 2014-01-15 22:36:56 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mQr Load (0.5ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 ORDER BY "qrs"."id" ASC LIMIT 1[0m  [["id", 60]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  Rendered tests/show.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 40ms (Views: 35.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/users/7/tests/3/edit" for 127.0.0.1 at 2014-01-15 22:37:01 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"7", "id"=>"3"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  Rendered tests/_form.html.erb (16.4ms)
+  Rendered tests/edit.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 46ms (Views: 41.7ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/admin/users/7/tests/3" for 127.0.0.1 at 2014-01-15 22:37:04 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+BiR90tFxPsUZu1PNHvU5dbJF+kBIXOA3IGbqK7xR7k=", "test"=>{"strain"=>"Regret", "notes"=>"notes and stuff", "sample_type"=>"Flower", "cbd"=>"", "cbn"=>"0.03", "thc"=>"0", "thcv"=>"15", "cbg"=>"", "cbc"=>"", "thca"=>""}, "commit"=>"Update Test", "user_id"=>"7", "id"=>"3"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users/7/tests/3
+Completed 302 Found in 10ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/users/7/tests/3" for 127.0.0.1 at 2014-01-15 22:37:04 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"3"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mQr Load (0.3ms)[0m  SELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 ORDER BY "qrs"."id" ASC LIMIT 1  [["id", 60]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  Rendered tests/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 35ms (Views: 30.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/users/7/tests/3/edit" for 127.0.0.1 at 2014-01-15 22:37:08 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"7", "id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 7]]
+  Rendered tests/_form.html.erb (70.1ms)
+  Rendered tests/edit.html.erb within layouts/application (71.2ms)
+Completed 200 OK in 100ms (Views: 96.1ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/admin/users/7/tests/3" for 127.0.0.1 at 2014-01-15 22:37:10 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+BiR90tFxPsUZu1PNHvU5dbJF+kBIXOA3IGbqK7xR7k=", "test"=>{"strain"=>"Regret", "notes"=>"notes and stuff", "sample_type"=>"Flower", "cbd"=>"", "cbn"=>"0.03", "thc"=>"0", "thcv"=>"15", "cbg"=>"", "cbc"=>"", "thca"=>""}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"7", "id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered tests/_form.html.erb (16.7ms)
+  Rendered tests/edit.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 53ms (Views: 42.2ms | ActiveRecord: 2.2ms)
+
+
+Started PATCH "/admin/users/7/tests/3" for 127.0.0.1 at 2014-01-15 22:37:26 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+BiR90tFxPsUZu1PNHvU5dbJF+kBIXOA3IGbqK7xR7k=", "test"=>{"strain"=>"Regret", "notes"=>"notes and stuff", "sample_type"=>"Flower", "cbd"=>"2", "cbn"=>"0.03", "thc"=>"0", "thcv"=>"15", "cbg"=>"4", "cbc"=>"5", "thca"=>"6"}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"7", "id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "tests" SET "cbd" = $1, "cbg" = $2, "cbc" = $3, "thca" = $4, "status" = $5, "updated_at" = $6 WHERE "tests"."id" = 3  [["cbd", 2.0], ["cbg", 4.0], ["cbc", 5.0], ["thca", 6.0], ["status", "COMPLETE"], ["updated_at", Thu, 16 Jan 2014 03:37:26 UTC +00:00]]
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "tests" SET "cbd" = $1, "cbg" = $2, "cbc" = $3, "thca" = $4, "status" = $5, "updated_at" = $6, "completed_at" = $7 WHERE "tests"."id" = 3[0m  [["cbd", 2.0], ["cbg", 4.0], ["cbc", 5.0], ["thca", 6.0], ["status", "COMPLETE"], ["updated_at", Thu, 16 Jan 2014 03:37:26 UTC +00:00], ["completed_at", Thu, 16 Jan 2014 03:37:26 UTC +00:00]]
+  Rendered test_mailer/results_available.html.erb (0.8ms)
+
+Sent mail to mbrooks@test.com (96.4ms)
+Date: Wed, 15 Jan 2014 22:37:26 -0500
+From: results@medsafelabs.com
+To: mbrooks@test.com
+Message-ID: <52d753f6c0271_60f3fd9f908b2f065838@Amys-MacBook-Pro.local.mail>
+Subject: Results from MedSafeLabs available
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You have testing results available</h1>
+    <p>
+      To view your results, just follow this link: <a href="/results/3">/results/3</a>.
+    </p>
+    <p>Thanks for using MedSafeLabs!</p>
+  </body>
+</html>
+  [1m[35mSQL (0.8ms)[0m  UPDATE "tests" SET "cbd" = $1, "cbg" = $2, "cbc" = $3, "thca" = $4, "status" = $5, "updated_at" = $6, "completed_at" = $7, "completed_email_sent_at" = $8 WHERE "tests"."id" = 3  [["cbd", 2.0], ["cbg", 4.0], ["cbc", 5.0], ["thca", 6.0], ["status", "COMPLETE"], ["updated_at", Thu, 16 Jan 2014 03:37:26 UTC +00:00], ["completed_at", Thu, 16 Jan 2014 03:37:26 UTC +00:00], ["completed_email_sent_at", Thu, 16 Jan 2014 03:37:26 UTC +00:00]]
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "tests" SET "completed_by" = $1, "updated_at" = $2 WHERE "tests"."id" = 3[0m  [["completed_by", 16], ["updated_at", Thu, 16 Jan 2014 03:37:26 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users/7/tests/3
+Completed 302 Found in 209ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/admin/users/7/tests/3" for 127.0.0.1 at 2014-01-15 22:37:26 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "3"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 ORDER BY "qrs"."id" ASC LIMIT 1[0m  [["id", 60]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  Rendered tests/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 37ms (Views: 32.7ms | ActiveRecord: 2.1ms)
