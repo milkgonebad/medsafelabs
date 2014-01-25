@@ -22,7 +22,7 @@ class Test < ActiveRecord::Base
   
   #FIXME:  the content type and size validations are not working 
   # see https://github.com/thoughtbot/paperclip/issues/1292
-  validates :plate, :attachment_presence => true, if: :complete?
+  validates :plate, :attachment_presence => true, :message => "Please upload plate image.", if: :complete?
   # validates_attachment :plate, :presence => true, :content_type => { :content_type => ["image/jpg", "image/gif", "image/png"] },
     # :size => { :in => 0..10.kilobytes }, if: :complete?
 

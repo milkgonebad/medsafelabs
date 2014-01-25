@@ -52,11 +52,15 @@ heroku run console --remote staging
 heroku restart --remote staging
 
 TODO
+- if I am admin and I scan a code, I should go to the edit page if the test is in status received, in_progress
+- if admin, and I change to in progress, I should edit page
 - cannot edit a test if it has not been received
-- creating qr codes on the server fails
+- creating qr codes on the server fails - is error with aws?
 - deactivating admins is clunky
 - turn on email in staging
 - Do not allow order quantity to be edited in an order
+- image is lost if validation error
+- image should be displayed if editing a test
 - Add order history to customer view
 - Add CCM registration number
 - Search for customers
