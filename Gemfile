@@ -30,23 +30,23 @@ group :assets do
 end
 
 group :development do
-  gem 'debugger'
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'cucumber'
-  gem 'cucumber-rails', :require => false
   gem 'quiet_assets'
 end
 
 group :test do
-  gem 'debugger'
+  gem 'rspec'
   gem 'rspec-rails'
+  gem 'cucumber'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-cucumber'
   gem 'poltergeist'
+end
+
+group :development, :test do
+  gem 'debugger'
 end
 
 group :production, :staging do

@@ -3,15 +3,15 @@ en:
     invitations:
       send_instructions: 'An invitation email has been sent to %{email}.'
       invitation_token_invalid: 'The invitation token provided is not valid!'
-      updated: 'Your password was set successfully. You are now signed in.'
+      updated: 'Your password was set successfully.  You are now signed in.'
       no_invitations_remaining: "No invitations remaining"
       invitation_removed: 'Your invitation was removed.'
       new:
-        header: "Send invitation"
+        header: "Send Invitation"
         submit_button: "Send an invitation"
       edit:
-        header: "Set your password"
-        submit_button: "Set my password"
+        header: "Set Your Password"
+        submit_button: "Set My Password"
     mailer:
       invitation_instructions:
-        subject: 'Invitation instructions'
+        subject: 'Invitation Instructions'

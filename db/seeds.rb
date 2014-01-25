@@ -6,7 +6,8 @@ super_user = User.new(
   email: 'super@medsafelabs.com',
   role: 0,
   password: 'P0rtland!',
-  password_confirmation: 'P0rtland!'
+  password_confirmation: 'P0rtland!',
+  active: 1
 )
 
 super_user.save!

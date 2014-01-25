@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     session[:previous_url] || '/dashboard'
   end
   
+  def after_accept_path_for(resource)
+    '/dashboard'
+  end
+  
   private
   
   def ensure_admin

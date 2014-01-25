@@ -8,8 +8,8 @@ class QrController < ApplicationController
       redirect_to '/dashboard' and return
     end
     @test = Test.find_by qr_id: @qr.id
-    if @test.nil?
-      
+    
+    if @test.nil?  
       # make sure we haven't used this code yet
       if @qr.used?
         flash[:error] = "This QR code '" + params[:id] + "' has already been used."

@@ -41,25 +41,26 @@ Deploying:
 git push staging master - staging http://medsafelabs-staging.herokuapp.com
 git push heroku master - prod http://medsafelabs.herokuapp.com
 
+heroku run rake db:migrate --remote staging
+heroku run rake db:migrate --remote heroku
 
 
 TODO
 - Add order history to customer view
-- Add QR code generator - generate new qr codes - need for staging
-- Convert qrs to real objects with IDs - normalize
-- Convert qr_code_number to a real number	
-
+- Add CCM registration number
+- Search for customers
+- Need a way to register AND view results for the first time
 
 BACKLOG
+- sort customers/show only active/registered
 - notify user daily of completed tests - not one per test
 - strains need to be added/updated in the db
-- generate qr codes
 - add shopping cart
 - integrate with paypal or something
 - Clean up destroy
-- We should add an active flag or account status flag.
-- add a way to resend invites
 - Need ID registration info for dispensaries
+- Add ability to add more strains
+- Add tagging to tests
 
 FIXME
 - add password constraints
@@ -69,6 +70,11 @@ FIXME
 
 
 DONE
+- add a way to resend invites
+- We should add an active flag or account status flag.
+- Convert qrs to real objects with IDs - normalize
+- Convert qr_code_number to a real number	
+- Add QR code generator - generate new qr codes - need for staging
 - Import QR codes
 - Cancel account yourself
 - should we disable resetting the password in the UI?

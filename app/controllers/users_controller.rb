@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :ensure_admin
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :reinvite]
 
   def index
     @users = User.customers
@@ -49,6 +49,12 @@ class UsersController < ApplicationController
     else
       redirect_to @user, alert: 'Customer was not successfully deactivated.'
     end
+  end
+  
+  def reinvite
+    @user.invite!
+    flash[:notice] = @user.first_name + " " + @user.last_name + " has been re-invited."
+    redirect_to users_path
   end
 
   private

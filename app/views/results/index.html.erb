@@ -17,8 +17,8 @@
       <tr>
       	<td><%= test.created_at %></td>
       	<td><%= test.status %></td>
-      	<td><%= link_to test.order_id, user_order_path(@customer, test.order) %></td>
-        <td><%= link_to 'Show', user_test_path(@customer, test) %></td>
+      	<td><%= link_to test.order_id, purchase_path(test.order) %></td>
+        <td><%= link_to 'Show', result_path(test) %></td>
       </tr>
     <% end %>
   </tbody>

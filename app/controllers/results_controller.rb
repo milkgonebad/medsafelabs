@@ -9,11 +9,16 @@ class ResultsController < ApplicationController
 
   def index
     @tests = current_user.tests
+    @customer = current_user
   end
   
   private
   
   def set_test
+    if current_user.admin?
+      test = Test.find(params[:id])
+      redirect_to user_test_path(test.user, test) and return
+    end
     test = current_user.tests.where(id: params[:id])
     @customer = current_user
     if test.empty?

@@ -111,10 +111,11 @@
 	  <strong>Completed By</strong>
 	  <%= @test.completer.email %>
 	</p>
-	<p>
-		<strong><%= link_to "Direct link to results page", result_path(@test) %></strong>
-	</p>
+	<p><strong><%= link_to "Direct link to results page", result_path(@test) %></strong></p>
 <% end %>
 
-<%= link_to 'Edit', edit_user_test_path(@customer, @test) %> |
-<%= link_to 'Back', user_tests_path(@customer) %>
+<% if current_user.admin? %>
+	
+	<%= link_to 'Edit', edit_user_test_path(@customer, @test) %> |
+<% end %>
+<%= link_to 'Back', :back %>

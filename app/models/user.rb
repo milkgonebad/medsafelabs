@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
     role == ROLES[:super_administrator]
   end
   
+  def registered?
+    invitation_accepted_at?
+  end
+  
   def destroy
     update_attribute(:active, false)
   end

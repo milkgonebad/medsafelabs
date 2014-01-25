@@ -11,6 +11,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -25,6 +26,9 @@
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Deactivate', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% unless user.registered? %>
+        	<td><%= link_to 'Re-Invite', reinvite_path(user) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -17,16 +17,16 @@
   	
   	<%= f.input :strain, :collection => Strain.all, :selected => @test.strain, :include_blank => true %>
   	<%= f.input :notes %>
-  	<%= f.input :sample_type, :collection => Test::SAMPLE_TYPES, :selected => @test.sample_type, :include_blank => true %>
+  	<%= f.input :sample_type, :label => "Sample Type", :collection => Test::SAMPLE_TYPES, :selected => @test.sample_type, :include_blank => true %>
   	
   	<% if @test.in_progress? %>
-  		<%= f.input :cbd %>
-		<%= f.input :cbn %>
-	  	<%= f.input :thc %>
-	  	<%= f.input :thcv %>
-	  	<%= f.input :cbg %>
-	  	<%= f.input :cbc %>
-	  	<%= f.input :thca %>
+  		<%= f.input :cbd, label: "CBD %" %>
+		<%= f.input :cbn, label: "CBN %" %>
+	  	<%= f.input :thc, label: "THC %" %>
+	  	<%= f.input :thcv, label: "THCV %" %>
+	  	<%= f.input :cbg, label: "CBG %" %>
+	  	<%= f.input :cbc, label: "CBC %" %>
+	  	<%= f.input :thca, label:  "THCA %" %>
 	  	<div class="field">
   			<%= f.label :plate, "Plate Image" %><br/>
   			<%= f.file_field :plate %>
