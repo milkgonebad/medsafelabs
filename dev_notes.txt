@@ -49,8 +49,11 @@ heroku logs --remote staging
 
 heroku run console --remote staging
 
+heroku restart --remote staging
 
 TODO
+- cannot edit a test if it has not been received
+- creating qr codes on the server fails
 - deactivating admins is clunky
 - turn on email in staging
 - Do not allow order quantity to be edited in an order

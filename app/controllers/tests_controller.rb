@@ -14,7 +14,7 @@ class TestsController < ApplicationController
   end
 
   def edit
-    if @test.complete? and !current_user.super_admin?
+    if (@test.complete? and !current_user.super_admin?) or @test.not_received?
       redirect_to :action => :show and return
     end
     if params[:qr_code] and @test.qr.nil?
