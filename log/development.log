@@ -42961,3 +42961,81 @@ Processing by TestsController#index as HTML
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 25]]
   Rendered tests/index.html.erb within layouts/application (50.6ms)
 Completed 200 OK in 78ms (Views: 73.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users/24/orders/25/edit" for 127.0.0.1 at 2014-01-25 16:38:18 -0500
+Processing by OrdersController#edit as HTML
+  Parameters: {"user_id"=>"24", "id"=>"25"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1[0m  [["id", "25"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  Rendered orders/_form.html.erb (7.2ms)
+  Rendered orders/edit.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 39ms (Views: 34.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/users/24/orders/25/edit" for 127.0.0.1 at 2014-01-25 16:39:21 -0500
+Processing by OrdersController#edit as HTML
+  Parameters: {"user_id"=>"24", "id"=>"25"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", "25"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 24]]
+  Rendered orders/_form.html.erb (6.8ms)
+  Rendered orders/edit.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 37ms (Views: 33.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/users/24/orders/25/edit" for 127.0.0.1 at 2014-01-25 16:39:30 -0500
+Processing by OrdersController#edit as HTML
+  Parameters: {"user_id"=>"24", "id"=>"25"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1[0m  [["id", "25"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  Rendered orders/_form.html.erb (6.9ms)
+  Rendered orders/edit.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 86ms (Views: 80.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/users/24/orders/25/edit" for 127.0.0.1 at 2014-01-25 16:39:56 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#edit as HTML
+  Parameters: {"user_id"=>"24", "id"=>"25"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mOrder Load (1.1ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1[0m  [["id", "25"]]
+  [1m[35mUser Load (37.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  Rendered orders/_form.html.erb (284.4ms)
+  Rendered orders/edit.html.erb within layouts/application (299.1ms)
+Completed 200 OK in 560ms (Views: 432.6ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/admin/users/24/orders/25/edit" for 127.0.0.1 at 2014-01-25 16:40:19 -0500
+Processing by OrdersController#edit as HTML
+  Parameters: {"user_id"=>"24", "id"=>"25"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", "25"]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 24]]
+  Rendered orders/_form.html.erb (7.3ms)
+  Rendered orders/edit.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 40ms (Views: 35.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/users/24/orders/25/edit" for 127.0.0.1 at 2014-01-25 16:40:33 -0500
+Processing by OrdersController#edit as HTML
+  Parameters: {"user_id"=>"24", "id"=>"25"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1[0m  [["id", "25"]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  Rendered orders/_form.html.erb (7.3ms)
+  Rendered orders/edit.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 38ms (Views: 33.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/users/24/orders/25/edit" for 127.0.0.1 at 2014-01-25 16:42:16 -0500
+Processing by OrdersController#edit as HTML
+  Parameters: {"user_id"=>"24", "id"=>"25"}
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", "25"]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 24]]
+  Rendered orders/_form.html.erb (8.3ms)
+  Rendered orders/edit.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 554ms (Views: 546.4ms | ActiveRecord: 3.4ms)

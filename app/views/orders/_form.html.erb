@@ -3,7 +3,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-   	<%= f.input :quantity %>
+   	<%= f.input :quantity, disabled: (@order.new_record? ? false : true) %>
    	<%= f.input :payment_type, :collection => Order::PAYMENT_TYPES, :selected => @order.payment_type, :include_blank => true %>
     <%= f.input :memo %>
     <%= f.input :total, :label => 'Total in USD' %>
