@@ -42878,3 +42878,86 @@ Processing by UsersController#index as HTML
   [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
   Rendered users/index.html.erb within layouts/application (65.3ms)
 Completed 200 OK in 94ms (Views: 89.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users/24/orders" for 127.0.0.1 at 2014-01-25 16:27:43 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"24"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 24]]
+  [1m[35mOrder Load (31.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 24
+  Rendered orders/index.html.erb within layouts/application (45.5ms)
+Completed 200 OK in 106ms (Views: 36.1ms | ActiveRecord: 38.5ms)
+
+
+Started GET "/admin/users/24/orders/new" for 127.0.0.1 at 2014-01-25 16:27:47 -0500
+Processing by OrdersController#new as HTML
+  Parameters: {"user_id"=>"24"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  Rendered orders/_form.html.erb (65.4ms)
+  Rendered orders/new.html.erb within layouts/application (67.0ms)
+Completed 200 OK in 96ms (Views: 92.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/admin/users/24/orders" for 127.0.0.1 at 2014-01-25 16:27:53 -0500
+Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "order"=>{"quantity"=>"1", "payment_type"=>"PayPal", "memo"=>"", "total"=>"50"}, "commit"=>"Create Order", "user_id"=>"24"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.3ms)[0m  INSERT INTO "orders" ("created_at", "created_by", "memo", "payment_type", "quantity", "total", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", Sat, 25 Jan 2014 21:27:53 UTC +00:00], ["created_by", 3], ["memo", ""], ["payment_type", "PayPal"], ["quantity", 1], ["total", 50.0], ["updated_at", Sat, 25 Jan 2014 21:27:53 UTC +00:00], ["user_id", 24]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 24]]
+  [1m[35mOrder Load (0.8ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 26]]
+  [1m[36mSQL (32.2ms)[0m  [1mINSERT INTO "tests" ("created_at", "created_by", "order_id", "status", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 21:27:53 UTC +00:00], ["created_by", 3], ["order_id", 26], ["status", "NOT_RECEIVED"], ["updated_at", Sat, 25 Jan 2014 21:27:53 UTC +00:00], ["user_id", 24]]
+I would create a test here this many times:  1
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users/24/orders/26
+Completed 302 Found in 173ms (ActiveRecord: 59.0ms)
+
+
+Started GET "/admin/users/24/orders/26" for 127.0.0.1 at 2014-01-25 16:27:53 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"user_id"=>"24", "id"=>"26"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT 1  [["id", "26"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 24]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 3]]
+  Rendered orders/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 36ms (Views: 30.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/admin/users/24/tests?order_id=26" for 127.0.0.1 at 2014-01-25 16:28:02 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"26", "user_id"=>"24"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36mTest Load (0.7ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 26[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 26]]
+  Rendered tests/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 33ms (Views: 28.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/users/24/orders" for 127.0.0.1 at 2014-01-25 16:28:30 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"24"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 24]]
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 24[0m
+  Rendered orders/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 31ms (Views: 27.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/users/24/tests?order_id=25" for 127.0.0.1 at 2014-01-25 16:28:43 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"25", "user_id"=>"24"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 24]]
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 25
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 25]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 25]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 25]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 25]]
+  Rendered tests/index.html.erb within layouts/application (50.6ms)
+Completed 200 OK in 78ms (Views: 73.9ms | ActiveRecord: 1.8ms)

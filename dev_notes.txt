@@ -51,6 +51,8 @@ heroku run console --remote staging
 
 
 TODO
+- deactivating admins is clunky
+- turn on email in staging
 - Add order history to customer view
 - Add CCM registration number
 - Search for customers

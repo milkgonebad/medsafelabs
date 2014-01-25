@@ -27,10 +27,12 @@
   <%= @test.sample_type %>
 </p>
 
-<p>
-  <strong>QR Code</strong>
-  <%= @test.qr.qr_code %>
-</p>
+<% unless @test.not_received? %>
+	<p>
+	  <strong>QR Code</strong>
+	  <%= @test.qr.qr_code %>
+	</p>
+<% end %>
 
 <% if @test.complete? or @test.in_progress? %>
 	<p>
