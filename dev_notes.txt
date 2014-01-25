@@ -44,6 +44,11 @@ git push heroku master - prod http://medsafelabs.herokuapp.com
 heroku run rake db:migrate --remote staging
 heroku run rake db:migrate --remote heroku
 
+get logs
+heroku logs --remote staging
+
+heroku run console --remote staging
+
 
 TODO
 - Add order history to customer view

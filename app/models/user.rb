@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :email, :first_name, :last_name, presence: true
   validates :email, uniqueness:  true
   validates :address1, :city, :state, :country, presence: true, unless: Proc.new { |a| a.admin? }
-  validates :control_number, numericality: { only_integer: true }, unless: Proc.new { |a| a.admin? }
+  validates :control_number, numericality: { only_integer: true }, allow_nil: true, unless: Proc.new { |a| a.admin?}
   
   validates :password, length: { in: 8..128 }, on: :create
   validates :password, length: { in: 6..128 }, on: :update, allow_blank: true
