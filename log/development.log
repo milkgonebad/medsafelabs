@@ -42831,3 +42831,15 @@ Migrating to MakeSuperAdminActive (20140125193646)
   [1m[35mSQL (87.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140125193646"]]
   [1m[36m (23.9ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" = 0[0m
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2014-01-25 15:57:01 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QrCodesController#index as HTML
+  [1m[35mUser Load (2.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.5ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL ORDER BY "qrs"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 629ms (Views: 448.4ms | ActiveRecord: 8.6ms)

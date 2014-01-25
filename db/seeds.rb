@@ -11,6 +11,7 @@ super_user = User.new(
 )
 
 super_user.save!
+super_user.confirm!
 
 first_qr = Qr.create(
   qr_code: 1
