@@ -79,6 +79,8 @@ MedSafeLabs::Application.configure do
   
   # set email to test to prevent spamming for now
   config.action_mailer.delivery_method = :test
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'no-reply@medsafelabs.com'}
   
   config.paperclip_defaults = {
     :storage => :s3,

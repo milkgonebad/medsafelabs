@@ -43207,3 +43207,109 @@ Processing by TestsController#show as HTML
   [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
   Rendered tests/show.html.erb within layouts/application (8.0ms)
 Completed 200 OK in 114ms (Views: 107.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/qr_codes/print_new_codes.pdf" for 127.0.0.1 at 2014-01-25 17:52:42 -0500
+Processing by QrCodesController#print_new_codes as PDF
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (14.1ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (12.4ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 98], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 99], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 100], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 101], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 102], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 103], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 104], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 105], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 106], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 107], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 108], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 109], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 110], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 111], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 112], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 113], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 114], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 115], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 116], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 117], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 118], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 119], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 120], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (1.0ms)[0m  [1mSELECT MAX("qrs"."qr_code") AS max_id FROM "qrs"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "qrs" ("created_at", "qr_code", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00], ["qr_code", 121], ["updated_at", Sat, 25 Jan 2014 22:52:43 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  COMMIT
+***************WICKED***************
+  Rendered qr_codes/print_codes.pdf.erb (5.3ms)
+  Rendered text template (0.0ms)
+Sent data print_codes.pdf (1.1ms)
+Completed 200 OK in 13518ms (Views: 0.7ms | ActiveRecord: 234.9ms)
