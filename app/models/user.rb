@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
   has_many :tests, :through => :orders
   
   validates :email, :first_name, :last_name, presence: true
-  validates :email, uniqueness:  true
+  validates :email, uniqueness:  { case_sensitive: false }
   validates :address1, :city, :state, :country, presence: true, unless: Proc.new { |a| a.admin? }
   validates :control_number, numericality: { only_integer: true }, allow_nil: true, unless: Proc.new { |a| a.admin?}
   
-  validates :password, length: { in: 8..128 }, on: :create
-  validates :password, length: { in: 6..128 }, on: :update, allow_blank: true
+  validates :password, length: { in: 8..128 }, on: :create, if: Proc.new { |a| a.admin? }
+  validates :password, length: { in: 8..128 }, on: :update, allow_blank: true
   
   scope :customers, -> { where('role is null', active: true).order(:last_name, :first_name) } # note "->" is the same thing as "lamda" - very annoying
   scope :all_customers, -> { where('role is null').order(:last_name, :first_name) }
@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   scope :all_administrators, -> { where('role is not null').order(:last_name, :first_name) }
   
   ROLES = {:customer => nil, :super_administrator => 0, :administrator => 1}
+  
+  before_save do |u|
+    u.email.downcase! if u.email
+  end
   
   # default the user to active
   after_create do |u|
@@ -51,6 +55,15 @@ class User < ActiveRecord::Base
 
   def inactive_message
     "Sorry, this account has been deactivated."
+  end
+  
+  def password_required?
+    if new_record?
+      false
+    else
+      super
+      #!persisted? || !password.nil? || !password_confirmation.nil?
+    end
   end
 
 end

@@ -77,10 +77,18 @@ MedSafeLabs::Application.configure do
   
   config.action_mailer.default_url_options = { :host => 'medsafelabs-staging.herokuapp.com' }
   
-  # set email to test to prevent spamming for now
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_options = {from: 'no-reply@medsafelabs-staging.com'}
+  # if ENV['MAILTRAP_HOST'].present? {
+    # config.action_mailer.smtp_settings = {
+      # :user_name => ENV['MAILTRAP_USER_NAME'],
+      # :password => ENV['MAILTRAP_PASSWORD'],
+      # :address => ENV['MAILTRAP_HOST'],
+      # :port => ENV['MAILTRAP_PORT'],
+      # :authentication => :plain
+    # }
+  # }
   
   config.paperclip_defaults = {
     :storage => :s3,

@@ -53,7 +53,7 @@
               <% if current_user.admin? %>
               	<li><%= link_to "Customers", users_path  %></li>
               <% end %>
-              <% if defined? @customer %>
+              <% if defined? @customer and current_user.admin? %>
               	<li><%= link_to "Orders", user_orders_path(@customer) %></li>
               	<li><%= link_to "Tests", user_tests_path(@customer) %></li>
               <% end %>

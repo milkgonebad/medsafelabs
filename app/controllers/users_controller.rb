@@ -18,12 +18,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.invite!(current_user)
     respond_to do |format|
       if @user.save
+        @user.invite!(current_user)
         format.html { redirect_to @user, notice: 'User was successfully invited.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
+        logger.debug @user.errors.inspect
         format.html { render action: 'new', alert:  @user.errors.inspect }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -36,7 +37,8 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        logger.debug @user.errors.inspect
+        format.html { render action: 'edit', alert:  @user.errors.inspect }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
