@@ -23,7 +23,7 @@ class QrCodesController < ApplicationController
     format_codes
     respond_to do |format|
       format.html
-      format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }
+      #format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }
     end
   end
   

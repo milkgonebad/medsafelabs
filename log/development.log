@@ -43313,3 +43313,340 @@ Processing by QrCodesController#print_new_codes as PDF
   Rendered text template (0.0ms)
 Sent data print_codes.pdf (1.1ms)
 Completed 200 OK in 13518ms (Views: 0.7ms | ActiveRecord: 234.9ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-01-26 14:21:00 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (22.9ms)[0m  SELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC
+  Rendered users/index.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 637ms (Views: 136.0ms | ActiveRecord: 352.9ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-01-26 14:21:48 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (30.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/_form.html.erb (180.7ms)
+  Rendered users/new.html.erb within layouts/application (207.5ms)
+Completed 200 OK in 335ms (Views: 301.8ms | ActiveRecord: 30.2ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:22:15 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"test", "last_name"=>"teat", "email"=>" mbrooks@test.com", "address1"=>"lkjl", "address2"=>"", "city"=>"lkjl", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (29.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (17.1ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'mbrooks@test.com' LIMIT 1
+  [1m[36mUser Exists (61.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mbrooks@test.com') LIMIT 1[0m
+  [1m[35m (21.1ms)[0m  ROLLBACK
+  Rendered users/_form.html.erb (20.8ms)
+  Rendered users/new.html.erb within layouts/application (36.7ms)
+Completed 200 OK in 307ms (Views: 75.4ms | ActiveRecord: 129.0ms)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2014-01-26 14:22:25 -0500
+Processing by AdministratorsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."role" = 1 AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC
+  Rendered administrators/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 63ms (Views: 58.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:22:43 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"test", "last_name"=>"teat", "email"=>"jblack@test.com", "address1"=>"lkjl", "address2"=>"", "city"=>"lkjl", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jblack@test.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jblack@test.com') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered users/_form.html.erb (20.9ms)
+  Rendered users/new.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 144ms (Views: 136.3ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:23:12 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"test", "last_name"=>"Unique", "email"=>"jblackRT@test.com", "address1"=>"lkjl", "address2"=>"", "city"=>"lkjl", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'jblackrt@test.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jblackrt@test.com') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered users/_form.html.erb (23.1ms)
+  Rendered users/new.html.erb within layouts/application (39.2ms)
+Completed 200 OK in 92ms (Views: 85.1ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:25:52 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"test", "last_name"=>"Unique", "email"=>"jblackrt@test.com", "address1"=>"lkjl", "address2"=>"", "city"=>"lkjl", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jblackrt@test.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jblackrt@test.com') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered users/_form.html.erb (19.6ms)
+  Rendered users/new.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 188ms (Views: 148.7ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:27:03 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"test", "last_name"=>"Unique", "email"=>"jblackrt@test.com", "address1"=>"lkjl", "address2"=>"", "city"=>"lkjl", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'jblackrt@test.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jblackrt@test.com') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+######<ActiveModel::Errors:0x007fe73ef19780 @base=#<User id: nil, email: "jblackrt@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: nil, updated_at: nil, invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil, role: nil, first_name: "test", last_name: "Unique", address1: "lkjl", address2: "", city: "lkjl", state: "IA", country: "United States", active: true, registration_number: "", control_number: nil, issued_on: "2014-01-26", expires_on: "2014-01-26", confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil>, @messages={:password=>["can't be blank", "is too short (minimum is 8 characters)"]}>
+  Rendered users/_form.html.erb (21.3ms)
+  Rendered users/new.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 109ms (Views: 67.4ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:29:00 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"test", "last_name"=>"Unique", "email"=>"jblackrt@test.com", "address1"=>"lkjl", "address2"=>"", "city"=>"lkjl", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'jblackrt@test.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jblackrt@test.com') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jblackrt@test.com' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jblackrt@test.com') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+######<ActiveModel::Errors:0x007fe73ef10158 @base=#<User id: nil, email: "jblackrt@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: nil, updated_at: nil, invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil, role: nil, first_name: "test", last_name: "Unique", address1: "lkjl", address2: "", city: "lkjl", state: "IA", country: "United States", active: true, registration_number: "", control_number: nil, issued_on: "2014-01-26", expires_on: "2014-01-26", confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil>, @messages={:password=>["can't be blank", "is too short (minimum is 8 characters)"]}>
+  Rendered users/_form.html.erb (19.3ms)
+  Rendered users/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 86ms (Views: 45.5ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:30:03 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"test", "last_name"=>"Unique", "email"=>"jblackrt@test.com", "address1"=>"lkjl", "address2"=>"", "city"=>"lkjl", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."invitation_token" = 'e3337fd29ae612a2bdc1d81331dc654e87d26fa016a81da832f0791899b88ea8' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (171.3ms)[0m  [1mINSERT INTO "users" ("active", "address1", "address2", "city", "country", "created_at", "email", "expires_on", "first_name", "invitation_created_at", "invitation_sent_at", "invitation_token", "invited_by_id", "invited_by_type", "issued_on", "last_name", "registration_number", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"[0m  [["active", true], ["address1", "lkjl"], ["address2", ""], ["city", "lkjl"], ["country", "United States"], ["created_at", Sun, 26 Jan 2014 19:30:04 UTC +00:00], ["email", "jblackrt@test.com"], ["expires_on", Sun, 26 Jan 2014], ["first_name", "test"], ["invitation_created_at", Sun, 26 Jan 2014 19:30:04 UTC +00:00], ["invitation_sent_at", Sun, 26 Jan 2014 19:30:04 UTC +00:00], ["invitation_token", "e3337fd29ae612a2bdc1d81331dc654e87d26fa016a81da832f0791899b88ea8"], ["invited_by_id", 3], ["invited_by_type", "User"], ["issued_on", Sun, 26 Jan 2014], ["last_name", "Unique"], ["registration_number", ""], ["state", "IA"], ["updated_at", Sun, 26 Jan 2014 19:30:04 UTC +00:00]]
+  [1m[35m (11.6ms)[0m  COMMIT
+  Rendered devise/mailer/invitation_instructions.html.erb (1.1ms)
+
+Sent mail to jblackrt@test.com (139.6ms)
+Date: Sun, 26 Jan 2014 14:30:05 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: jblackrt@test.com
+Message-ID: <52e5623d628d4_4ab13ff39ebc25c46839f@Amys-MacBook-Pro.local.mail>
+Subject: Invitation Instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello jblackrt@test.com!</p>
+
+<p>Someone has invited you to http://localhost:3000/, you can accept it through the link below.</p>
+
+<p><a href="http://localhost:3000/users/invitation/accept?invitation_token=LJQQE67x5p_2NJizjMME">Accept invitation</a></p>
+
+<p>If you don't want to accept the invitation, please ignore this email.<br />
+Your account won't be created until you access the link above and set your password.</p>
+
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (23.6ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jblackrt@test.com') AND "users"."id" != 25) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users/25
+Completed 302 Found in 1773ms (ActiveRecord: 210.8ms)
+
+
+Started GET "/admin/users/25" for 127.0.0.1 at 2014-01-26 14:30:05 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "25"]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-01-26 14:34:53 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 223ms (Views: 148.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2014-01-26 14:35:02 -0500
+Processing by AdministratorsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" = 1 AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered administrators/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 45ms (Views: 41.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-01-26 14:35:05 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 80ms (Views: 77.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-01-26 14:35:06 -0500
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/_form.html.erb (20.3ms)
+  Rendered users/new.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 99ms (Views: 96.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:35:25 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"alsdfj", "last_name"=>"asdf", "email"=>" mp@test.com", "address1"=>"SD", "address2"=>"", "city"=>"CXZC", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."invitation_token" = '4ebeb24e8950a0ee11c5a15086746c19dadb813b89a2131217c989156b048735' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (52.9ms)[0m  INSERT INTO "users" ("active", "address1", "address2", "city", "country", "created_at", "email", "expires_on", "first_name", "invitation_created_at", "invitation_sent_at", "invitation_token", "invited_by_id", "invited_by_type", "issued_on", "last_name", "registration_number", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"  [["active", true], ["address1", "SD"], ["address2", ""], ["city", "CXZC"], ["country", "United States"], ["created_at", Sun, 26 Jan 2014 19:35:25 UTC +00:00], ["email", "mp@test.com"], ["expires_on", Sun, 26 Jan 2014], ["first_name", "alsdfj"], ["invitation_created_at", Sun, 26 Jan 2014 19:35:25 UTC +00:00], ["invitation_sent_at", Sun, 26 Jan 2014 19:35:25 UTC +00:00], ["invitation_token", "4ebeb24e8950a0ee11c5a15086746c19dadb813b89a2131217c989156b048735"], ["invited_by_id", 3], ["invited_by_type", "User"], ["issued_on", Sun, 26 Jan 2014], ["last_name", "asdf"], ["registration_number", ""], ["state", "IA"], ["updated_at", Sun, 26 Jan 2014 19:35:25 UTC +00:00]]
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(mp@test.com) already exists.
+: INSERT INTO "users" ("active", "address1", "address2", "city", "country", "created_at", "email", "expires_on", "first_name", "invitation_created_at", "invitation_sent_at", "invitation_token", "invited_by_id", "invited_by_type", "issued_on", "last_name", "registration_number", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 61ms
+
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=(mp@test.com) already exists.
+: INSERT INTO "users" ("active", "address1", "address2", "city", "country", "created_at", "email", "expires_on", "first_name", "invitation_created_at", "invitation_sent_at", "invitation_token", "invited_by_id", "invited_by_type", "issued_on", "last_name", "registration_number", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING "id"):
+  app/controllers/users_controller.rb:21:in `create'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (43.7ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:40:41 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"alsdfj", "last_name"=>"asdf", "email"=>" mp@test.com", "address1"=>"SD", "address2"=>"", "city"=>"CXZC", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (14.0ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'mp@test.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mp@test.com') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+#<ActiveModel::Errors:0x007fe73fac7190 @base=#<User id: nil, email: "mp@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: nil, updated_at: nil, invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil, role: nil, first_name: "alsdfj", last_name: "asdf", address1: "SD", address2: "", city: "CXZC", state: "IA", country: "United States", active: true, registration_number: "", control_number: nil, issued_on: "2014-01-26", expires_on: "2014-01-26", confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil>, @messages={:email=>["has already been taken", "has already been taken"], :password=>["can't be blank"]}>
+  Rendered users/_form.html.erb (67.6ms)
+  Rendered users/new.html.erb within layouts/application (83.6ms)
+Completed 200 OK in 267ms (Views: 212.3ms | ActiveRecord: 17.7ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:40:51 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"alsdfj", "last_name"=>"asdf", "email"=>"mpQW@test.com", "address1"=>"SD", "address2"=>"", "city"=>"CXZC", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'mpqw@test.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mpqw@test.com') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+#<ActiveModel::Errors:0x007fe739b47148 @base=#<User id: nil, email: "mpqw@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: nil, updated_at: nil, invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil, role: nil, first_name: "alsdfj", last_name: "asdf", address1: "SD", address2: "", city: "CXZC", state: "IA", country: "United States", active: true, registration_number: "", control_number: nil, issued_on: "2014-01-26", expires_on: "2014-01-26", confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil>, @messages={:password=>["can't be blank"]}>
+  Rendered users/_form.html.erb (67.4ms)
+  Rendered users/new.html.erb within layouts/application (68.1ms)
+Completed 200 OK in 101ms (Views: 93.6ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:49:36 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"alsdfj", "last_name"=>"asdf", "email"=>"mpqw@test.com", "address1"=>"SD", "address2"=>"", "city"=>"CXZC", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'mpqw@test.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mpqw@test.com') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+#<ActiveModel::Errors:0x007fe73f97d960 @base=#<User id: nil, email: "mpqw@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: nil, updated_at: nil, invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil, role: nil, first_name: "alsdfj", last_name: "asdf", address1: "SD", address2: "", city: "CXZC", state: "IA", country: "United States", active: true, registration_number: "", control_number: nil, issued_on: "2014-01-26", expires_on: "2014-01-26", confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil>, @messages={:password=>["can't be blank", "is too short (minimum is 8 characters)"]}>
+  Rendered users/_form.html.erb (62.9ms)
+  Rendered users/new.html.erb within layouts/application (63.8ms)
+Completed 200 OK in 170ms (Views: 131.3ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:56:07 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"alsdfj", "last_name"=>"asdf", "email"=>"mpqw@test.com", "address1"=>"SD", "address2"=>"", "city"=>"CXZC", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'mpqw@test.com' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mpqw@test.com') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+#<ActiveModel::Errors:0x007ffb84292598 @base=#<User id: nil, email: "mpqw@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: nil, updated_at: nil, invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil, role: nil, first_name: "alsdfj", last_name: "asdf", address1: "SD", address2: "", city: "CXZC", state: "IA", country: "United States", active: true, registration_number: "", control_number: nil, issued_on: "2014-01-26", expires_on: "2014-01-26", confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil>, @messages={:password=>["can't be blank"]}>
+  Rendered users/_form.html.erb (277.5ms)
+  Rendered users/new.html.erb within layouts/application (297.8ms)
+Completed 200 OK in 1185ms (Views: 918.8ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-01-26 14:58:09 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YmCDV3Ym2UAl7C9Y4OucArqTvOg3c0Njay22WGp+VHY=", "user"=>{"first_name"=>"alsdfj", "last_name"=>"asdf", "email"=>"mpqw@test.com", "address1"=>"SD", "address2"=>"", "city"=>"CXZC", "state"=>"IA", "country"=>"United States", "registration_number"=>"", "control_number"=>"", "issued_on(1i)"=>"2014", "issued_on(2i)"=>"1", "issued_on(3i)"=>"26", "expires_on(1i)"=>"2014", "expires_on(2i)"=>"1", "expires_on(3i)"=>"26", "active"=>"1"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'mpqw@test.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mpqw@test.com') LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = '0a0e53746b1dbdca9ca96a6579f4f3a11fbbdec75942b3158501f9106e36dfad' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mSQL (83.3ms)[0m  INSERT INTO "users" ("active", "address1", "address2", "city", "confirmation_sent_at", "confirmation_token", "country", "created_at", "email", "expires_on", "first_name", "issued_on", "last_name", "registration_number", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) RETURNING "id"  [["active", true], ["address1", "SD"], ["address2", ""], ["city", "CXZC"], ["confirmation_sent_at", Sun, 26 Jan 2014 19:58:10 UTC +00:00], ["confirmation_token", "0a0e53746b1dbdca9ca96a6579f4f3a11fbbdec75942b3158501f9106e36dfad"], ["country", "United States"], ["created_at", Sun, 26 Jan 2014 19:58:09 UTC +00:00], ["email", "mpqw@test.com"], ["expires_on", Sun, 26 Jan 2014], ["first_name", "alsdfj"], ["issued_on", Sun, 26 Jan 2014], ["last_name", "asdf"], ["registration_number", ""], ["state", "IA"], ["updated_at", Sun, 26 Jan 2014 19:58:09 UTC +00:00]]
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.8ms)
+
+Sent mail to mpqw@test.com (523.9ms)
+Date: Sun, 26 Jan 2014 14:58:10 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: mpqw@test.com
+Message-ID: <52e568d2350cc_60523ffdc546814425619@Amys-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mpqw@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Pw1ZXPC_guY-sNSEkQBu">Confirm my account</a></p>
+
+  [1m[36m (17.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."invitation_token" = '40e9cee57324258e494bb56a2fcb813b53365eb0b48199d5611e837c79f9d43c' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (19.3ms)[0m  UPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "invited_by_id" = $4, "invited_by_type" = $5, "updated_at" = $6 WHERE "users"."id" = 27  [["invitation_token", "40e9cee57324258e494bb56a2fcb813b53365eb0b48199d5611e837c79f9d43c"], ["invitation_created_at", Sun, 26 Jan 2014 19:58:11 UTC +00:00], ["invitation_sent_at", Sun, 26 Jan 2014 19:58:11 UTC +00:00], ["invited_by_id", 3], ["invited_by_type", "User"], ["updated_at", Sun, 26 Jan 2014 19:58:11 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  Rendered devise/mailer/invitation_instructions.html.erb (0.9ms)
+
+Sent mail to mpqw@test.com (368.0ms)
+Date: Sun, 26 Jan 2014 14:58:11 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: mpqw@test.com
+Message-ID: <52e568d33d58c_60523ffdc546814425776@Amys-MacBook-Pro.local.mail>
+Subject: Invitation Instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello mpqw@test.com!</p>
+
+<p>Someone has invited you to http://localhost:3000/, you can accept it through the link below.</p>
+
+<p><a href="http://localhost:3000/users/invitation/accept?invitation_token=CoUgUConrX_fCTbt3qmy">Accept invitation</a></p>
+
+<p>If you don't want to accept the invitation, please ignore this email.<br />
+Your account won't be created until you access the link above and set your password.</p>
+
+Redirected to http://localhost:3000/admin/users/27
+Completed 302 Found in 2035ms (ActiveRecord: 126.3ms)
+
+
+Started GET "/admin/users/27" for 127.0.0.1 at 2014-01-26 14:58:11 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "27"]]
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 74ms (Views: 70.5ms | ActiveRecord: 1.3ms)
