@@ -52,6 +52,7 @@ heroku run console --remote staging
 heroku restart --remote staging
 
 TODO
+- Configure gitignore
 - if I am admin and I scan a code, I should go to the edit page if the test is in status received, in_progress
 - if admin, and I change to in progress, I should edit page
 - cannot edit a test if it has not been received
