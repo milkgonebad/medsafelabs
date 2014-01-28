@@ -52,22 +52,20 @@ heroku run console --remote staging
 heroku restart --remote staging
 
 TODO
-- Configure gitignore
 - if I am admin and I scan a code, I should go to the edit page if the test is in status received, in_progress
 - if admin, and I change to in progress, I should edit page
 - cannot edit a test if it has not been received
-- creating qr codes on the server fails - is error with aws?
+- Need a way to register AND view results for the first time
+
+BACKLOG
+- Configure gitignore
 - deactivating admins is clunky
-- turn on email in staging
-- Do not allow order quantity to be edited in an order
 - image is lost if validation error
 - image should be displayed if editing a test
 - Add order history to customer view
 - Add CCM registration number
+- Add upload pict of maine credentials
 - Search for customers
-- Need a way to register AND view results for the first time
-
-BACKLOG
 - sort customers/show only active/registered
 - notify user daily of completed tests - not one per test
 - strains need to be added/updated in the db
@@ -86,6 +84,9 @@ FIXME
 
 
 DONE
+- Do not allow order quantity to be edited in an order
+- creating qr codes on the server fails - is error with aws?
+- turn on email in staging
 - add a way to resend invites
 - We should add an active flag or account status flag.
 - Convert qrs to real objects with IDs - normalize

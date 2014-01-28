@@ -14,7 +14,8 @@ class TestsController < ApplicationController
   end
 
   def edit
-    if (@test.complete? and !current_user.super_admin?) or @test.not_received?
+    # redirect to the show page if the test is complete - or is not received and we don't have a qr code
+    if (@test.complete? and !current_user.super_admin?) or (@test.not_received? and params[:qr_code].nil?)
       redirect_to :action => :show and return
     end
     if params[:qr_code] and @test.qr.nil?

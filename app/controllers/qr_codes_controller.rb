@@ -30,7 +30,6 @@ class QrCodesController < ApplicationController
   def print_existing_codes
     @codes = Qr.available.limit(24)
     format_codes
-    logs.info @codes.inspect
     respond_to do |format|
       format.html
       format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }

@@ -33,7 +33,7 @@ class QrController < ApplicationController
       
       # ok, we have a customer, a good qr code, and available tests
       # push all of this good stuff to the tests controller and it can do the rest
-      flash[:notice] = "Associating this QR code with a new test!"
+      flash[:notice] = "Associating this QR code " + params[:id] + " with a new test!"
       redirect_to edit_user_test_path(@customer, tests.first, qr_code: params[:id]) and return
     else
       # in this case we don't need the customer number which is ok!  Go right to the test since we will start testing!

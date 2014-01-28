@@ -43650,3 +43650,242 @@ Processing by UsersController#show as HTML
   [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "27"]]
   Rendered users/show.html.erb within layouts/application (1.4ms)
 Completed 200 OK in 74ms (Views: 70.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-27 20:31:55 -0500
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `initialize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `new'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `connect'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:548:in `initialize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.2) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.2) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.2) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.2) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__954126683426473825__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (46.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-27 20:33:16 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (28.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (1.2ms)
+Completed 200 OK in 460ms (Views: 425.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/favicon.ico" for 127.0.0.1 at 2014-01-27 20:33:17 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (35.3ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (103.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-01-27 20:33:20 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/home (235.2ms)
+Completed 200 OK in 358ms (Views: 267.7ms | ActiveRecord: 19.8ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-01-27 20:33:28 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kWdQR7ZHhgEVOMR0fzGdXszgRTQjdtNAsZwS5Wjkc5Y=", "user"=>{"email"=>"meow@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (113.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'meow@test.com' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (55.9ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 16  [["last_sign_in_at", Mon, 20 Jan 2014 19:23:39 UTC +00:00], ["current_sign_in_at", Tue, 28 Jan 2014 01:33:29 UTC +00:00], ["sign_in_count", 16], ["updated_at", Tue, 28 Jan 2014 01:33:29 UTC +00:00]]
+  [1m[36m (10.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 295ms (ActiveRecord: 180.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-27 20:33:29 -0500
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/dashboard
+Filter chain halted as :go_to_dashboard rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-01-27 20:33:29 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 71ms (Views: 67.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-01-27 20:33:31 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (16.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (30.2ms)
+Completed 200 OK in 77ms (Views: 57.9ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/admin/users/7/tests" for 127.0.0.1 at 2014-01-27 20:33:33 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (26.2ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."user_id" = 7
+  [1m[36mOrder Load (18.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 10]]
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (178.3ms)
+Completed 200 OK in 249ms (Views: 169.5ms | ActiveRecord: 52.7ms)
+
+
+Started GET "/qr/80" for 127.0.0.1 at 2014-01-27 20:33:44 -0500
+Processing by QrController#index as HTML
+  Parameters: {"id"=>"80"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (25.2ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."qr_code" = 80 LIMIT 1[0m
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."qr_id" = 138 LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL  [["user_id", 7]]
+  [1m[36mTest Load (1.0ms)[0m  [1mSELECT "tests".* FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL ORDER BY "tests"."id" ASC LIMIT 1[0m  [["user_id", 7]]
+Redirected to http://localhost:3000/admin/users/7/tests/4/edit?qr_code=80
+Completed 302 Found in 185ms (ActiveRecord: 31.4ms)
+
+
+Started GET "/admin/users/7/tests/4/edit?qr_code=80" for 127.0.0.1 at 2014-01-27 20:33:44 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"qr_code"=>"80", "user_id"=>"7", "id"=>"4"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.8ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+Redirected to http://localhost:3000/admin/users/7/tests/4
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/users/7/tests/4" for 127.0.0.1 at 2014-01-27 20:33:44 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"4"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.6ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "4"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 8]]
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  Rendered tests/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 66ms (Views: 59.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/admin/users/7/tests/4" for 127.0.0.1 at 2014-01-27 20:38:14 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"4"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.5ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  Rendered tests/show.html.erb within layouts/application (29.1ms)
+Completed 200 OK in 212ms (Views: 73.6ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/qr/80" for 127.0.0.1 at 2014-01-27 20:38:28 -0500
+Processing by QrController#index as HTML
+  Parameters: {"id"=>"80"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mQr Load (0.3ms)[0m  SELECT "qrs".* FROM "qrs" WHERE "qrs"."qr_code" = 80 LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."qr_id" = 138 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL[0m  [["user_id", 7]]
+  [1m[35mTest Load (1.0ms)[0m  SELECT "tests".* FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL ORDER BY "tests"."id" ASC LIMIT 1  [["user_id", 7]]
+Redirected to http://localhost:3000/admin/users/7/tests/4/edit?qr_code=80
+Completed 302 Found in 33ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/admin/users/7/tests/4/edit?qr_code=80" for 127.0.0.1 at 2014-01-27 20:38:28 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"qr_code"=>"80", "user_id"=>"7", "id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.7ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "4"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mQr Load (0.4ms)[0m  SELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL AND "qrs"."qr_code" = 80 LIMIT 1
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 8]]
+  Rendered tests/_form.html.erb (218.6ms)
+  Rendered tests/edit.html.erb within layouts/application (237.8ms)
+Completed 200 OK in 334ms (Views: 328.0ms | ActiveRecord: 2.5ms)
