@@ -52,25 +52,28 @@ heroku run console --remote staging
 heroku restart --remote staging
 
 TODO
+- Turn off allowing users to create accounts for now
+- Add an image upload for user's certifications
+- Add a confirmation token to users invite acceptance - add more fields to edit with
 - if I am admin and I scan a code, I should go to the edit page if the test is in status received, in_progress
 - if admin, and I change to in progress, I should edit page
 - cannot edit a test if it has not been received
 - Need a way to register AND view results for the first time
 
 BACKLOG
-- Configure gitignore
+- add a subdomain for the heroku app? to be closer and not a herokuapp.com
+- add a cron to send expiration reminders
+- remove issuing date, add validation for expiring date - and blank out fields on creation form 
 - deactivating admins is clunky
 - image is lost if validation error
 - image should be displayed if editing a test
 - Add order history to customer view
-- Add CCM registration number
-- Add upload pict of maine credentials
 - Search for customers
 - sort customers/show only active/registered
 - notify user daily of completed tests - not one per test
 - strains need to be added/updated in the db
 - add shopping cart
-- integrate with paypal or something
+- integrate with paypal
 - Clean up destroy
 - Need ID registration info for dispensaries
 - Add ability to add more strains
@@ -84,6 +87,7 @@ FIXME
 
 
 DONE
+- Configure gitignore
 - Do not allow order quantity to be edited in an order
 - creating qr codes on the server fails - is error with aws?
 - turn on email in staging
@@ -107,7 +111,3 @@ DONE
 --> test pushing db to heroku to make sure sequence id is working
 --> Check that user fields are being set
 
-
-Hours
-previous - 4
-11/17 - 
