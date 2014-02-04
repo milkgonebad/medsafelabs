@@ -6,6 +6,7 @@ class Test < ActiveRecord::Base
   belongs_to :in_progresser, class_name: "User", foreign_key:  "in_progress_by"
   belongs_to :completer, class_name: "User", foreign_key:  "completed_by"
   belongs_to :qr
+  belongs_to :strain
   
   has_attached_file :plate,  :default_url => "/images/:style/missing.png",
     styles: {

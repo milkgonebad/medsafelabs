@@ -15,7 +15,7 @@
   		</div>
   	<% end %>
   	
-  	<%= f.input :strain, :collection => Strain.all, :selected => @test.strain, :include_blank => true %>
+  	<%= f.input :strain_id, :collection => Strain.all, :selected => @test.strain_id, :include_blank => true %>
   	<%= f.input :notes %>
   	<%= f.input :sample_type, :label => "Sample Type", :collection => Test::SAMPLE_TYPES, :selected => @test.sample_type, :include_blank => true %>
   	
