@@ -2,7 +2,10 @@ MedSafeLabs::Application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root :to => "home#index"
+  root :to => 'home#index'
+  
+  # for now prevent users from signing up - they must be invited
+  get '/users/sign_up' => 'home#index'
   
   devise_for :users
     

@@ -43980,3 +43980,182 @@ Processing by TestsController#edit as HTML
   Rendered tests/_form.html.erb (48.0ms)
   Rendered tests/edit.html.erb within layouts/application (49.0ms)
 Completed 200 OK in 79ms (Views: 74.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users/7/tests" for 127.0.0.1 at 2014-02-03 19:30:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (25.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (164.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (21.7ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."user_id" = 7
+  [1m[36mOrder Load (0.8ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 10]]
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (201.4ms)
+Completed 500 Internal Server Error in 1089ms
+
+ActionView::Template::Error (undefined local variable or method `edit_user_registration_path' for #<#<Class:0x007f8bcee4bce8>:0x007f8bcee49308>):
+    68:               	<li><%= link_to "Administrators", administrators_path %></li>
+    69:               <% end %>
+    70:               <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+    71:               <li><%= link_to current_user.email, edit_user_registration_path %></li>
+    72:               <% if current_user.admin? and defined? @customer %>
+    73:               	<li>Working with Customer:  <%= @customer.first_name %> <%= @customer.last_name %></li>
+    74:               <% end %>
+  app/views/layouts/application.html.erb:71:in `_app_views_layouts_application_html_erb__1563765915232030153_70119224399280'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.3ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2014-02-03 19:31:10 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/dashboard"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.4ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (45.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (115.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-02-03 19:31:17 -0500
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered dashboard/index.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 36ms
+
+ActionView::Template::Error (undefined local variable or method `edit_user_registration_path' for #<#<Class:0x007f8bd19407f0>:0x007f8bd194b8d0>):
+    68:               	<li><%= link_to "Administrators", administrators_path %></li>
+    69:               <% end %>
+    70:               <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+    71:               <li><%= link_to current_user.email, edit_user_registration_path %></li>
+    72:               <% if current_user.admin? and defined? @customer %>
+    73:               	<li>Working with Customer:  <%= @customer.first_name %> <%= @customer.last_name %></li>
+    74:               <% end %>
+  app/views/layouts/application.html.erb:71:in `_app_views_layouts_application_html_erb__1563765915232030153_70119224399280'
+  app/controllers/dashboard_controller.rb:21:in `admin_view'
+  app/controllers/dashboard_controller.rb:6:in `index'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-02-03 19:31:28 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 102ms (Views: 25.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-02-03 19:32:40 -0500
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered dashboard/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-02-03 19:32:43 -0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6mTFHjCMVCCOooq4ge8hKbIkEjCbxR8+vWZJXFx181o="}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (15.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 155ms (ActiveRecord: 16.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-02-03 19:32:43 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/home (77.8ms)
+Completed 200 OK in 115ms (Views: 105.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-03 19:32:51 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (0.8ms)
+Completed 200 OK in 76ms (Views: 74.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-02-03 19:34:12 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/home (2.7ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-03 19:35:06 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (0.9ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-02-03 19:35:09 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/home (59.9ms)
+Completed 200 OK in 89ms (Views: 87.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-03 19:44:11 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (1.1ms)
+Completed 200 OK in 28ms (Views: 26.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-03 19:45:21 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (0.3ms)
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-02-03 19:45:24 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (0.7ms)
+Completed 200 OK in 82ms (Views: 81.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-02-03 19:45:26 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (0.3ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-02-03 19:45:27 -0500
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (0.3ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.0ms)
