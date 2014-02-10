@@ -1,0 +1,2 @@
+class StrainController < ApplicationController
+end

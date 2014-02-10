@@ -64,6 +64,9 @@
               <% if current_user.admin? %>
               	<li><%= link_to "QR Codes", qr_codes_path %></li>
               <% end %>
+              <% if current_user.admin? %>
+              	<li><%= link_to "Strains", strains_path %></li>
+              <% end %>
               <% if current_user.super_admin? %>
               	<li><%= link_to "Administrators", administrators_path %></li>
               <% end %>

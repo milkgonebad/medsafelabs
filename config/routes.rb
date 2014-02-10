@@ -16,6 +16,7 @@ MedSafeLabs::Application.routes.draw do
     end
     resources :invitations
     resources :administrators
+    resources :strains
     resources :qr_codes do
       collection do 
         post :import
