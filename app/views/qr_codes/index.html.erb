@@ -1,21 +1,9 @@
 <h1>QR Codes</h1>
-
-<h2>Import a QR Code File:</h2>
-<%= form_tag import_qr_codes_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-
-<% unless @qr.nil? %>
-	<p>
-		<%= link_to "Display Next Available QR Code", qr_code_path(@qr, :format => :jpeg) %>
-	</p>
-	
-	<p>
-		<%= link_to "Display Existing QR Codes PDF", url_for(:action => :print_existing_codes, :format => :pdf), :target => :blank %>
-	</p>
-<% end %>
-
 <p>
 	<%= link_to "Generate and Display New QR Codes PDF", url_for(:action => :print_new_codes, :format => :pdf), :target => :blank %> - This can be slow so please be patient.
 </p>
+<% unless @qr.nil? %>
+<p>
+	<%= link_to "Display Existing QR Codes PDF", url_for(:action => :print_existing_codes, :format => :pdf), :target => :blank %>
+</p>
+<% end %>

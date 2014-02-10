@@ -51,6 +51,10 @@ heroku run console --remote staging
 
 heroku restart --remote staging
 
+
+
+
+
 TODO
 - Turn off allowing users to create accounts for now
 - Add an image upload for user's certifications
