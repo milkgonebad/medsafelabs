@@ -48413,3 +48413,674 @@ Processing by StrainsController#index as HTML
   Rendered strains/index.html.erb within layouts/application (388.5ms)
   [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
 Completed 200 OK in 416ms (Views: 406.9ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2014-02-09 21:17:02 -0500
+Processing by QrCodesController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (36.9ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL ORDER BY "qrs"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 283ms (Views: 137.1ms | ActiveRecord: 43.6ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2014-02-09 21:18:41 -0500
+Processing by QrCodesController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL ORDER BY "qrs"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 31ms (Views: 27.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2014-02-09 21:21:28 -0500
+Processing by QrCodesController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.4ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL ORDER BY "qrs"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/qr_codes" for 127.0.0.1 at 2014-02-09 21:21:36 -0500
+Processing by QrCodesController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL ORDER BY "qrs"."id" ASC LIMIT 1[0m
+  Rendered qr_codes/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 30ms (Views: 26.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 21:34:22 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (14.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (113.2ms)
+Completed 500 Internal Server Error in 119ms
+
+ActionView::Template::Error (undefined local variable or method `new_userpath' for #<#<Class:0x007f8bcef23f80>:0x007f8bcef280a8>):
+    42: <#%= link_to 'New User', new_user_path %>
+    43: 
+    44: <%= link_to t('.new', :default => t("helpers.links.new")),
+    45:             new_userpath,
+    46:             :class => 'btn btn-primary' %>
+  app/views/users/index.html.erb:45:in `_app_views_users_index_html_erb___2944907144468127844_70119224610740'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.4ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 21:34:22 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (76.8ms)
+Completed 500 Internal Server Error in 81ms
+
+ActionView::Template::Error (undefined local variable or method `new_userpath' for #<#<Class:0x007f8bcef23f80>:0x007f8bcd0537e0>):
+    42: <#%= link_to 'New User', new_user_path %>
+    43: 
+    44: <%= link_to t('.new', :default => t("helpers.links.new")),
+    45:             new_userpath,
+    46:             :class => 'btn btn-primary' %>
+  app/views/users/index.html.erb:45:in `_app_views_users_index_html_erb___2944907144468127844_70119208421800'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 21:34:44 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 39ms (Views: 35.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 21:35:44 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 42ms (Views: 38.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/strains" for 127.0.0.1 at 2014-02-09 21:41:04 -0500
+Processing by StrainsController#index as HTML
+  [1m[35mStrain Load (7.9ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered strains/index.html.erb within layouts/application (442.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 474ms (Views: 458.5ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 21:50:32 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (77.6ms)
+Completed 500 Internal Server Error in 83ms
+
+ActionView::Template::Error (undefined local variable or method `strain' for #<#<Class:0x007f8bcef23f80>:0x007f8bcc54a6a0>):
+    30:         <% end %>
+    31:         <td>
+    32:           <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    33:                       edit_strain_path(strain), :class => 'btn btn-mini' %>
+    34:           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+    35:                       strain_path(strain),
+    36:                       :method => :delete,
+  app/views/users/index.html.erb:33:in `block in _app_views_users_index_html_erb___2944907144468127844_70119202637960'
+  app/views/users/index.html.erb:20:in `_app_views_users_index_html_erb___2944907144468127844_70119202637960'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 21:50:33 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (66.4ms)
+Completed 500 Internal Server Error in 70ms
+
+ActionView::Template::Error (undefined local variable or method `strain' for #<#<Class:0x007f8bcef23f80>:0x007f8bcc2bb420>):
+    30:         <% end %>
+    31:         <td>
+    32:           <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    33:                       edit_strain_path(strain), :class => 'btn btn-mini' %>
+    34:           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+    35:                       strain_path(strain),
+    36:                       :method => :delete,
+  app/views/users/index.html.erb:33:in `block in _app_views_users_index_html_erb___2944907144468127844_70119201295840'
+  app/views/users/index.html.erb:20:in `_app_views_users_index_html_erb___2944907144468127844_70119201295840'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.2ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 21:55:30 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (69.3ms)
+Completed 500 Internal Server Error in 74ms
+
+ActionView::Template::Error (undefined local variable or method `strain' for #<#<Class:0x007f8bcef23f80>:0x007f8bcafcc378>):
+    31:         </td>
+    32:         <td>
+    33:           <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    34:                       edit_user_path(strain), :class => 'btn btn-mini' %>
+    35:           <%= link_to t('.destroy', :default => "Deactivate"),
+    36:                       user_path(strain),
+    37:                       :method => :delete,
+  app/views/users/index.html.erb:34:in `block in _app_views_users_index_html_erb___2944907144468127844_70119222074800'
+  app/views/users/index.html.erb:20:in `_app_views_users_index_html_erb___2944907144468127844_70119222074800'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 21:55:46 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 48ms (Views: 44.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 21:56:38 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 98ms (Views: 94.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users/7/tests" for 127.0.0.1 at 2014-02-09 21:56:53 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.6ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."user_id" = 7
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 10]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 8]]
+  Rendered tests/index.html.erb within layouts/application (56.7ms)
+Completed 200 OK in 146ms (Views: 127.5ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/admin/users/7/tests" for 127.0.0.1 at 2014-02-09 21:59:25 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.6ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."user_id" = 7
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 10]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 8]]
+  Rendered tests/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 37ms (Views: 31.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/users/7/tests" for 127.0.0.1 at 2014-02-09 22:00:46 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.6ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."user_id" = 7
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 10]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 8]]
+  Rendered tests/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 37ms (Views: 31.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:00:49 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7
+  Rendered orders/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 35ms (Views: 31.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:09:05 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7[0m
+  Rendered orders/index.html.erb within layouts/application (68.5ms)
+Completed 500 Internal Server Error in 75ms
+
+ActionView::Template::Error (undefined method `order_path' for #<#<Class:0x007f8bcb114500>:0x007f8bcc543238>):
+    18: <tbody>
+    19:     <% @orders.each do |order| %>
+    20:       <tr>
+    21:         <td><%= link_to order.id, order_path(order) %></td>
+    22:         <td><%=l order.created_at %></td>
+    23:         <td><%= order.quantity %></td>	
+    24:       	<td><%= order.payment_type %></td>
+  app/views/orders/index.html.erb:21:in `block in _app_views_orders_index_html_erb__2150660145539556866_70119202622440'
+  app/views/orders/index.html.erb:19:in `_app_views_orders_index_html_erb__2150660145539556866_70119202622440'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:10:05 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7
+  Rendered orders/index.html.erb within layouts/application (58.3ms)
+Completed 500 Internal Server Error in 64ms
+
+ActionView::Template::Error (undefined method `order_path' for #<#<Class:0x007f8bcb114500>:0x007f8bd194bd08>):
+    18: <tbody>
+    19:     <% @orders.each do |order| %>
+    20:       <tr>
+    21:         <td><%= link_to order.id, order_path(order) %></td>
+    22:         <td><%=l order.created_at %></td>
+    23:         <td><%= order.quantity %></td>	
+    24:       	<td><%= order.payment_type %></td>
+  app/views/orders/index.html.erb:21:in `block in _app_views_orders_index_html_erb__2150660145539556866_70119246680140'
+  app/views/orders/index.html.erb:19:in `_app_views_orders_index_html_erb__2150660145539556866_70119246680140'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:10:54 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7[0m
+  Rendered orders/index.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"orders", :user_id=>#<User id: 7, email: "mbrooks@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: "2013-11-27 00:44:51", updated_at: "2013-11-27 00:44:51", invitation_token: "8f5f76fd67b92e5a0763818acad36db18c86ff8f18f6d05af22...", invitation_created_at: "2013-11-27 00:44:51", invitation_sent_at: "2013-11-27 00:44:51", invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: 3, invited_by_type: "User", role: nil, first_name: "Mel", last_name: "Brooks", address1: nil, address2: nil, city: nil, state: nil, country: nil, active: true, registration_number: nil, control_number: nil, issued_on: nil, expires_on: nil, confirmation_token: nil, confirmed_at: "2013-12-28 23:35:41", confirmation_sent_at: nil, unconfirmed_email: nil>, :id=>nil, :format=>nil, :order_id=>6} missing required keys: [:id]):
+    18: <tbody>
+    19:     <% @orders.each do |order| %>
+    20:       <tr>
+    21:         <td><%= link_to order.id, user_order_path(@customer,  :order_id => order.id) %></td>
+    22:         <td><%=l order.created_at %></td>
+    23:         <td><%= order.quantity %></td>	
+    24:       	<td><%= order.payment_type %></td>
+  app/views/orders/index.html.erb:21:in `block in _app_views_orders_index_html_erb__2150660145539556866_70119201346200'
+  app/views/orders/index.html.erb:19:in `_app_views_orders_index_html_erb__2150660145539556866_70119201346200'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:11:39 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7
+  Rendered orders/index.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"orders", :user_id=>#<User id: 7, email: "mbrooks@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: "2013-11-27 00:44:51", updated_at: "2013-11-27 00:44:51", invitation_token: "8f5f76fd67b92e5a0763818acad36db18c86ff8f18f6d05af22...", invitation_created_at: "2013-11-27 00:44:51", invitation_sent_at: "2013-11-27 00:44:51", invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: 3, invited_by_type: "User", role: nil, first_name: "Mel", last_name: "Brooks", address1: nil, address2: nil, city: nil, state: nil, country: nil, active: true, registration_number: nil, control_number: nil, issued_on: nil, expires_on: nil, confirmation_token: nil, confirmed_at: "2013-12-28 23:35:41", confirmation_sent_at: nil, unconfirmed_email: nil>, :id=>nil, :format=>nil, :order_id=>6} missing required keys: [:id]):
+    18: <tbody>
+    19:     <% @orders.each do |order| %>
+    20:       <tr>
+    21:         <td><%= link_to order.id, user_order_path(@customer,  :order_id => order.id) %></td>
+    22:         <td><%=l order.created_at %></td>
+    23:         <td><%= order.quantity %></td>	
+    24:       	<td><%= order.payment_type %></td>
+  app/views/orders/index.html.erb:21:in `block in _app_views_orders_index_html_erb__2150660145539556866_70119201346200'
+  app/views/orders/index.html.erb:19:in `_app_views_orders_index_html_erb__2150660145539556866_70119201346200'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:12:18 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7[0m
+  Rendered orders/index.html.erb within layouts/application (61.7ms)
+Completed 500 Internal Server Error in 68ms
+
+ActionView::Template::Error (undefined method `edit_order_path' for #<#<Class:0x007f8bcb114500>:0x007f8bd196ae10>):
+    26:       	<td><%= link_to 'View Tests', user_tests_path(@customer, :order_id => order.id) %></td>
+    27:         <td>
+    28:           <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    29:                       edit_order_path(order), :class => 'btn btn-mini' %>
+    30:           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+    31:                       order_path(order),
+    32:                       :method => :delete,
+  app/views/orders/index.html.erb:29:in `block in _app_views_orders_index_html_erb__2150660145539556866_70119246742760'
+  app/views/orders/index.html.erb:19:in `_app_views_orders_index_html_erb__2150660145539556866_70119246742760'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.1ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:15:33 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7
+  Rendered orders/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 38ms (Views: 34.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:16:38 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7[0m
+  Rendered orders/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 91ms (Views: 87.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users/7/tests?order_id=6" for 127.0.0.1 at 2014-02-09 22:18:16 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"6", "user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 6
+  Rendered tests/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 31ms (Views: 27.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:19:08 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7[0m
+  Rendered orders/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/users/7/tests?order_id=6" for 127.0.0.1 at 2014-02-09 22:19:19 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"6", "user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 6
+  Rendered tests/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 32ms (Views: 27.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/users/7/tests?order_id=6" for 127.0.0.1 at 2014-02-09 22:20:19 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"6", "user_id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mTest Load (0.5ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 6[0m
+  Rendered tests/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 30ms (Views: 26.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users/7/tests?order_id=8" for 127.0.0.1 at 2014-02-09 22:20:23 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"8", "user_id"=>"7"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.6ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 8
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 8]]
+  Rendered tests/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 32ms (Views: 28.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-02-09 22:20:27 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.6ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 34ms (Views: 30.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-02-09 22:21:06 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 33ms (Views: 29.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-02-09 22:30:58 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (74.7ms)
+Completed 500 Internal Server Error in 79ms
+
+ActionView::Template::Error (undefined local variable or method `order' for #<#<Class:0x007f8bcc5d1088>:0x007f8bd5077cc8>):
+    20:     <% @tests.each do |test| %>
+    21:       <tr>
+    22:         <td><%= link_to test.order_id, user_test_path(@customer, test.order) %></td>
+    23:         <td><%=l order.created_at %></td>
+    24:         <td><%= order.status %></td>
+    25:       	<td><%= link_to 'View Tests', user_tests_path(@customer, :order_id => order.id) %></td>
+    26:         <td>
+  app/views/tests/index.html.erb:23:in `block in _app_views_tests_index_html_erb___3754543330978649322_70119275607360'
+  app/views/tests/index.html.erb:20:in `_app_views_tests_index_html_erb___3754543330978649322_70119275607360'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (51.8ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-02-09 22:31:10 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (63.1ms)
+Completed 500 Internal Server Error in 69ms
+
+ActionView::Template::Error (undefined local variable or method `order' for #<#<Class:0x007f8bcc5d1088>:0x007f8bcb0dc1a0>):
+    21:       <tr>
+    22:         <td><%= link_to test.order_id, user_test_path(@customer, test.order) %></td>
+    23:         <td><%=l test.created_at %></td>
+    24:         <td><%= order.status %></td>
+    25:       	<td><%= link_to 'View Tests', user_tests_path(@customer, :order_id => order.id) %></td>
+    26:         <td>
+    27:           <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  app/views/tests/index.html.erb:24:in `block in _app_views_tests_index_html_erb___3754543330978649322_70119224620580'
+  app/views/tests/index.html.erb:20:in `_app_views_tests_index_html_erb___3754543330978649322_70119224620580'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-02-09 22:31:25 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (62.8ms)
+Completed 500 Internal Server Error in 68ms
+
+ActionView::Template::Error (undefined local variable or method `order' for #<#<Class:0x007f8bcc5d1088>:0x007f8bd190a1a0>):
+    22:         <td><%= link_to test.order_id, user_test_path(@customer, test.order) %></td>
+    23:         <td><%=l test.created_at %></td>
+    24:         <td><%= test.status %></td>
+    25:       	<td><%= link_to 'View Tests', user_tests_path(@customer, :order_id => order.id) %></td>
+    26:         <td>
+    27:           <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    28:                       edit_user_test_path(@customer, order), :class => 'btn btn-mini' %>
+  app/views/tests/index.html.erb:25:in `block in _app_views_tests_index_html_erb___3754543330978649322_70119246545660'
+  app/views/tests/index.html.erb:20:in `_app_views_tests_index_html_erb___3754543330978649322_70119246545660'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.5ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-02-09 22:33:51 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.6ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (60.6ms)
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (undefined local variable or method `order' for #<#<Class:0x007f8bcc5d1088>:0x007f8bd1943a68>):
+    25:       	<td><%= link_to test.order_id, user_test_path(@customer, test.order) %></td>
+    26:         <td>
+    27:           <%= link_to t('.edit', :default => t("helpers.links.edit")),
+    28:                       edit_user_test_path(@customer, order), :class => 'btn btn-mini' %>
+    29:         </td>
+    30:       </tr>
+    31:     <% end %>
+  app/views/tests/index.html.erb:28:in `block in _app_views_tests_index_html_erb___3754543330978649322_70119246663720'
+  app/views/tests/index.html.erb:20:in `_app_views_tests_index_html_erb___3754543330978649322_70119246663720'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-02-09 22:34:08 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 39ms (Views: 34.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-02-09 22:34:28 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.6ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 39ms (Views: 34.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/users/7/tests?order_id=11" for 127.0.0.1 at 2014-02-09 22:35:33 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"11", "user_id"=>"7"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 11
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  Rendered tests/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 35ms (Views: 31.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/users/7/orders" for 127.0.0.1 at 2014-02-09 22:35:41 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 7
+  Rendered orders/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 93ms (Views: 89.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/users/7/tests" for 127.0.0.1 at 2014-02-09 22:35:43 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mTest Load (0.6ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."user_id" = 7[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 7]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 10]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 11]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 8]]
+  Rendered tests/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 41ms (Views: 36.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-09 22:35:44 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE (role is null) ORDER BY "users"."last_name" ASC, "users"."first_name" ASC
+  Rendered users/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-02-09 22:35:46 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 36ms (Views: 32.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/strains" for 127.0.0.1 at 2014-02-09 22:35:47 -0500
+Processing by StrainsController#index as HTML
+  [1m[35mStrain Load (8.3ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered strains/index.html.erb within layouts/application (394.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 475ms (Views: 465.5ms | ActiveRecord: 8.9ms)

@@ -1,39 +1,47 @@
-<h1>Listing Customers</h1>
-
-<table>
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => "Customers" %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
       <th>Orders</th>
       <th>Tests</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Re-Invite</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td><%= link_to user.id, users_path(user) %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= link_to 'Orders', user_orders_path(user) %>
         <td><%= link_to 'Tests', user_tests_path(user) %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Deactivate', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% unless user.registered? %>
-        	<td><%= link_to 'Re-Invite', reinvite_path(user) %></td>
-        <% end %>
+        <td><% unless user.registered? %>
+        		<%= link_to 'Re-Invite', reinvite_path(user) %>
+        	<% end %>
+        </td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_path(user), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => "Deactivate"),
+                      user_path(user),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<%= link_to t('.new', :default => t("helpers.links.new")), new_user_path, :class => 'btn btn-primary' %>
 
-<%= link_to 'New User', new_user_path %>
