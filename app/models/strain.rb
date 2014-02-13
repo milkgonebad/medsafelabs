@@ -1,5 +1,5 @@
 class Strain < ActiveRecord::Base
-  has_many :tests
+  has_many :tests, dependent: :restrict_with_error
   
   default_scope { order(:name) }
   
