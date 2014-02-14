@@ -1,9 +1,9 @@
 <h1>QR Codes</h1>
 <p>
-	<%= link_to "Generate and Display New QR Codes PDF", url_for(:action => :print_new_codes, :format => :pdf), :target => :blank %> - This can be slow so please be patient.
+	<%= link_to "Generate and Display New QR Codes PDF", url_for(:action => :print_new_codes, :format => :pdf), :target => '_blank' %> - This can be slow so please be patient.
 </p>
 <% unless @qr.nil? %>
 <p>
-	<%= link_to "Display Existing QR Codes PDF", url_for(:action => :print_existing_codes, :format => :pdf), :target => :blank %>
+	<%= link_to "Display Existing QR Codes PDF", url_for(:action => :print_existing_codes, :format => :pdf), :target => '_blank' %>
 </p>
 <% end %>
