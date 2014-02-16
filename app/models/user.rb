@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   scope :customers, -> { where(role: nil, active: true).order(:last_name, :first_name) } # note "->" is the same thing as "lamda" - very annoying
   scope :all_customers, -> { where(role: nil).order(:last_name, :first_name) }
   scope :administrators, -> { where(role: 1, active: true).order(:last_name, :first_name) }
-  scope :all_administrators, -> { where('role is not null').order(:last_name, :first_name) }
+  scope :all_administrators, -> { where(role: 1).order(:last_name, :first_name) }
   
   ROLES = {:customer => nil, :super_administrator => 0, :administrator => 1}
   
@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
   end
   
   def undelete
-    update_attribute(:active, false)
+    update_attribute(:active, true)
   end
 
 end

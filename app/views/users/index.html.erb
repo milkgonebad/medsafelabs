@@ -13,8 +13,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
       <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th>Orders</th>
       <th>Tests</th>
@@ -26,8 +26,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.id, users_path(user) %></td>
-        <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
+        <td><%= user.first_name %></td>
         <td><%= user.email %></td>
         <td><%= link_to 'View Orders', user_orders_path(user) %>
         <td><%= link_to 'View Tests', user_tests_path(user) %></td>

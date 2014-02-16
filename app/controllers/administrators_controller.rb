@@ -1,6 +1,6 @@
 class AdministratorsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_administrator, only: [:show, :edit, :update, :destroy]
+  before_action :set_administrator, only: [:show, :edit, :update, :destroy, :reactivate]
   before_action :ensure_super_admin
 
   def index
@@ -37,13 +37,15 @@ class AdministratorsController < ApplicationController
   end
 
   def destroy
-    @administrator.active = false
-    if @administrator.save
-      redirect_to administrators_url, notice: 'Administrator was successfully deactivated.'
-    else
-      redirect_to administrators_url, alert: 'Administrator was no successfully deactivated.'
-    end
+    @administrator.delete # only sets the active flag
+    redirect_to administrators_path, notice: 'Administrator was successfully deactivated.'
   end
+  
+  def reactivate
+    @administrator.undelete
+    redirect_to administrators_path, notice: 'Administrator was successfully reactivated.'
+  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

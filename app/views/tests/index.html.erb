@@ -3,6 +3,10 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %> for <%= @customer.first_name %> <%= @customer.last_name %></h1>
 </div>
 
+<% if params[:order_id] %>
+	<div>Viewing:  <em>Tests for Order <%= params[:order_id] %></em></div>
+<% end %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -19,7 +23,7 @@
       	<td><%= link_to test.id, user_test_path(@customer, test) %></td>
         <td><%=l test.created_at %></td>
         <td><%= test.status %></td>
-      	<td><%= link_to test.order_id, user_test_path(@customer, test.order) %></td>
+      	<td><%= link_to test.order_id, user_order_path(@customer, test.order) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_test_path(@customer, test), :class => 'btn btn-mini' %>

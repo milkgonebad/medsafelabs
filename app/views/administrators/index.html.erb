@@ -1,34 +1,49 @@
-<h1>Listing administrators</h1>
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => "Administrators" %></h1>
+</div>
+<% if params[:all] %>
+	<%= link_to 'View Only Active Administrators', administrators_path %><br>
+<% else %>
+	<%= link_to 'View All Active and Inactive Administrators', administrators_path(:all => true) %><br>
+<% end %>
 
-<table>
+
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Role</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Password confirmation</th>
-      <th>Active</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:role) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @administrators.each do |administrator| %>
       <tr>
-        <td><%= administrator.first_name %></td>
+        <td><%= link_to administrator.id, administrator_path(administrator) %></td>
         <td><%= administrator.last_name %></td>
+        <td><%= administrator.first_name %></td>
         <td><%= administrator.role %></td>
         <td><%= administrator.email %></td>
-        <td><%= administrator.password %></td>
-        <td><%= administrator.password_confirmation %></td>
-        <td><%= administrator.active %></td>
-        <td><%= link_to 'Show', administrator_path(administrator) %></td>
-        <td><%= link_to 'Edit', edit_administrator_path(administrator) %></td>
-        <td><%= link_to 'Deactivate', administrator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          	<%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_administrator_path(administrator), :class => 'btn btn-mini' %>
+            <% if administrator.active? %>
+	        	<%= link_to t('.destroy', :default => "Deactivate"),
+	                      administrator_path(administrator),
+	                      :method => :delete,
+	                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+            <% else %>
+            	<%= link_to t('.destroy', :default => "Reactivate"),
+	                      reactivate_administrator_path(administrator),
+                      :class => 'btn btn-mini' %>
+            <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +51,4 @@
 
 <br>
 
-<%= link_to 'New Administrator', new_administrator_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")), new_administrator_path, :class => 'btn btn-primary' %>
