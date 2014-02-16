@@ -79,6 +79,11 @@ class Test < ActiveRecord::Base
     end
   end
   
+  def editable?
+    in_progress? or received?
+  end
+  
+  # FIXME:  This should be a helper
   def result_url
     '/results/' + id.to_s
   end

@@ -25,8 +25,13 @@
         <td><%= test.status %></td>
       	<td><%= link_to test.order_id, user_order_path(@customer, test.order) %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+        	<% if test.editable? %>	
+          		<%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_test_path(@customer, test), :class => 'btn btn-mini' %>
+            <% else %>
+            	<%= link_to t('.view', :default => t("helpers.links.view")),
+                      user_test_path(@customer, test), :class => 'btn btn-mini' %>
+            <% end %>
         </td>
       </tr>
     <% end %>

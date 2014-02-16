@@ -23,8 +23,15 @@ class ApplicationController < ActionController::Base
   
   def ensure_admin
     unless current_user.admin?
-      flash[:error] = 'You are not authorized to edit users.'
-      redirect_to root_path
+      flash[:error] = 'You are not authorized to perform this action.'
+      redirect_to :back
+    end 
+  end
+  
+    def ensure_super_admin
+    unless current_user.super_admin?
+      flash[:error] = 'You are not authorized to perform this action.'
+      redirect_to :back
     end 
   end
   

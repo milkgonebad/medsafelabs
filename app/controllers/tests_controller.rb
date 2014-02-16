@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   before_filter :authenticate_user!, :ensure_admin
+  before_filter :ensure_super_admin, only: [:destroy]
   before_action :set_test, only: [:show, :edit, :update, :destroy]
   before_action :set_customer
   before_filter :check_qr_code, only: [:update]

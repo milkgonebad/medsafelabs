@@ -12,7 +12,7 @@
 
 <p>
   <strong>Strain</strong>
-  <%= @test.strain.name %>
+  <%= @test.strain.name unless @test.strain.nil? %>
 </p>
 
 <p>
