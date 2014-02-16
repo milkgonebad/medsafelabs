@@ -6,6 +6,11 @@
 
   <%= f.input :password %>
   <%= f.input :password_confirmation, label: "Password Confirmation" %>
+  <%= f.hint "Passwords must be at least 8 chars long and should include a number and a letter." %>
+  
+  
+  <%= f.input :terms, as: :boolean, checked_value: true, unchecked_value: false, label:  "Acceptance of Terms" %>
+  <%= f.hint "By checking this box, I accept the Terms of Service.  Which are TBD." %>
 
   <%= f.submit t("devise.invitations.edit.submit_button") %>
 <% end %>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :reinvite]
 
   def index
-    @users = User.customers
+    @users = params[:all_customers] ? User.all_customers : User.customers
   end
 
   def show
@@ -45,12 +45,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.active = false
-    if @user.save
-      redirect_to @user, notice: 'Customer was successfully deactivated.'
-    else
-      redirect_to @user, alert: 'Customer was not successfully deactivated.'
-    end
+    @user.delete # only sets the active flag
+    redirect_to users_path, notice: 'Customer was successfully deactivated.'
+  end
+  
+  def reactivate
+    @user.undelete
+    redirect_to users_path, notice: 'Customer was successfully reactivated.'
   end
   
   def reinvite
@@ -68,7 +69,7 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :country, :role,
-        :registration_number, :control_number, :issued_on, :expires_on, :active)
+        :registration_number, :control_number, :issued_on, :expires_on, :active, :terms)
     end
 
 end

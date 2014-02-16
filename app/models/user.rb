@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  attr_accessor :terms
   
   has_many :orders
   has_many :tests, :through => :orders
@@ -12,9 +13,10 @@ class User < ActiveRecord::Base
   
   validates :password, length: { in: 8..128 }, on: :create, if: Proc.new { |a| a.admin? }
   validates :password, length: { in: 8..128 }, on: :update, allow_blank: true
+  validates :terms, acceptance: {accept: 'true'}, allow_nil: false, on: :update, unless: Proc.new { |a| a.admin? or a.registered?}
   
-  scope :customers, -> { where('role is null', active: true).order(:last_name, :first_name) } # note "->" is the same thing as "lamda" - very annoying
-  scope :all_customers, -> { where('role is null').order(:last_name, :first_name) }
+  scope :customers, -> { where(role: nil, active: true).order(:last_name, :first_name) } # note "->" is the same thing as "lamda" - very annoying
+  scope :all_customers, -> { where(role: nil).order(:last_name, :first_name) }
   scope :administrators, -> { where(role: 1, active: true).order(:last_name, :first_name) }
   scope :all_administrators, -> { where('role is not null').order(:last_name, :first_name) }
   
@@ -64,6 +66,14 @@ class User < ActiveRecord::Base
       super
       #!persisted? || !password.nil? || !password_confirmation.nil?
     end
+  end
+  
+  def delete
+    update_attribute(:active, false)
+  end
+  
+  def undelete
+    update_attribute(:active, false)
   end
 
 end

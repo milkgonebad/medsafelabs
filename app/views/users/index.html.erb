@@ -2,6 +2,13 @@
 <div class="page-header">
   <h1><%=t '.title', :default => "Customers" %></h1>
 </div>
+<% if params[:all_customers] %>
+	<div>Viewing:  <em>All Customers</em></div>
+	<div><%= link_to 'View Only Active Customers', users_path %></div>
+<% else %>
+	<div>Viewing:  <em>Active Customers</em></div>
+	<div><%= link_to 'View All Customers', users_path(:all_customers => true) %></div>
+<% end %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -22,20 +29,26 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Orders', user_orders_path(user) %>
-        <td><%= link_to 'Tests', user_tests_path(user) %></td>
-        <td><% unless user.registered? %>
-        		<%= link_to 'Re-Invite', reinvite_path(user) %>
+        <td><%= link_to 'View Orders', user_orders_path(user) %>
+        <td><%= link_to 'View Tests', user_tests_path(user) %></td>
+        <td><% if !user.registered? and user.active? %>
+        		<%= link_to 'Re-Invite', reinvite_path(user), :class => 'btn btn-mini'%>
         	<% end %>
         </td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          	<%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_path(user), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => "Deactivate"),
-                      user_path(user),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+	      	<% if user.active? %>
+	          	<%= link_to t('.destroy', :default => "Deactivate"),
+	                      user_path(user),
+	                      :method => :delete,
+	                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
+          	<% else %>
+          		<%= link_to t('.destroy', :default => "Reactivate"),
+	                      reactivate_path(user),
+                      :class => 'btn btn-mini' %>
+          	<% end %>
         </td>
       </tr>
     <% end %>

@@ -28,8 +28,10 @@ MedSafeLabs::Application.routes.draw do
   
   get '/dashboard' => 'dashboard#index'
   get '/qr/:id' => 'qr#index'
-  get '/admin/users/:id/reinvite', to: 'users#reinvite', as: :reinvite
   get '/admin/qr_codes/print_codes' => 'qr_codes#print_codes'
+  get '/admin/users/:id/reinvite', to: 'users#reinvite', as: :reinvite
+  get '/admin/users/:id/reactivate', to: 'users#reactivate', as: :reactivate
+  
   resources :results, :purchases, :strains
 
   # Example of regular route:

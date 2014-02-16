@@ -17,6 +17,7 @@
     <%= f.input :expires_on, :label => 'Expires' %>
     <%= f.input :password, :as => :password, :hint => 'Must be at least 8 characters long.' %>
     <%= f.input :password_confirmation, :as => :password %>
+    <%= f.hidden :terms, value: true %>
   </div>
   
   <div class="form-actions">
