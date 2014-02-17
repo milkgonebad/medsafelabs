@@ -12,7 +12,7 @@
     <%= f.input :country %>
     <%= f.input :registration_number, :label => 'Patient/State Caregiver/Dispensary Registration Number (if applicable)' %>
     <%= f.input :control_number, :label => 'Control Number (if applicable)' %>
-    <%= f.input :expires_on, as: :date, order: [:month, :day, :year], value: nil, label: 'Expiration Date', include_blank: true %>
+        <%= f.input :expires_on, as: :date, order: [:month, :day, :year], value: nil, label: 'Expiration Date', include_blank: true, start_year: Date.today.year, end_year: Date.today.year + 10 %>
   </div>
 
   <div class="form-actions">
