@@ -18,6 +18,7 @@ class Test < ActiveRecord::Base
   validates :order, :status, :user, :creator, presence: true # tests cannot exist without an order
   validates :qr_id, presence: true, if: :received?
   validates :qr_id, absence: true, if: :not_received?
+  validates :sample_type, presence: true, if: :received?
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, numericality: { less_than_or_equal_to: 50.00 }, allow_blank: true
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, :strain, :sample_type, presence: true, if: :complete? 
   

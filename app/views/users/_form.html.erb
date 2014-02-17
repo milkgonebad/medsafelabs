@@ -10,9 +10,9 @@
     <%= f.input :city %>
     <%= f.input :state, :collection => STATES.invert, :selected => @user.state, :include_blank => true %>
     <%= f.input :country %>
-    <%= f.input :registration_number, :label => 'State Caregiver/Dispensary Registration #' %>
-    <%= f.input :control_number, :label => 'Control #' %>
-    <%= f.input :expires_on, :label => 'Expires' %>
+    <%= f.input :registration_number, :label => 'Patient/State Caregiver/Dispensary Registration Number (if applicable)' %>
+    <%= f.input :control_number, :label => 'Control Number (if applicable)' %>
+    <%= f.input :expires_on, as: :date, order: [:month, :day, :year], value: nil, label: 'Expiration Date', include_blank: true %>
   </div>
 
   <div class="form-actions">
