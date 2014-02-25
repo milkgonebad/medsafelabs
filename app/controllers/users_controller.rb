@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        @user.invite!(current_user)
+        @user.invite!
         format.html { redirect_to @user, notice: 'User was successfully invited.' }
         format.json { render action: 'show', status: :created, location: @user }
       else

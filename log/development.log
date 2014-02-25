@@ -55252,3 +55252,89 @@ Processing by UsersController#show as HTML
   [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "35"]]
   Rendered users/show.html.erb within layouts/application (1.3ms)
 Completed 200 OK in 37ms (Views: 32.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-24 21:53:11 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (30.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC
+  Rendered users/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 194ms (Views: 127.5ms | ActiveRecord: 35.2ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-02-24 21:53:14 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/_form.html.erb (13.2ms)
+  Rendered users/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 48ms (Views: 44.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-02-24 21:53:36 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "user"=>{"first_name"=>"aSD", "last_name"=>"ASDFASDF@AOSDIFU.COM", "email"=>"asdofiu@o.mom", "address1"=>"adsf", "address2"=>"", "city"=>"lkj", "state"=>"KS", "registration_number"=>"", "control_number"=>"", "expires_on(2i)"=>"1", "expires_on(3i)"=>"1", "expires_on(1i)"=>"2017"}, "commit"=>"Create User"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'asdofiu@o.mom' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('asdofiu@o.mom') LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."confirmation_token" = 'fbf762607381bcc1c59f95f5d15f5d9c15759dd38bb0b0b5ff937e47c7d355c4' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("address1", "address2", "city", "confirmation_sent_at", "confirmation_token", "created_at", "email", "expires_on", "first_name", "last_name", "registration_number", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["address1", "adsf"], ["address2", ""], ["city", "lkj"], ["confirmation_sent_at", Tue, 25 Feb 2014 02:53:37 UTC +00:00], ["confirmation_token", "fbf762607381bcc1c59f95f5d15f5d9c15759dd38bb0b0b5ff937e47c7d355c4"], ["created_at", Tue, 25 Feb 2014 02:53:37 UTC +00:00], ["email", "asdofiu@o.mom"], ["expires_on", Sun, 01 Jan 2017], ["first_name", "aSD"], ["last_name", "ASDFASDF@AOSDIFU.COM"], ["registration_number", ""], ["state", "KS"], ["updated_at", Tue, 25 Feb 2014 02:53:37 UTC +00:00]]
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.7ms)
+
+Sent mail to asdofiu@o.mom (293.2ms)
+Date: Mon, 24 Feb 2014 21:53:37 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: asdofiu@o.mom
+Message-ID: <530c05b186ac_aae3fc7d846d3d829440@Amys-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome asdofiu@o.mom!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=2Kmsxww-xTYF27SpwbEa">Confirm my account</a></p>
+
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."confirmation_token" = '27545a23deaf69b680562a04ee8bef599a4a24f0f936c6aa3a47476b546d3bbb' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mUPDATE "users" SET "first_name" = $1, "last_name" = $2, "address1" = $3, "address2" = $4, "city" = $5, "state" = $6, "registration_number" = $7, "expires_on" = $8, "created_at" = $9, "updated_at" = $10, "confirmation_token" = $11, "confirmation_sent_at" = $12, "id" = $13, "active" = $14, "unconfirmed_email" = $15 WHERE "users"."id" = 36[0m  [["first_name", "aSD"], ["last_name", "ASDFASDF@AOSDIFU.COM"], ["address1", "adsf"], ["address2", ""], ["city", "lkj"], ["state", "KS"], ["registration_number", ""], ["expires_on", Sun, 01 Jan 2017], ["created_at", Tue, 25 Feb 2014 02:53:37 UTC +00:00], ["updated_at", Tue, 25 Feb 2014 02:53:37 UTC +00:00], ["confirmation_token", "27545a23deaf69b680562a04ee8bef599a4a24f0f936c6aa3a47476b546d3bbb"], ["confirmation_sent_at", Tue, 25 Feb 2014 02:53:37 UTC +00:00], ["id", 36], ["active", true], ["unconfirmed_email", "asdofiu@o.mom"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."invitation_token" = 'b8c26cb0c9e28bc04225fec0622167054c8dfc8dc73f167d8521ae64de92127a' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "updated_at" = $4 WHERE "users"."id" = 36[0m  [["invitation_token", "b8c26cb0c9e28bc04225fec0622167054c8dfc8dc73f167d8521ae64de92127a"], ["invitation_created_at", Tue, 25 Feb 2014 02:53:37 UTC +00:00], ["invitation_sent_at", Tue, 25 Feb 2014 02:53:37 UTC +00:00], ["updated_at", Tue, 25 Feb 2014 02:53:37 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered devise/mailer/invitation_instructions.html.erb (0.7ms)
+
+Sent mail to  (4.5ms)
+Date: Mon, 24 Feb 2014 21:53:37 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+Message-ID: <530c05b15e5e6_aae3fc7d846d3d829582@Amys-MacBook-Pro.local.mail>
+Subject: Invitation Instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello !</p>
+
+<p>Someone has invited you to http://localhost:3000/, you can accept it through the link below.</p>
+
+<p><a href="http://localhost:3000/users/invitation/accept?invitation_token=v9XJx2yDrTX4guM8Ezy4">Accept Invitation</a></p>
+
+<p>If you don't want to accept the invitation, please ignore this email.</p>
+
+Redirected to http://localhost:3000/admin/users/36
+Completed 302 Found in 389ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/admin/users/36" for 127.0.0.1 at 2014-02-24 21:53:37 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (7.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "36"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 42ms (Views: 31.6ms | ActiveRecord: 8.2ms)
