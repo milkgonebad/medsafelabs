@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(:active => true, :country => 'United States')
+    @user = User.new(:active => true)
   end
 
   def edit
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :country, :role,
+      params.require(:user).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :role,
         :registration_number, :control_number, :expires_on, :active, :terms)
     end
 

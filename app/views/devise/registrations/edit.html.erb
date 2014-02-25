@@ -10,14 +10,13 @@
   	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     	<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   	<% end %>
-	<%= f.input :address1, :label => 'Mailing Address 1', :input_html => {class: 'required'} %>
+	<%= f.input :address1, :label => 'Mailing Address 1', required: true, :input_html => {class: 'required'} %>
     <%= f.input :address2, :label => 'Mailing Address 2' %>
-    <%= f.input :city %>
-    <%= f.input :state, :collection => STATES.invert, :selected => @user.state, :include_blank => true %>
-    <%= f.input :country %>
+    <%= f.input :city, required: true %>
+    <%= f.input :state, :collection => STATES.invert, :selected => @user.state, :include_blank => true, required: true %>
     <%= f.input :registration_number, :label => 'Patient/State Caregiver/Dispensary Registration #' %>
     <%= f.input :control_number, :label => 'Control #' %>
-    <%= f.input :expires_on, as: :date, order: [:month, :day, :year], value: nil, label: 'Expiration Date', include_blank: true, start_year: Date.today.year, end_year: Date.today.year + 10 %>
+    <%= f.input :expires_on, as: :date, required: true, order: [:month, :day, :year], value: nil, label: 'Expiration Date', include_blank: true, start_year: Date.today.year, end_year: Date.today.year + 10 %>
     <%= f.input :password, :as => :password, :hint => "(leave blank if you don't want to change it)" %>
     <%= f.input :password_confirmation, :as => :password %>
     <%= f.input :current_password, :as => :password, :hint => "(we need your current password to confirm your changes)" %>

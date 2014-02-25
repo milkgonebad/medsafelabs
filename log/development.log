@@ -54485,3 +54485,368 @@ Processing by DashboardController#index as HTML
   [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
   Rendered dashboard/index.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 42ms (Views: 38.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-24 20:27:02 -0500
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `initialize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `new'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `connect'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:548:in `initialize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.2) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.2) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.2) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.2) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1536476267495589594__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (46.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-02-24 20:27:15 -0500
+
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `initialize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `new'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `connect'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:548:in `initialize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.2) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.2) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.2) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.2) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__1536476267495589594__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-24 20:28:29 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (28.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (0.7ms)
+Completed 200 OK in 273ms (Views: 214.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/favicon.ico" for 127.0.0.1 at 2014-02-24 20:28:30 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (10.4ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (73.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (190.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-02-24 20:28:32 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/home (127.1ms)
+Completed 200 OK in 193ms (Views: 151.9ms | ActiveRecord: 12.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-02-24 20:28:41 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CPDc7SEvBQmJYtUgmllBzW0kLSh73F6gOVev0Q47b6k=", "user"=>{"email"=>"meow@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (135.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'meow@test.com' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (28.9ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 16  [["last_sign_in_at", Sun, 16 Feb 2014 21:34:18 UTC +00:00], ["current_sign_in_at", Tue, 25 Feb 2014 01:28:41 UTC +00:00], ["sign_in_count", 19], ["updated_at", Tue, 25 Feb 2014 01:28:41 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 293ms (ActiveRecord: 165.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-24 20:28:41 -0500
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/dashboard
+Filter chain halted as :go_to_dashboard rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-02-24 20:28:41 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-24 20:28:43 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 45ms (Views: 40.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-02-24 20:28:46 -0500
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/_form.html.erb (315.7ms)
+  Rendered users/new.html.erb within layouts/application (316.9ms)
+Completed 200 OK in 347ms (Views: 344.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-02-24 20:29:17 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "user"=>{"first_name"=>"Jan", "last_name"=>"Pita", "email"=>"pita@test.com", "address1"=>"asadf", "address2"=>"", "city"=>"", "state"=>"", "country"=>"", "registration_number"=>"", "control_number"=>"", "expires_on(2i)"=>"", "expires_on(3i)"=>"", "expires_on(1i)"=>""}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'pita@test.com' LIMIT 1[0m
+  [1m[35mUser Exists (24.9ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('pita@test.com') LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+#<ActiveModel::Errors:0x007fabef34e408 @base=#<User id: nil, email: "pita@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: nil, updated_at: nil, invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil, role: nil, first_name: "Jan", last_name: "Pita", address1: "asadf", address2: "", city: "", state: "", country: "", active: nil, registration_number: "", control_number: nil, expires_on: nil, confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil>, @messages={:city=>["can't be blank"], :state=>["can't be blank"], :country=>["can't be blank"], :expires_on=>["can't be blank"]}>
+  Rendered users/_form.html.erb (27.6ms)
+  Rendered users/new.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 125ms (Views: 54.0ms | ActiveRecord: 26.6ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-02-24 20:33:20 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "user"=>{"first_name"=>"Jan", "last_name"=>"Pita", "email"=>"pita@test.com", "address1"=>"asadf", "address2"=>"", "city"=>"", "state"=>"", "country"=>"", "registration_number"=>"", "control_number"=>"", "expires_on(2i)"=>"", "expires_on(3i)"=>"", "expires_on(1i)"=>""}, "commit"=>"Create User"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'pita@test.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('pita@test.com') LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+#<ActiveModel::Errors:0x007fabf3b0b890 @base=#<User id: nil, email: "pita@test.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: nil, updated_at: nil, invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil, role: nil, first_name: "Jan", last_name: "Pita", address1: "asadf", address2: "", city: "", state: "", country: "", active: nil, registration_number: "", control_number: nil, expires_on: nil, confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil>, @messages={:city=>["can't be blank"], :state=>["can't be blank"], :country=>["can't be blank"], :expires_on=>["can't be blank"]}>
+  Rendered users/_form.html.erb (26.5ms)
+  Rendered users/new.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 62ms (Views: 53.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-24 20:54:16 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC
+  Rendered users/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 71ms (Views: 38.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-02-24 20:54:23 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/_form.html.erb (14.1ms)
+  Rendered users/new.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 44ms (Views: 41.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-02-24 20:54:58 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "user"=>{"first_name"=>"Ed", "last_name"=>"Test", "email"=>"et@test.com", "address1"=>"asdf", "address2"=>"", "city"=>"asdf", "state"=>"AL", "registration_number"=>"", "control_number"=>"", "expires_on(2i)"=>"8", "expires_on(3i)"=>"16", "expires_on(1i)"=>"2014"}, "commit"=>"Create User"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'et@test.com' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('et@test.com') LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."confirmation_token" = 'a3a50a98449bfc87a2cb0383b26130f84793faf2fff6361c0a78a9fba8708fd4' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSQL (98.4ms)[0m  [1mINSERT INTO "users" ("address1", "address2", "city", "confirmation_sent_at", "confirmation_token", "created_at", "email", "expires_on", "first_name", "last_name", "registration_number", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["address1", "asdf"], ["address2", ""], ["city", "asdf"], ["confirmation_sent_at", Tue, 25 Feb 2014 01:54:59 UTC +00:00], ["confirmation_token", "a3a50a98449bfc87a2cb0383b26130f84793faf2fff6361c0a78a9fba8708fd4"], ["created_at", Tue, 25 Feb 2014 01:54:58 UTC +00:00], ["email", "et@test.com"], ["expires_on", Sat, 16 Aug 2014], ["first_name", "Ed"], ["last_name", "Test"], ["registration_number", ""], ["state", "AL"], ["updated_at", Tue, 25 Feb 2014 01:54:58 UTC +00:00]]
+  Rendered devise/mailer/confirmation_instructions.html.erb (1.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 603ms
+
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    1: <p>Welcome <%= @resourse.email %>!</p>
+    2: 
+    3: <p>You can confirm your account email through the link below:</p>
+    4: 
+  app/views/devise/mailer/confirmation_instructions.html.erb:1:in `_app_views_devise_mailer_confirmation_instructions_html_erb___3482150734277365006_70188208296540'
+  app/controllers/users_controller.rb:22:in `block in create'
+  app/controllers/users_controller.rb:21:in `create'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.6ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-02-24 20:55:18 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "user"=>{"first_name"=>"Ed", "last_name"=>"Test", "email"=>"et@test.com", "address1"=>"asdf", "address2"=>"", "city"=>"asdf", "state"=>"AL", "registration_number"=>"", "control_number"=>"", "expires_on(2i)"=>"8", "expires_on(3i)"=>"16", "expires_on(1i)"=>"2014"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'et@test.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('et@test.com') LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = '1464888a022dd1861c9808260790723b95666a2b98639d0ac0a733b088fbe493' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("address1", "address2", "city", "confirmation_sent_at", "confirmation_token", "created_at", "email", "expires_on", "first_name", "last_name", "registration_number", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"  [["address1", "asdf"], ["address2", ""], ["city", "asdf"], ["confirmation_sent_at", Tue, 25 Feb 2014 01:55:18 UTC +00:00], ["confirmation_token", "1464888a022dd1861c9808260790723b95666a2b98639d0ac0a733b088fbe493"], ["created_at", Tue, 25 Feb 2014 01:55:18 UTC +00:00], ["email", "et@test.com"], ["expires_on", Sat, 16 Aug 2014], ["first_name", "Ed"], ["last_name", "Test"], ["registration_number", ""], ["state", "AL"], ["updated_at", Tue, 25 Feb 2014 01:55:18 UTC +00:00]]
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.9ms)
+
+Sent mail to et@test.com (420.9ms)
+Date: Mon, 24 Feb 2014 20:55:18 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: et@test.com
+Message-ID: <530bf806d8b97_28a3fd5f9f4fd301627f@Amys-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome et@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=wtnycxZZ-Q22_2zron7Z">Confirm my account</a></p>
+
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = '3d9cd1d54d6ab3f23452c1f2ab704709877a521efe82c713fe22d949f87a111f' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m  UPDATE "users" SET "first_name" = $1, "last_name" = $2, "address1" = $3, "address2" = $4, "city" = $5, "state" = $6, "registration_number" = $7, "expires_on" = $8, "created_at" = $9, "updated_at" = $10, "confirmation_token" = $11, "confirmation_sent_at" = $12, "id" = $13, "active" = $14, "unconfirmed_email" = $15 WHERE "users"."id" = 31  [["first_name", "Ed"], ["last_name", "Test"], ["address1", "asdf"], ["address2", ""], ["city", "asdf"], ["state", "AL"], ["registration_number", ""], ["expires_on", Sat, 16 Aug 2014], ["created_at", Tue, 25 Feb 2014 01:55:18 UTC +00:00], ["updated_at", Tue, 25 Feb 2014 01:55:18 UTC +00:00], ["confirmation_token", "3d9cd1d54d6ab3f23452c1f2ab704709877a521efe82c713fe22d949f87a111f"], ["confirmation_sent_at", Tue, 25 Feb 2014 01:55:19 UTC +00:00], ["id", 31], ["active", true], ["unconfirmed_email", "et@test.com"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."invitation_token" = 'c727d36506ed3448847a73b400046c66fc6878fe892bcd71ea181531c87c4827' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  UPDATE "users" SET "invitation_token" = $1, "invitation_created_at" = $2, "invitation_sent_at" = $3, "invited_by_id" = $4, "invited_by_type" = $5, "updated_at" = $6 WHERE "users"."id" = 31  [["invitation_token", "c727d36506ed3448847a73b400046c66fc6878fe892bcd71ea181531c87c4827"], ["invitation_created_at", Tue, 25 Feb 2014 01:55:19 UTC +00:00], ["invitation_sent_at", Tue, 25 Feb 2014 01:55:19 UTC +00:00], ["invited_by_id", 16], ["invited_by_type", "User"], ["updated_at", Tue, 25 Feb 2014 01:55:19 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered devise/mailer/invitation_instructions.html.erb (0.8ms)
+
+Sent mail to  (3.0ms)
+Date: Mon, 24 Feb 2014 20:55:19 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+Message-ID: <530bf807bc389_28a3fd5f9f4fd3016330@Amys-MacBook-Pro.local.mail>
+Subject: Invitation Instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello !</p>
+
+<p>Someone has invited you to http://localhost:3000/, you can accept it through the link below.</p>
+
+<p><a href="http://localhost:3000/users/invitation/accept?invitation_token=8xwLsMmK2xbA55jqzNHT">Accept Invitation</a></p>
+
+<p>If you don't want to accept the invitation, please ignore this email.</p>
+
+Redirected to http://localhost:3000/admin/users/31
+Completed 302 Found in 963ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/admin/users/31" for 127.0.0.1 at 2014-02-24 20:55:19 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"31"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "31"]]
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 1.3ms)
