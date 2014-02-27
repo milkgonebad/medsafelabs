@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         User.invite!({:email => @user.email}, current_user)
-        #@user.invite!(current_user)
+        #@user.invite!(current_user) # this should work but doens't for some reason
         format.html { redirect_to @user, notice: 'User was successfully invited.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :role,
+      params.require(:user).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :postal_code, :role,
         :registration_number, :control_number, :expires_on, :active, :terms)
     end
 

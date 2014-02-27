@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness:  { case_sensitive: false }
   validates :address1, :city, :state, presence: true, unless: Proc.new { |a| a.admin? }
   validates :control_number, numericality: { only_integer: true }, allow_nil: true, unless: Proc.new { |a| a.admin?}
+  validates :postal_code, format: {with: /\A\d{5}\z/}, presence: true, unless: Proc.new { |a| a.admin?}
   validates :expires_on, presence: true, unless: Proc.new { |a| a.admin? }
   validate :expiration_date_cannot_be_in_the_past, on: :create
   
