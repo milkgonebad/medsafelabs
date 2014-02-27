@@ -36,6 +36,7 @@ class TestsController < ApplicationController
         format.json { head :no_content }
       else
         @test.status = current_status
+        @has_qr = true if @test.qr_id
         format.html { render action: 'edit' }
         format.json { render json: @test.errors, status: :unprocessable_entity }
       end

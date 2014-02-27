@@ -55338,3 +55338,480 @@ Processing by UsersController#show as HTML
   [1m[35mUser Load (7.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "36"]]
   Rendered users/show.html.erb within layouts/application (0.5ms)
 Completed 200 OK in 42ms (Views: 31.6ms | ActiveRecord: 8.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddPostalCodeToUser (20140227015219)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (114.8ms)[0m  [1mALTER TABLE "users" ADD COLUMN "postal_code" character varying(255)[0m
+  [1m[35mUser Load (2.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mSQL (61.5ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 10[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 16  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 17[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 2  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 4[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 18  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 6[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 5  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 7[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 11  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 3  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 9[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 13  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 12[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 15  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 19[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 20  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 22[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 24  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 25[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 23  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 21[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 27  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 28[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (37.7ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 14  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 29[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 31  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 32[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 33  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 34[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.8ms)[0m  UPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 35  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "users" SET "postal_code" = $1, "updated_at" = $2 WHERE "users"."id" = 36[0m  [["postal_code", "04101"], ["updated_at", Thu, 27 Feb 2014 02:03:53 UTC +00:00]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140227015219"]]
+  [1m[36m (39.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-26 21:11:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (16.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (16.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (46.7ms)
+Completed 200 OK in 234ms (Views: 147.0ms | ActiveRecord: 36.8ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-02-26 21:11:21 -0500
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/_form.html.erb (18.0ms)
+  Rendered users/new.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 71ms (Views: 68.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-02-26 21:12:09 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/_form.html.erb (14.8ms)
+  Rendered users/new.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 50ms (Views: 46.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-02-26 21:12:13 -0500
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/_form.html.erb (13.5ms)
+  Rendered users/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 47ms (Views: 44.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-02-26 21:12:42 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered users/_form.html.erb (16.6ms)
+  Rendered users/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 102ms (Views: 99.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2014-02-26 21:13:22 -0500
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered users/_form.html.erb (15.9ms)
+  Rendered users/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 70ms (Views: 66.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-02-26 21:14:46 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "user"=>{"first_name"=>"asdfasdfasdf", "last_name"=>"ldjvo", "email"=>"aosdifjo@aodiuf.com", "address1"=>"aosidfjoasdfj", "address2"=>"", "city"=>"aodsifjaoj", "state"=>"ME", "postal_code"=>"asdfa", "registration_number"=>"asdf", "control_number"=>"asdf", "expires_on(2i)"=>"10", "expires_on(3i)"=>"17", "expires_on(1i)"=>"2021"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'aosdifjo@aodiuf.com' LIMIT 1[0m
+  [1m[35mUser Exists (48.2ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('aosdifjo@aodiuf.com') LIMIT 1
+  [1m[36m (16.0ms)[0m  [1mROLLBACK[0m
+#<ActiveModel::Errors:0x007f8faff0c648 @base=#<User id: nil, email: "aosdifjo@aodiuf.com", encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: nil, updated_at: nil, invitation_token: nil, invitation_created_at: nil, invitation_sent_at: nil, invitation_accepted_at: nil, invitation_limit: nil, invited_by_id: nil, invited_by_type: nil, role: nil, first_name: "asdfasdfasdf", last_name: "ldjvo", address1: "aosidfjoasdfj", address2: "", city: "aodsifjaoj", state: "ME", country: nil, active: nil, registration_number: "asdf", control_number: 0, expires_on: "2021-10-17", confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil, unconfirmed_email: nil, invitations_count: nil, postal_code: "asdfa">, @messages={:control_number=>["is not a number"], :postal_code=>["is invalid"]}>
+  Rendered users/_form.html.erb (15.8ms)
+  Rendered users/new.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 140ms (Views: 46.0ms | ActiveRecord: 65.7ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2014-02-26 21:15:02 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "user"=>{"first_name"=>"asdfasdfasdf", "last_name"=>"ldjvo", "email"=>"aosdifjo@aodiuf.com", "address1"=>"aosidfjoasdfj", "address2"=>"", "city"=>"aodsifjaoj", "state"=>"ME", "postal_code"=>"00000", "registration_number"=>"asdf", "control_number"=>"98798", "expires_on(2i)"=>"10", "expires_on(3i)"=>"17", "expires_on(1i)"=>"2021"}, "commit"=>"Create User"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'aosdifjo@aodiuf.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('aosdifjo@aodiuf.com') LIMIT 1[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."confirmation_token" = '52093741750d317e3842549e0cb4a19dc61b3f43660f6a3aebfb03d12aa38013' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSQL (14.0ms)[0m  [1mINSERT INTO "users" ("address1", "address2", "city", "confirmation_sent_at", "confirmation_token", "control_number", "created_at", "email", "expires_on", "first_name", "last_name", "postal_code", "registration_number", "state", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["address1", "aosidfjoasdfj"], ["address2", ""], ["city", "aodsifjaoj"], ["confirmation_sent_at", Thu, 27 Feb 2014 02:15:02 UTC +00:00], ["confirmation_token", "52093741750d317e3842549e0cb4a19dc61b3f43660f6a3aebfb03d12aa38013"], ["control_number", 98798], ["created_at", Thu, 27 Feb 2014 02:15:02 UTC +00:00], ["email", "aosdifjo@aodiuf.com"], ["expires_on", Sun, 17 Oct 2021], ["first_name", "asdfasdfasdf"], ["last_name", "ldjvo"], ["postal_code", "00000"], ["registration_number", "asdf"], ["state", "ME"], ["updated_at", Thu, 27 Feb 2014 02:15:02 UTC +00:00]]
+  Rendered devise/mailer/confirmation_instructions.html.erb (0.6ms)
+
+Sent mail to aosdifjo@aodiuf.com (442.6ms)
+Date: Wed, 26 Feb 2014 21:15:02 -0500
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: aosdifjo@aodiuf.com
+Message-ID: <530e9fa66704b_aae3fc7d7f246602962e@Amys-MacBook-Pro.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome aosdifjo@aodiuf.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=kxt3-fxGYiYz7Q5LH7RP">Confirm my account</a></p>
+
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."confirmation_token" = '39d47894fc6fb313ab057df866a644d234886372cc3e70d1b39fb6d71077ccf9' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSQL (33.3ms)[0m  [1mUPDATE "users" SET "first_name" = $1, "last_name" = $2, "address1" = $3, "address2" = $4, "city" = $5, "state" = $6, "postal_code" = $7, "registration_number" = $8, "control_number" = $9, "expires_on" = $10, "created_at" = $11, "updated_at" = $12, "confirmation_token" = $13, "confirmation_sent_at" = $14, "id" = $15, "active" = $16, "unconfirmed_email" = $17 WHERE "users"."id" = 37[0m  [["first_name", "asdfasdfasdf"], ["last_name", "ldjvo"], ["address1", "aosidfjoasdfj"], ["address2", ""], ["city", "aodsifjaoj"], ["state", "ME"], ["postal_code", "00000"], ["registration_number", "asdf"], ["control_number", 98798], ["expires_on", Sun, 17 Oct 2021], ["created_at", Thu, 27 Feb 2014 02:15:02 UTC +00:00], ["updated_at", Thu, 27 Feb 2014 02:15:02 UTC +00:00], ["confirmation_token", "39d47894fc6fb313ab057df866a644d234886372cc3e70d1b39fb6d71077ccf9"], ["confirmation_sent_at", Thu, 27 Feb 2014 02:15:02 UTC +00:00], ["id", 37], ["active", true], ["unconfirmed_email", "aosdifjo@aodiuf.com"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT 1[0m
+Redirected to http://localhost:3000/admin/users/37
+Completed 302 Found in 578ms (ActiveRecord: 52.4ms)
+
+
+Started GET "/admin/users/37" for 127.0.0.1 at 2014-02-26 21:15:02 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"37"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (22.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "37"]]
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 67ms (Views: 41.4ms | ActiveRecord: 23.1ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-26 21:19:30 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 110ms (Views: 106.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users.31" for 127.0.0.1 at 2014-02-26 21:19:33 -0500
+Processing by UsersController#index as 
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 52ms (Views: 48.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/users.24" for 127.0.0.1 at 2014-02-26 21:19:39 -0500
+Processing by UsersController#index as 
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 51ms (Views: 47.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users.32" for 127.0.0.1 at 2014-02-26 21:19:43 -0500
+Processing by UsersController#index as 
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 50ms (Views: 46.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/users.36" for 127.0.0.1 at 2014-02-26 21:19:48 -0500
+Processing by UsersController#index as 
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (68.2ms)
+Completed 200 OK in 101ms (Views: 98.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users.36" for 127.0.0.1 at 2014-02-26 21:20:37 -0500
+Processing by UsersController#index as 
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 52ms (Views: 48.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/users.36" for 127.0.0.1 at 2014-02-26 21:20:52 -0500
+Processing by UsersController#index as 
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (68.7ms)
+Completed 200 OK in 102ms (Views: 98.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/users.36" for 127.0.0.1 at 2014-02-26 21:21:09 -0500
+Processing by UsersController#index as 
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 51ms (Views: 46.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/admin/users.36" for 127.0.0.1 at 2014-02-26 21:21:33 -0500
+Processing by UsersController#index as 
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 53ms (Views: 48.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/users/18" for 127.0.0.1 at 2014-02-26 21:21:36 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "18"]]
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/users/18" for 127.0.0.1 at 2014-02-26 21:22:33 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "18"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 113ms (Views: 109.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-26 21:27:07 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 73ms (Views: 68.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/users/23/orders" for 127.0.0.1 at 2014-02-26 21:27:38 -0500
+Processing by OrdersController#index as HTML
+  Parameters: {"user_id"=>"23"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (56.8ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."user_id" = 23
+  Rendered orders/index.html.erb within layouts/application (72.1ms)
+Completed 200 OK in 196ms (Views: 112.9ms | ActiveRecord: 60.4ms)
+
+
+Started GET "/admin/users/23/tests?order_id=27" for 127.0.0.1 at 2014-02-26 21:27:44 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"order_id"=>"27", "user_id"=>"23"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mTest Load (41.1ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."order_id" = 27[0m
+  [1m[35mOrder Load (1.1ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  Rendered tests/index.html.erb within layouts/application (111.9ms)
+Completed 200 OK in 172ms (Views: 114.9ms | ActiveRecord: 46.4ms)
+
+
+Started GET "/qr/34" for 127.0.0.1 at 2014-02-26 21:28:31 -0500
+Processing by QrController#index as HTML
+  Parameters: {"id"=>"34"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (12.4ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."qr_code" = 34 LIMIT 1[0m
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."qr_id" = 92 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35m (11.4ms)[0m  SELECT COUNT(*) FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL  [["user_id", 23]]
+  [1m[36mTest Load (1.2ms)[0m  [1mSELECT "tests".* FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL ORDER BY "tests"."id" ASC LIMIT 1[0m  [["user_id", 23]]
+Redirected to http://localhost:3000/admin/users/23/tests/35/edit?qr_code=34
+Completed 302 Found in 166ms (ActiveRecord: 29.4ms)
+
+
+Started GET "/admin/users/23/tests/35/edit?qr_code=34" for 127.0.0.1 at 2014-02-26 21:28:31 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"qr_code"=>"34", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.6ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL AND "qrs"."qr_code" = 34 LIMIT 1[0m
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mStrain Load (35.8ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (193.7ms)
+  Rendered tests/edit.html.erb within layouts/application (195.5ms)
+Completed 200 OK in 255ms (Views: 211.7ms | ActiveRecord: 40.4ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-26 21:28:57 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "test"=>{"strain_id"=>"", "notes"=>"", "sample_type"=>"", "qr_id"=>"92"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.6ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mStrain Load (7.4ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered tests/_form.html.erb (38.6ms)
+  Rendered tests/edit.html.erb within layouts/application (39.5ms)
+Completed 200 OK in 133ms (Views: 110.4ms | ActiveRecord: 11.4ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-26 21:50:02 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "test"=>{"strain_id"=>"", "notes"=>"", "sample_type"=>"", "qr_id"=>"92"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "35"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mStrain Load (9.3ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (63.2ms)
+  Rendered tests/edit.html.erb within layouts/application (73.6ms)
+Completed 200 OK in 318ms (Views: 106.2ms | ActiveRecord: 23.8ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-26 21:50:10 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "test"=>{"strain_id"=>"", "notes"=>"", "sample_type"=>"", "qr_id"=>"92"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mStrain Load (7.4ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered tests/_form.html.erb (38.3ms)
+  Rendered tests/edit.html.erb within layouts/application (39.2ms)
+Completed 200 OK in 78ms (Views: 60.0ms | ActiveRecord: 10.5ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-26 21:52:13 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "test"=>{"strain_id"=>"", "notes"=>"", "sample_type"=>"", "qr_id"=>"92"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "35"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mStrain Load (7.9ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (40.3ms)
+  Rendered tests/edit.html.erb within layouts/application (41.3ms)
+Completed 200 OK in 137ms (Views: 64.5ms | ActiveRecord: 10.7ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-26 21:53:18 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "test"=>{"strain_id"=>"", "notes"=>"", "sample_type"=>"", "qr_id"=>"92"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mStrain Load (7.5ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered tests/_form.html.erb (52.7ms)
+  Rendered tests/edit.html.erb within layouts/application (53.7ms)
+Completed 200 OK in 268ms (Views: 120.9ms | ActiveRecord: 20.2ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-26 21:54:48 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "test"=>{"strain_id"=>"", "notes"=>"", "sample_type"=>"", "qr_id"=>"92"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "35"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mStrain Load (7.5ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (166.9ms)
+  Rendered tests/edit.html.erb within layouts/application (167.5ms)
+Completed 500 Internal Server Error in 179ms
+
+ActionView::Template::Error (undefined method `qr_id' for #<SimpleForm::FormBuilder:0x007f8fac342d38>):
+    40:   </div>
+    41:   
+    42:   has qr is <%= @has_qr %><br>
+    43:   and qr_id is <%= f.qr_id %>
+    44:   
+    45:   <div class="form-actions">
+    46:     <% if !@test.not_received? %>
+  app/views/tests/_form.html.erb:43:in `block in _app_views_tests__form_html_erb___3453717715789596309_70127523011400'
+  app/views/tests/_form.html.erb:1:in `_app_views_tests__form_html_erb___3453717715789596309_70127523011400'
+  app/views/tests/edit.html.erb:3:in `_app_views_tests_edit_html_erb__3592957603676817795_70127554720900'
+  app/controllers/tests_controller.rb:40:in `block (2 levels) in update'
+  app/controllers/tests_controller.rb:33:in `update'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.9ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-26 21:55:29 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "test"=>{"strain_id"=>"", "notes"=>"", "sample_type"=>"", "qr_id"=>"92"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mStrain Load (7.5ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered tests/_form.html.erb (40.2ms)
+  Rendered tests/edit.html.erb within layouts/application (41.2ms)
+Completed 200 OK in 127ms (Views: 108.8ms | ActiveRecord: 10.3ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-26 21:56:11 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "test"=>{"strain_id"=>"", "notes"=>"", "sample_type"=>"", "qr_id"=>"92"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "35"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mStrain Load (7.3ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (50.1ms)
+  Rendered tests/edit.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 215ms (Views: 70.7ms | ActiveRecord: 19.0ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-26 21:56:21 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "test"=>{"strain_id"=>"", "notes"=>"", "sample_type"=>"", "qr_id"=>"92"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mStrain Load (7.3ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered tests/_form.html.erb (99.9ms)
+  Rendered tests/edit.html.erb within layouts/application (100.8ms)
+Completed 200 OK in 263ms (Views: 120.4ms | ActiveRecord: 18.8ms)
