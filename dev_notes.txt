@@ -47,6 +47,11 @@ heroku run rake db:migrate --remote heroku
 get logs
 heroku logs --remote staging
 
+show number of lines:
+heroku logs -n 500 --remote staging
+or tail
+heroku logs --tail --remote staging
+
 heroku run console --remote staging
 
 heroku restart --remote staging
