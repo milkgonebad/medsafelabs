@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :ensure_admin
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :reinvite]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :reinvite, :reactivate]
 
   def index
     @users = params[:all_customers] ? User.all_customers : User.customers

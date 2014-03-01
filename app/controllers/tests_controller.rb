@@ -32,7 +32,11 @@ class TestsController < ApplicationController
     update_params.merge!(updated_by: current_user)
     respond_to do |format|
       if @test.update(update_params)
-        format.html { redirect_to user_test_path(@customer, @test), notice: 'Test was successfully updated.' }
+        if @test.in_progress? or @test.received?
+          format.html { redirect_to edit_user_test_path(@customer, @test), notice: 'Test was successfully updated.' }
+        else
+          format.html { redirect_to user_test_path(@customer, @test), notice: 'Test was successfully updated.' }
+        end
         format.json { head :no_content }
       else
         @test.status = current_status

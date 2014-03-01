@@ -55815,3 +55815,790 @@ Processing by TestsController#update as HTML
   Rendered tests/_form.html.erb (99.9ms)
   Rendered tests/edit.html.erb within layouts/application (100.8ms)
 Completed 200 OK in 263ms (Views: 120.4ms | ActiveRecord: 18.8ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-26 21:59:02 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC
+  Rendered users/index.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 135ms (Views: 130.6ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/admin/users/19" for 127.0.0.1 at 2014-02-26 21:59:09 -0500
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"w+WoGZrcybnN4J+K19WclO3Q/ypaZhV4KBBMYVXfPNk=", "id"=>"19"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", "19"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "users" SET "active" = $1, "updated_at" = $2 WHERE "users"."id" = 19  [["active", false], ["updated_at", Thu, 27 Feb 2014 02:59:09 UTC +00:00]]
+  [1m[36m (15.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 23ms (ActiveRecord: 17.8ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-26 21:59:09 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 46ms (Views: 42.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/users?all_customers=true" for 127.0.0.1 at 2014-02-26 21:59:12 -0500
+Processing by UsersController#index as HTML
+  Parameters: {"all_customers"=>"true"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (76.4ms)
+Completed 200 OK in 108ms (Views: 103.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/users/19/reactivate" for 127.0.0.1 at 2014-02-26 21:59:14 -0500
+Processing by UsersController#reactivate as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `undelete' for nil:NilClass):
+  app/controllers/users_controller.rb:54:in `reactivate'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.3ms)
+
+
+Started GET "/admin/users/19/reactivate" for 127.0.0.1 at 2014-02-26 21:59:14 -0500
+Processing by UsersController#reactivate as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `undelete' for nil:NilClass):
+  app/controllers/users_controller.rb:54:in `reactivate'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+
+
+Started GET "/admin/users/19/reactivate" for 127.0.0.1 at 2014-02-26 22:00:03 -0500
+Processing by UsersController#reactivate as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", "19"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "active" = $1, "updated_at" = $2 WHERE "users"."id" = 19[0m  [["active", true], ["updated_at", Thu, 27 Feb 2014 03:00:03 UTC +00:00]]
+  [1m[35m (30.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 71ms (ActiveRecord: 34.7ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-26 22:00:03 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC
+  Rendered users/index.html.erb within layouts/application (66.9ms)
+Completed 200 OK in 99ms (Views: 94.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-28 19:03:07 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (36.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/home (2.6ms)
+Completed 200 OK in 467ms (Views: 443.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/favicon.ico" for 127.0.0.1 at 2014-02-28 19:03:08 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.3) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.3) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (4.0.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.3) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.3) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.3) lib/rails/engine.rb:511:in `call'
+  railties (4.0.3) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/milkgonebad/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (61.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-02-28 19:03:17 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/home (162.4ms)
+Completed 200 OK in 304ms (Views: 216.6ms | ActiveRecord: 55.4ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-02-28 19:03:29 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"osxvBpb8HI52pxEzqi9Cn5n4ZXayO55iTjWYB68SEmU=", "user"=>{"email"=>"meow@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (128.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'meow@test.com' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.8ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = 16  [["last_sign_in_at", Tue, 25 Feb 2014 01:28:41 UTC +00:00], ["current_sign_in_at", Sat, 01 Mar 2014 00:03:29 UTC +00:00], ["sign_in_count", 20], ["updated_at", Sat, 01 Mar 2014 00:03:29 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 228ms (ActiveRecord: 146.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-28 19:03:29 -0500
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+Redirected to http://localhost:3000/dashboard
+Filter chain halted as :go_to_dashboard rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2014-02-28 19:03:29 -0500
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered dashboard/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 51ms (Views: 48.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2014-02-28 19:03:51 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (2.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."role" IS NULL AND "users"."active" = 't' ORDER BY "users"."last_name" ASC, "users"."first_name" ASC[0m
+  Rendered users/index.html.erb within layouts/application (69.2ms)
+Completed 200 OK in 114ms (Views: 108.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/admin/users/23/tests" for 127.0.0.1 at 2014-02-28 19:03:58 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"23"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mTest Load (53.7ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."user_id" = 23
+  [1m[36mOrder Load (37.6ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 22]]
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  Rendered tests/index.html.erb within layouts/application (222.3ms)
+Completed 200 OK in 292ms (Views: 169.9ms | ActiveRecord: 99.2ms)
+
+
+Started GET "/admin/users/23/tests/34/edit" for 127.0.0.1 at 2014-02-28 19:04:03 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"23", "id"=>"34"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.9ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "34"]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36mStrain Load (36.0ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (357.3ms)
+  Rendered tests/edit.html.erb within layouts/application (374.6ms)
+Completed 200 OK in 432ms (Views: 387.1ms | ActiveRecord: 41.2ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:09:34 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower"}, "update_status"=>"Update and Set Status to IN_PROGRESS", "user_id"=>"23", "id"=>"34"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "34"]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36mSQL (33.2ms)[0m  [1mUPDATE "tests" SET "status" = $1, "updated_at" = $2 WHERE "tests"."id" = 34[0m  [["status", "IN_PROGRESS"], ["updated_at", Sat, 01 Mar 2014 00:09:34 UTC +00:00]]
+  [1m[35mSQL (0.9ms)[0m  UPDATE "tests" SET "status" = $1, "updated_at" = $2, "in_progress_at" = $3 WHERE "tests"."id" = 34  [["status", "IN_PROGRESS"], ["updated_at", Sat, 01 Mar 2014 00:09:34 UTC +00:00], ["in_progress_at", Sat, 01 Mar 2014 00:09:34 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "tests" SET "in_progress_by" = $1, "updated_at" = $2 WHERE "tests"."id" = 34[0m  [["in_progress_by", 16], ["updated_at", Sat, 01 Mar 2014 00:09:34 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users/23/tests/34/edit
+Completed 302 Found in 177ms (ActiveRecord: 46.6ms)
+
+
+Started GET "/admin/users/23/tests/34/edit" for 127.0.0.1 at 2014-02-28 19:09:35 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"23", "id"=>"34"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "34"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36mStrain Load (8.6ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (56.5ms)
+  Rendered tests/edit.html.erb within layouts/application (58.1ms)
+Completed 200 OK in 92ms (Views: 76.9ms | ActiveRecord: 12.7ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:10:02 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower", "cbd"=>"", "cbn"=>"", "thc"=>"", "thcv"=>"", "cbg"=>"", "cbc"=>"", "thca"=>""}, "commit"=>"Update Test", "user_id"=>"23", "id"=>"34"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.5ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "34"]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users/23/tests/34/edit
+Completed 302 Found in 12ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/users/23/tests/34/edit" for 127.0.0.1 at 2014-02-28 19:10:02 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"23", "id"=>"34"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.7ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "34"]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 22]]
+  [1m[35mStrain Load (7.9ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered tests/_form.html.erb (44.5ms)
+  Rendered tests/edit.html.erb within layouts/application (45.5ms)
+Completed 200 OK in 83ms (Views: 69.6ms | ActiveRecord: 10.5ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:10:31 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower", "cbd"=>"12", "cbn"=>"1", "thc"=>"1", "thcv"=>"1", "cbg"=>"1", "cbc"=>"1", "thca"=>"1", "plate"=>#<ActionDispatch::Http::UploadedFile:0x007ff6721d28b8 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20140228-1126-bvomia>, @original_filename="tiny_kitten_face.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"test[plate]\"; filename=\"tiny_kitten_face.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"23", "id"=>"34"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "34"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 7ms
+
+Paperclip::Errors::MissingRequiredValidatorError (Paperclip::Errors::MissingRequiredValidatorError):
+  app/controllers/tests_controller.rb:34:in `block in update'
+  app/controllers/tests_controller.rb:33:in `update'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:11:41 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower", "cbd"=>"12", "cbn"=>"1", "thc"=>"1", "thcv"=>"1", "cbg"=>"1", "cbc"=>"1", "thca"=>"1", "plate"=>#<ActionDispatch::Http::UploadedFile:0x007ff67240fab8 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20140228-1126-8fo1tn>, @original_filename="tiny_kitten_face.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"test[plate]\"; filename=\"tiny_kitten_face.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"23", "id"=>"34"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "34"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 6ms
+
+Paperclip::Errors::MissingRequiredValidatorError (Paperclip::Errors::MissingRequiredValidatorError):
+  app/controllers/tests_controller.rb:34:in `block in update'
+  app/controllers/tests_controller.rb:33:in `update'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.9ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:24:24 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower", "cbd"=>"12", "cbn"=>"1", "thc"=>"1", "thcv"=>"1", "cbg"=>"1", "cbc"=>"1", "thca"=>"1", "plate"=>#<ActionDispatch::Http::UploadedFile:0x007ff6726e6520 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20140228-1126-146oe70>, @original_filename="tiny_kitten_face.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"test[plate]\"; filename=\"tiny_kitten_face.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"23", "id"=>"34"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "34"]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/7e0e7ffa3f5e46b7406d05db3441815420140228-1126-1m6yyxu'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja[0]'
+Command :: convert '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja[0]' -auto-orient -resize "100x100>" '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja20140228-1126-1j6vvl0'
+Command :: file -b --mime '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja20140228-1126-1j6vvl0'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja[0]'
+Command :: convert '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja[0]' -auto-orient -resize "200x200>" '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja20140228-1126-1jvwfu0'
+Command :: file -b --mime '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja20140228-1126-1jvwfu0'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja[0]'
+Command :: convert '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja[0]' -auto-orient -resize "300x300>" '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja20140228-1126-1uxtaq5'
+Command :: file -b --mime '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/f509694b491bc285f07213cf632b45d620140228-1126-l9vxja20140228-1126-1uxtaq5'
+Command :: file -b --mime-type '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/63d32fba80c551cb4d4e333bb2b9f5c920140228-1126-oohkak'
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 22]]
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 22]]
+  [1m[35mStrain Load (12.9ms)[0m  SELECT "strains".* FROM "strains" WHERE "strains"."id" = $1 ORDER BY "strains"."name" ASC LIMIT 1  [["id", 40]]
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35mStrain Load (7.9ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered tests/_form.html.erb (61.1ms)
+  Rendered tests/edit.html.erb within layouts/application (62.2ms)
+Completed 200 OK in 1337ms (Views: 88.6ms | ActiveRecord: 34.1ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:24:44 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower", "cbd"=>"12", "cbn"=>"1", "thc"=>"1", "thcv"=>"1", "cbg"=>"1", "cbc"=>"1", "thca"=>"1", "plate"=>#<ActionDispatch::Http::UploadedFile:0x007ff670fa0028 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20140228-1126-t698pe>, @original_filename="tiny_kitten_face.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"test[plate]\"; filename=\"tiny_kitten_face.jpg\"\r\nContent-Type: image/jpeg\r\n">, "qr_id"=>"148"}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"23", "id"=>"34"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "34"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35m (0.1ms)[0m  BEGIN
+Command :: file -b --mime-type '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/dc431a0a120d359e3571e897f9a31ba020140228-1126-99x9se'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc2[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc2[0]'
+Command :: convert '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc2[0]' -auto-orient -resize "100x100>" '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc220140228-1126-1rwp5js'
+Command :: file -b --mime '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc220140228-1126-1rwp5js'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc2[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc2[0]'
+Command :: convert '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc2[0]' -auto-orient -resize "200x200>" '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc220140228-1126-awqcb'
+Command :: file -b --mime '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc220140228-1126-awqcb'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc2[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc2[0]'
+Command :: convert '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc2[0]' -auto-orient -resize "300x300>" '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc220140228-1126-15bd819'
+Command :: file -b --mime '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/6a43b3a5102438ea07245395457952d520140228-1126-1dp3nc220140228-1126-15bd819'
+Command :: file -b --mime-type '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/c56befc9f369cffc7e817353db67b58b20140228-1126-1xrtwl'
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 22]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 22]]
+  [1m[35mStrain Load (0.5ms)[0m  SELECT "strains".* FROM "strains" WHERE "strains"."id" = $1 ORDER BY "strains"."name" ASC LIMIT 1  [["id", 40]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mStrain Load (7.3ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered tests/_form.html.erb (46.0ms)
+  Rendered tests/edit.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 324ms (Views: 69.4ms | ActiveRecord: 10.8ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:25:43 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower", "cbd"=>"12", "cbn"=>"1", "thc"=>"1", "thcv"=>"1", "cbg"=>"1", "cbc"=>"1", "thca"=>"1", "plate"=>#<ActionDispatch::Http::UploadedFile:0x007ff672405ba8 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20140228-1126-12uotue>, @original_filename="tiny_kitten_face.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"test[plate]\"; filename=\"tiny_kitten_face.jpg\"\r\nContent-Type: image/jpeg\r\n">, "qr_id"=>"148"}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"23", "id"=>"34"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 47ms
+
+NoMethodError (undefined method `complete?' for #<Class:0x007ff6724aa720>):
+  app/models/test.rb:30:in `<class:Test>'
+  app/models/test.rb:1:in `<top (required)>'
+  app/controllers/tests_controller.rb:70:in `set_test'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.4ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:25:57 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower", "cbd"=>"12", "cbn"=>"1", "thc"=>"1", "thcv"=>"1", "cbg"=>"1", "cbc"=>"1", "thca"=>"1", "plate"=>#<ActionDispatch::Http::UploadedFile:0x007ff6750b1c10 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20140228-1126-18eiwbs>, @original_filename="tiny_kitten_face.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"test[plate]\"; filename=\"tiny_kitten_face.jpg\"\r\nContent-Type: image/jpeg\r\n">, "qr_id"=>"148"}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"23", "id"=>"34"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 94ms
+
+NoMethodError (undefined method `complete?' for #<Class:0x007ff66ca85628>):
+  app/models/test.rb:23:in `<class:Test>'
+  app/models/test.rb:1:in `<top (required)>'
+  app/controllers/tests_controller.rb:70:in `set_test'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:27:10 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower", "cbd"=>"12", "cbn"=>"1", "thc"=>"1", "thcv"=>"1", "cbg"=>"1", "cbc"=>"1", "thca"=>"1", "plate"=>#<ActionDispatch::Http::UploadedFile:0x007ff67266c1a8 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20140228-1126-1yatm55>, @original_filename="tiny_kitten_face.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"test[plate]\"; filename=\"tiny_kitten_face.jpg\"\r\nContent-Type: image/jpeg\r\n">, "qr_id"=>"148"}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"23", "id"=>"34"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 46ms
+
+NoMethodError (undefined method `complete?' for #<Class:0x007ff6740abcf8>):
+  app/models/test.rb:30:in `<class:Test>'
+  app/models/test.rb:1:in `<top (required)>'
+  app/controllers/tests_controller.rb:70:in `set_test'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.1ms)
+
+
+Started PATCH "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:27:55 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"40", "notes"=>"banana ", "sample_type"=>"Flower", "cbd"=>"12", "cbn"=>"1", "thc"=>"1", "thcv"=>"1", "cbg"=>"1", "cbc"=>"1", "thca"=>"1", "plate"=>#<ActionDispatch::Http::UploadedFile:0x007ff670be2c88 @tempfile=#<Tempfile:/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/RackMultipart20140228-1126-1th158s>, @original_filename="tiny_kitten_face.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"test[plate]\"; filename=\"tiny_kitten_face.jpg\"\r\nContent-Type: image/jpeg\r\n">, "qr_id"=>"148"}, "update_status"=>"Update and Set Status to COMPLETE", "user_id"=>"23", "id"=>"34"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "34"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Command :: file -b --mime-type '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/40ca739d5d1473e7bb3b95504891c5d520140228-1126-11fzh7w'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-393236[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-393236[0]'
+Command :: convert '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-393236[0]' -auto-orient -resize "100x100>" '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-39323620140228-1126-4a38nt'
+Command :: file -b --mime '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-39323620140228-1126-4a38nt'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-393236[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-393236[0]'
+Command :: convert '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-393236[0]' -auto-orient -resize "200x200>" '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-39323620140228-1126-1s9j2f2'
+Command :: file -b --mime '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-39323620140228-1126-1s9j2f2'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-393236[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-393236[0]'
+Command :: convert '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-393236[0]' -auto-orient -resize "300x300>" '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-39323620140228-1126-obuwiz'
+Command :: file -b --mime '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/cb7ec18ad42a712d093337b6368a2eae20140228-1126-39323620140228-1126-obuwiz'
+Command :: file -b --mime-type '/var/folders/hk/w696xr_x70d2k8c2r7ss2sdh0000gn/T/0ca36e63f2ec06f352b882d1c6d735c620140228-1126-p2m1bu'
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36mStrain Load (0.5ms)[0m  [1mSELECT "strains".* FROM "strains" WHERE "strains"."id" = $1 ORDER BY "strains"."name" ASC LIMIT 1[0m  [["id", 40]]
+  [1m[35mSQL (1.0ms)[0m  UPDATE "tests" SET "cbd" = $1, "cbn" = $2, "thc" = $3, "thcv" = $4, "cbg" = $5, "cbc" = $6, "thca" = $7, "plate_file_name" = $8, "plate_content_type" = $9, "plate_file_size" = $10, "plate_updated_at" = $11, "status" = $12, "updated_at" = $13 WHERE "tests"."id" = 34  [["cbd", 12.0], ["cbn", 1.0], ["thc", 1.0], ["thcv", 1.0], ["cbg", 1.0], ["cbc", 1.0], ["thca", 1.0], ["plate_file_name", "tiny_kitten_face.jpg"], ["plate_content_type", "image/jpeg"], ["plate_file_size", 14727], ["plate_updated_at", Sat, 01 Mar 2014 00:27:55 UTC +00:00], ["status", "COMPLETE"], ["updated_at", Sat, 01 Mar 2014 00:27:56 UTC +00:00]]
+[paperclip] saving /tests/plates/000/000/034/original/tiny_kitten_face.jpg
+[AWS S3 200 0.806808 0 retries] put_object(:acl=>:public_read,:bucket_name=>"MedSafeLabs",:content_length=>14727,:content_type=>"image/jpeg",:data=>Paperclip::UploadedFileAdapter: tiny_kitten_face.jpg,:key=>"tests/plates/000/000/034/original/tiny_kitten_face.jpg")  
+
+[paperclip] saving /tests/plates/000/000/034/thumb/tiny_kitten_face.jpg
+[AWS S3 200 0.073508 0 retries] put_object(:acl=>:public_read,:bucket_name=>"MedSafeLabs",:content_length=>1743,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: cb7ec18ad42a712d093337b6368a2eae20140228-1126-39323620140228-1126-4a38nt,:key=>"tests/plates/000/000/034/thumb/tiny_kitten_face.jpg")  
+
+[paperclip] saving /tests/plates/000/000/034/square/tiny_kitten_face.jpg
+[AWS S3 200 0.070631 0 retries] put_object(:acl=>:public_read,:bucket_name=>"MedSafeLabs",:content_length=>4138,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: cb7ec18ad42a712d093337b6368a2eae20140228-1126-39323620140228-1126-1s9j2f2,:key=>"tests/plates/000/000/034/square/tiny_kitten_face.jpg")  
+
+[paperclip] saving /tests/plates/000/000/034/medium/tiny_kitten_face.jpg
+[AWS S3 200 0.073944 0 retries] put_object(:acl=>:public_read,:bucket_name=>"MedSafeLabs",:content_length=>7463,:content_type=>"image/jpeg",:data=>Paperclip::FileAdapter: cb7ec18ad42a712d093337b6368a2eae20140228-1126-39323620140228-1126-obuwiz,:key=>"tests/plates/000/000/034/medium/tiny_kitten_face.jpg")  
+
+  [1m[36mSQL (1.1ms)[0m  [1mUPDATE "tests" SET "cbd" = $1, "cbn" = $2, "thc" = $3, "thcv" = $4, "cbg" = $5, "cbc" = $6, "thca" = $7, "plate_file_name" = $8, "plate_content_type" = $9, "plate_file_size" = $10, "plate_updated_at" = $11, "status" = $12, "updated_at" = $13, "completed_at" = $14 WHERE "tests"."id" = 34[0m  [["cbd", 12.0], ["cbn", 1.0], ["thc", 1.0], ["thcv", 1.0], ["cbg", 1.0], ["cbc", 1.0], ["thca", 1.0], ["plate_file_name", "tiny_kitten_face.jpg"], ["plate_content_type", "image/jpeg"], ["plate_file_size", 14727], ["plate_updated_at", Sat, 01 Mar 2014 00:27:55 UTC +00:00], ["status", "COMPLETE"], ["updated_at", Sat, 01 Mar 2014 00:27:56 UTC +00:00], ["completed_at", Sat, 01 Mar 2014 00:27:57 UTC +00:00]]
+  Rendered test_mailer/results_available.html.erb (1.3ms)
+
+Sent mail to egg@test.com (430.8ms)
+Date: Fri, 28 Feb 2014 19:27:58 -0500
+From: results@medsafelabs.com
+To: egg@test.com
+Message-ID: <5311298e4897_4663ffb38401ca8772d5@Amys-MacBook-Pro.local.mail>
+Subject: Results from MedSafeLabs available
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You have testing results available</h1>
+    <p>
+      To view your results, just follow this link: <a href="/results/34">/results/34</a>.
+    </p>
+    <p>Thanks for using MedSafeLabs!</p>
+  </body>
+</html>
+  [1m[35mSQL (1.1ms)[0m  UPDATE "tests" SET "cbd" = $1, "cbn" = $2, "thc" = $3, "thcv" = $4, "cbg" = $5, "cbc" = $6, "thca" = $7, "plate_file_name" = $8, "plate_content_type" = $9, "plate_file_size" = $10, "plate_updated_at" = $11, "status" = $12, "updated_at" = $13, "completed_at" = $14, "completed_email_sent_at" = $15 WHERE "tests"."id" = 34  [["cbd", 12.0], ["cbn", 1.0], ["thc", 1.0], ["thcv", 1.0], ["cbg", 1.0], ["cbc", 1.0], ["thca", 1.0], ["plate_file_name", "tiny_kitten_face.jpg"], ["plate_content_type", "image/jpeg"], ["plate_file_size", 14727], ["plate_updated_at", Sat, 01 Mar 2014 00:27:55 UTC +00:00], ["status", "COMPLETE"], ["updated_at", Sat, 01 Mar 2014 00:27:56 UTC +00:00], ["completed_at", Sat, 01 Mar 2014 00:27:57 UTC +00:00], ["completed_email_sent_at", Sat, 01 Mar 2014 00:27:58 UTC +00:00]]
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "tests" SET "completed_by" = $1, "updated_at" = $2 WHERE "tests"."id" = 34[0m  [["completed_by", 16], ["updated_at", Sat, 01 Mar 2014 00:27:58 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users/23/tests/34
+Completed 302 Found in 2544ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/admin/users/23/tests/34" for 127.0.0.1 at 2014-02-28 19:27:58 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"23", "id"=>"34"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "34"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (0.5ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36mStrain Load (0.4ms)[0m  [1mSELECT "strains".* FROM "strains" WHERE "strains"."id" = $1 ORDER BY "strains"."name" ASC LIMIT 1[0m  [["id", 40]]
+  [1m[35mQr Load (23.9ms)[0m  SELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 ORDER BY "qrs"."id" ASC LIMIT 1  [["id", 148]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 22]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  Rendered tests/show.html.erb within layouts/application (74.9ms)
+Completed 200 OK in 118ms (Views: 83.8ms | ActiveRecord: 30.2ms)
+
+
+Started GET "/admin/users/23/tests" for 127.0.0.1 at 2014-02-28 19:29:00 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"23"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+Completed 500 Internal Server Error in 99ms
+
+ArgumentError (Unknown validator: 'SizeValidator'):
+  app/models/test.rb:27:in `<class:Test>'
+  app/models/test.rb:1:in `<top (required)>'
+  app/controllers/tests_controller.rb:11:in `index'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)
+
+
+Started GET "/admin/users/23/tests" for 127.0.0.1 at 2014-02-28 19:29:01 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"23"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+Completed 500 Internal Server Error in 11ms
+
+ArgumentError (Unknown validator: 'SizeValidator'):
+  app/models/test.rb:27:in `<class:Test>'
+  app/models/test.rb:1:in `<top (required)>'
+  app/controllers/tests_controller.rb:11:in `index'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/admin/users/23/tests" for 127.0.0.1 at 2014-02-28 19:30:13 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"23"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+Completed 500 Internal Server Error in 104ms
+
+NoMethodError (undefined method `validates_attachement_size' for #<Class:0x007ff6742daf10>):
+  app/models/test.rb:32:in `<class:Test>'
+  app/models/test.rb:1:in `<top (required)>'
+  app/controllers/tests_controller.rb:11:in `index'
+
+
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/milkgonebad/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.9ms)
+
+
+Started GET "/admin/users/23/tests" for 127.0.0.1 at 2014-02-28 19:30:30 -0500
+Processing by TestsController#index as HTML
+  Parameters: {"user_id"=>"23"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mTest Load (0.8ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."user_id" = 23[0m
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 22]]
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 27]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 27]]
+  Rendered tests/index.html.erb within layouts/application (116.8ms)
+Completed 200 OK in 193ms (Views: 140.5ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-28 19:30:37 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  Rendered tests/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 44ms (Views: 38.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/qr/112" for 127.0.0.1 at 2014-02-28 19:30:52 -0500
+Processing by QrController#index as HTML
+  Parameters: {"id"=>"112"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mQr Load (0.4ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."qr_code" = 112 LIMIT 1[0m
+  [1m[35mTest Load (0.5ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."qr_id" = 170 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL  [["user_id", 23]]
+  [1m[36mTest Load (1.0ms)[0m  [1mSELECT "tests".* FROM "tests" INNER JOIN "orders" ON "tests"."order_id" = "orders"."id" WHERE "orders"."user_id" = $1 AND "tests"."qr_id" IS NULL ORDER BY "tests"."id" ASC LIMIT 1[0m  [["user_id", 23]]
+Redirected to http://localhost:3000/admin/users/23/tests/35/edit?qr_code=112
+Completed 302 Found in 99ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/admin/users/23/tests/35/edit?qr_code=112" for 127.0.0.1 at 2014-02-28 19:30:52 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"qr_code"=>"112", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."used" IS NULL AND "qrs"."qr_code" = 112 LIMIT 1[0m
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mStrain Load (7.5ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (48.3ms)
+  Rendered tests/edit.html.erb within layouts/application (49.2ms)
+Completed 200 OK in 83ms (Views: 68.5ms | ActiveRecord: 11.1ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-28 19:31:14 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"8", "notes"=>"", "sample_type"=>"Oil", "qr_id"=>"170"}, "update_status"=>"Update and Set Status to RECEIVED", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36mSQL (47.6ms)[0m  [1mUPDATE "tests" SET "strain_id" = $1, "notes" = $2, "qr_id" = $3, "sample_type" = $4, "status" = $5, "updated_at" = $6 WHERE "tests"."id" = 35[0m  [["strain_id", 8], ["notes", ""], ["qr_id", 170], ["sample_type", "Oil"], ["status", "RECEIVED"], ["updated_at", Sat, 01 Mar 2014 00:31:14 UTC +00:00]]
+  [1m[35mQr Load (0.5ms)[0m  SELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 ORDER BY "qrs"."id" ASC LIMIT 1  [["id", 170]]
+  [1m[36mSQL (17.0ms)[0m  [1mUPDATE "qrs" SET "used" = $1, "updated_at" = $2 WHERE "qrs"."id" = 170[0m  [["used", true], ["updated_at", Sat, 01 Mar 2014 00:31:14 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users/23/tests/35
+Completed 302 Found in 85ms (ActiveRecord: 68.1ms)
+
+
+Started GET "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-28 19:31:14 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"23", "id"=>"35"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "35"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mStrain Load (0.4ms)[0m  [1mSELECT "strains".* FROM "strains" WHERE "strains"."id" = $1 ORDER BY "strains"."name" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mQr Load (1.1ms)[0m  SELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 ORDER BY "qrs"."id" ASC LIMIT 1  [["id", 170]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  Rendered tests/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 43ms (Views: 36.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/users/23/tests/35/edit" for 127.0.0.1 at 2014-02-28 19:31:41 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"23", "id"=>"35"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "35"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mStrain Load (7.6ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (108.3ms)
+  Rendered tests/edit.html.erb within layouts/application (109.5ms)
+Completed 200 OK in 144ms (Views: 131.7ms | ActiveRecord: 9.3ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-28 19:31:51 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"8", "notes"=>"", "sample_type"=>"Oil"}, "commit"=>"Update Test", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36mQr Load (0.3ms)[0m  [1mSELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 ORDER BY "qrs"."id" ASC LIMIT 1[0m  [["id", 170]]
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users/23/tests/35
+Completed 302 Found in 11ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-28 19:31:51 -0500
+Processing by TestsController#show as HTML
+  Parameters: {"user_id"=>"23", "id"=>"35"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.4ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "35"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mStrain Load (0.4ms)[0m  [1mSELECT "strains".* FROM "strains" WHERE "strains"."id" = $1 ORDER BY "strains"."name" ASC LIMIT 1[0m  [["id", 8]]
+  [1m[35mQr Load (0.3ms)[0m  SELECT "qrs".* FROM "qrs" WHERE "qrs"."id" = $1 ORDER BY "qrs"."id" ASC LIMIT 1  [["id", 170]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  Rendered tests/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 42ms (Views: 36.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/users/23/tests/35/edit" for 127.0.0.1 at 2014-02-28 19:31:53 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"23", "id"=>"35"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "35"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mStrain Load (7.9ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (109.3ms)
+  Rendered tests/edit.html.erb within layouts/application (110.4ms)
+Completed 200 OK in 144ms (Views: 132.3ms | ActiveRecord: 9.7ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-28 19:31:54 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"8", "notes"=>"", "sample_type"=>"Oil"}, "update_status"=>"Update and Set Status to IN_PROGRESS", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "tests" SET "status" = $1, "updated_at" = $2 WHERE "tests"."id" = 35[0m  [["status", "IN_PROGRESS"], ["updated_at", Sat, 01 Mar 2014 00:31:54 UTC +00:00]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "tests" SET "status" = $1, "updated_at" = $2, "in_progress_at" = $3 WHERE "tests"."id" = 35  [["status", "IN_PROGRESS"], ["updated_at", Sat, 01 Mar 2014 00:31:54 UTC +00:00], ["in_progress_at", Sat, 01 Mar 2014 00:31:54 UTC +00:00]]
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "tests" SET "in_progress_by" = $1, "updated_at" = $2 WHERE "tests"."id" = 35[0m  [["in_progress_by", 16], ["updated_at", Sat, 01 Mar 2014 00:31:54 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users/23/tests/35/edit
+Completed 302 Found in 17ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/admin/users/23/tests/35/edit" for 127.0.0.1 at 2014-02-28 19:31:54 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"23", "id"=>"35"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mTest Load (0.3ms)[0m  SELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1  [["id", "35"]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 23]]
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mStrain Load (8.6ms)[0m  [1mSELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC[0m
+  Rendered tests/_form.html.erb (45.8ms)
+  Rendered tests/edit.html.erb within layouts/application (46.6ms)
+Completed 200 OK in 79ms (Views: 66.2ms | ActiveRecord: 10.3ms)
+
+
+Started PATCH "/admin/users/23/tests/35" for 127.0.0.1 at 2014-02-28 19:33:55 -0500
+Processing by TestsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uhNGrRPr1NJNfrahI1St2nDwXafWxOBbBB45ac3zhME=", "test"=>{"strain_id"=>"8", "notes"=>"", "sample_type"=>"Oil", "cbd"=>"", "cbn"=>"", "thc"=>"", "thcv"=>"", "cbg"=>"", "cbc"=>"", "thca"=>""}, "commit"=>"Update Test", "user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.4ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1  [["id", 23]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 16]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users/23/tests/35/edit
+Completed 302 Found in 92ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/admin/users/23/tests/35/edit" for 127.0.0.1 at 2014-02-28 19:33:56 -0500
+Processing by TestsController#edit as HTML
+  Parameters: {"user_id"=>"23", "id"=>"35"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTest Load (0.3ms)[0m  [1mSELECT "tests".* FROM "tests" WHERE "tests"."id" = $1 LIMIT 1[0m  [["id", "35"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = $1 ORDER BY "orders"."id" ASC LIMIT 1[0m  [["id", 23]]
+  [1m[35mStrain Load (7.6ms)[0m  SELECT "strains".* FROM "strains" ORDER BY "strains"."name" ASC
+  Rendered tests/_form.html.erb (109.6ms)
+  Rendered tests/edit.html.erb within layouts/application (110.6ms)
+Completed 200 OK in 144ms (Views: 129.2ms | ActiveRecord: 12.1ms)
