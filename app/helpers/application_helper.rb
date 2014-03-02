@@ -11,4 +11,10 @@ module ApplicationHelper
     end
   end
   
+  def display_env
+    unless Rails.env.production?
+      " - " + Rails.env.capitalize
+    end
+  end
+  
 end
