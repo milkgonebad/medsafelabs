@@ -22,7 +22,7 @@ class QrCodesController < ApplicationController
     end
     format_codes
     respond_to do |format|
-      format.html
+      format.html { render "qr_codes/print_codes"}
       format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }
     end
   end
@@ -50,6 +50,7 @@ class QrCodesController < ApplicationController
       data = RQRCode.render_qrcode(qr.generate, :png, {:unit => 3})
       filename = "/qr_codes/qr_code" + i.to_s + ".png"
       File.open("public" + filename, 'w+b') {|f| f.write(data) }
+      logger.info "Created the following QR image:  " << filename
       @qr_info << ['MedSafeLabs ' + qr.qr_code.to_s, filename]
     end
   end

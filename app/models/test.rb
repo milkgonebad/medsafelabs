@@ -21,12 +21,7 @@ class Test < ActiveRecord::Base
   validates :sample_type, presence: true, if: :received?
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, numericality: { less_than_or_equal_to: 50.00 }, allow_blank: true
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, :strain, :sample_type, presence: true, if: :complete? 
-  
-  #FIXME:  the content type and size validations are not working 
-  # see https://github.com/thoughtbot/paperclip/issues/1292
   validates :plate, :attachment_presence => true, if: :complete?
-  #validates_attachment :plate, :presence => true, :content_type => { :content_type => ["image/jpg", "image/gif", "image/png"] },
-  #   :size => { :in => 0..10.kilobytes }, if: :complete? 
   validates_attachment_content_type :plate, :content_type => %w(image/jpeg image/jpg image/png image/gif), if: :complete?
   validates_attachment_file_name :plate, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/], if: :complete?
   validates_attachment_size :plate, :in => 0..10.kilobytes, if: :complete?
