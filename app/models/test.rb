@@ -21,6 +21,8 @@ class Test < ActiveRecord::Base
   validates :sample_type, presence: true, if: :received?
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, numericality: { less_than_or_equal_to: 50.00 }, allow_blank: true
   validates :cbd, :cbn, :thc, :thcv, :cbg, :cbc, :thca, :strain, :sample_type, presence: true, if: :complete? 
+  
+  #FIXME we should be able to roll all of these paper clip validations together but they don't seem to be working
   validates :plate, :attachment_presence => true, if: :complete?
   validates_attachment_content_type :plate, :content_type => %w(image/jpeg image/jpg image/png image/gif), if: :complete?
   validates_attachment_file_name :plate, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/], if: :complete?
@@ -35,12 +37,13 @@ class Test < ActiveRecord::Base
   scope :in_progress, -> { where status: STATUSES[:in_progress] }
   scope :complete, -> { where status: STATUSES[:complete] }
   
-  attr_accessor :updated_by
+  attr_accessor :updated_by, :new_strain
   
   after_initialize do |t|
     t.status = STATUSES[:not_received] if t.status.nil?
   end
   
+  before_validation :add_new_strain, if: "new_strain.present?" # I don't know how I feel about using string eval
   after_save :update_status_timestamps
   
   after_save do |t| 
@@ -108,6 +111,17 @@ class Test < ActiveRecord::Base
             update_attribute(:completed_at, Time.now) 
             update_attribute(:completed_by, updated_by.id) 
           end
+      end
+    end
+  end
+  
+  def add_new_strain
+    if new_strain.present? 
+      if Strain.where(name: new_strain).empty?
+        self.strain = Strain.create!(name: new_strain)
+      else
+        errors.add(:new_strain, "already exists.")
+        false
       end
     end
   end

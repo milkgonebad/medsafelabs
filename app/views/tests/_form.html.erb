@@ -16,6 +16,7 @@
   	<% end %>
   	
   	<%= f.input :strain_id, :collection => Strain.all, :selected => @test.strain_id, :include_blank => true %>
+  	<%= f.input :new_strain, label: "New Strain*", hint:  "*Only use this field when the specified strain isn't in our list."%>
   	<%= f.input :notes %>
   	<%= f.input :sample_type, :label => "Sample Type", :collection => Test::SAMPLE_TYPES, :selected => @test.sample_type, :include_blank => true %>
   	

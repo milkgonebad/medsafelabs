@@ -77,7 +77,7 @@ class TestsController < ApplicationController
 
     def test_params
       params.require(:test).permit(
-        :status, :strain_id, :notes, :qr_id, :sample_type, :cbd, 
+        :status, :strain_id, :new_strain, :notes, :qr_id, :sample_type, :cbd, 
         :cbn, :thc, :thcv, :cbg, :cbc, :thca, :plate, :update_status)
     end
 
