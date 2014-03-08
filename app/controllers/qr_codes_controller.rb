@@ -46,17 +46,15 @@ class QrCodesController < ApplicationController
 
   def format_codes
     @qr_info = []
-    begin
-      @codes.each_with_index do |qr, i|
-        data = RQRCode.render_qrcode(qr.generate, :png, {:unit => 3})
-        filename = "/qr_codes/qr_code" + i.to_s + ".png"
-        File.open("public" + filename, 'w+b') {|f| f.write(data) }
-        logger.info "Created the following QR image:  " << filename
-        @qr_info << ['MedSafeLabs ' + qr.qr_code.to_s, filename]
-      end
-    rescue e
-      msg = "Formatting and saving QR codes to disk failed.  Error:  " << e.message
-      ExceptionNotifier.notify_exception(e, data: {message: msg})
+    s3 = AWS::S3.new
+    bucket = s3.buckets['MedSafeLabs']
+    @codes.each_with_index do |qr, i|
+      img_name = 'qr_code' + i.to_s + '.png'
+      data = RQRCode.render_qrcode(qr.generate, :png, {:unit => 3})
+      img = bucket.objects[img_name].write(data)
+      url = img.url_for(:read)
+      logger.info "Created the following QR image:  " << img_name << " with url:  " << url.to_s
+      @qr_info << ['MedSafeLabs ' + qr.qr_code.to_s, url.to_s]
     end
   end
 

@@ -120,3 +120,15 @@ DONE
 --> test pushing db to heroku to make sure sequence id is working
 --> Check that user fields are being set
 
+
+
+24 images up on Amazon
+
+qr images
+
+
+qr_image - has an image
+
+
+
+
