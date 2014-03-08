@@ -47,7 +47,7 @@ class QrCodesController < ApplicationController
   def format_codes
     @qr_info = []
     s3 = AWS::S3.new
-    bucket = s3.buckets['MedSafeLabs']
+    bucket = s3.buckets[ENV['S3_BUCKET_NAME']]
     @codes.each_with_index do |qr, i|
       img_name = 'qr_code' + i.to_s + '.png'
       data = RQRCode.render_qrcode(qr.generate, :png, {:unit => 3})
