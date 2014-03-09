@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   validates :email, :first_name, :last_name, presence: true
   validates :email, uniqueness:  { case_sensitive: false }
+  validates :ccm_handle, uniqueness:  { case_sensitive: false }, length: { maximum: 100 } 
   validates :address1, :city, :state, presence: true, unless: Proc.new { |a| a.admin? }
   validates :control_number, numericality: { only_integer: true }, allow_nil: true, unless: Proc.new { |a| a.admin?}
   validates :postal_code, format: {with: /\A\d{5}\z/}, presence: true, unless: Proc.new { |a| a.admin?}
@@ -27,6 +28,7 @@ class User < ActiveRecord::Base
   
   before_save do |u|
     u.email.downcase! if u.email
+    u.ccm_handle.downcase if u.ccm_handle
   end
   
   # default the user to active

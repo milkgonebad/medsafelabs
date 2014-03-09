@@ -15,6 +15,7 @@
     <%= f.input :city, required: true %>
     <%= f.input :state, :collection => STATES.invert, :selected => @user.state, :include_blank => true, required: true %>
     <%= f.input :postal_code, label: 'Postal Code', required: true, :input_html => {maxlength: 5, size: 5} %>
+    <%= f.input :ccm_handle, label: 'Compassionate Caregivers of Maine (CCM) Forum Handle (if applicable)' %>
     <%= f.input :registration_number, :label => 'Patient/State Caregiver/Dispensary Registration #' %>
     <%= f.input :control_number, :label => 'Control #' %>
     <%= f.input :expires_on, as: :date, required: true, order: [:month, :day, :year], value: nil, label: 'Registration Expiration Date', include_blank: true, start_year: Date.today.year, end_year: Date.today.year + 10 %>
