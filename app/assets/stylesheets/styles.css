@@ -1,0 +1,54 @@
+body {
+	font-family: Arial, sans-serif;
+	line-height: 14px;
+	font-size: 14px;
+}
+
+a {
+    color: #339900;
+    outline: medium none;
+}
+a:hover {
+	color: #ff0000;
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 22px;
+	color: #339900;
+    font-weight: bold;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+
+button, input, textarea {
+    border: 1px solid #888;
+    border-radius: 3px;
+    font-family: inherit;
+    padding: 6px;
+}
+
+input.formField {
+	width: 250px;
+	margin-top: 2px;
+}
+
+.table {
+	width: 100%;
+	text-align: left;
+}
+
+.testText {
+	float: left; 
+	display: inline;
+}
+.testPhoto {
+	float: right; 
+	display: inline;
+}
+
+.floatLeft {
+	float:left;
+	display:inline;
+	width:300px;
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227015219) do
+ActiveRecord::Schema.define(version: 20140308221117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20140227015219) do
     t.datetime "completed_email_sent_at"
     t.integer  "qr_id"
     t.integer  "strain_id"
+    t.text     "customer_notes"
   end
 
   add_index "tests", ["strain_id"], name: "index_tests_on_strain_id", using: :btree
