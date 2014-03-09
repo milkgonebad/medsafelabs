@@ -29,6 +29,7 @@ MedSafeLabs::Application.routes.draw do
   get '/dashboard' => 'dashboard#index'
   get '/qr/:id' => 'qr#index'
   get '/admin/qr_codes/print_codes' => 'qr_codes#print_codes'
+  get '/admin/qr_codes/image/:id' => 'qr_codes#image'
   get '/admin/users/:id/reinvite', to: 'users#reinvite', as: :reinvite
   get '/admin/users/:id/reactivate', to: 'users#reactivate', as: :reactivate
   get '/admin/administrators/:id/reactivate', to: 'administrators#reactivate', as: :reactivate_administrator

@@ -41,21 +41,29 @@ class QrCodesController < ApplicationController
     flash[:notice] = "Results of QR Code Import:  " + num_created.to_s + " created, " + num_exists.to_s + " already existed."
     redirect_to :action => :index and return
   end
+  
+  def image
+    image = QrImage.find(params[:id])
+    send_data image.data, :type => 'image/png', :disposition => 'inline'
+  end
 
   private
 
   def format_codes
     @qr_info = []
-    s3 = AWS::S3.new
-    bucket = s3.buckets[ENV['S3_BUCKET_NAME']]
+    #s3 = AWS::S3.new
+    #bucket = s3.buckets[ENV['S3_BUCKET_NAME']]
+    QrImage.destroy_all # cleanup
     @codes.each_with_index do |qr, i|
       img_name = 'qr_code' + i.to_s + '.png'
       data = RQRCode.render_qrcode(qr.generate, :png, {:unit => 3})
-      img = bucket.objects[img_name].write(data)
-      url = img.url_for(:read)
-      logger.info "Created the following QR image:  " << img_name << " with url:  " << url.to_s
-      @qr_info << ['MedSafeLabs ' + qr.qr_code.to_s, url.to_s]
+      #img = bucket.objects[img_name].write(data)
+      #url = img.url_for(:read)
+      #logger.info "Created the following QR image:  " << img_name << " with url:  " << url.to_s
+      #@qr_info << ['MedSafeLabs ' + qr.qr_code.to_s, url.to_s]
+      @qr_info << QrImage.create!(count: i, qr_id: qr.id, name: 'MedSafeLabs ' + qr.qr_code.to_s, data: data)  
     end
+    puts @qr_info.inspect
   end
 
   def qr_code_params
