@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= @model_class.human_attribute_name(:id) %></th>
+      <th><%= @model_class.human_attribute_name(:strain) %></th>
+      <th><%= @model_class.human_attribute_name(:status) %></th>
+      <th><%= @model_class.human_attribute_name(:order) %></th>
+      <th><%= @model_class.human_attribute_name(:last_updated) %></th>
+      <th><%= t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tests.each do |test| %>
+      <tr>
+        <td><%= link_to test.id, result_path(test) %></td>
+        <td><%= test.strain_name %></td>
+        <td><%= test.status %></td>
+        <td><%= test.order_id %></td>
+        <td><%=l test.updated_at %></td>
+        <td>
+          <%= link_to t('.view', :default => t("helpers.links.view")),
+                      result_path(test), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

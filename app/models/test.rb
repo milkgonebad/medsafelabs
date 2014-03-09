@@ -36,6 +36,7 @@ class Test < ActiveRecord::Base
   scope :received, -> { where status: STATUSES[:received] }
   scope :in_progress, -> { where status: STATUSES[:in_progress] }
   scope :complete, -> { where status: STATUSES[:complete] }
+  scope :used, -> { where "status != ?", STATUSES[:not_received] }
   
   attr_accessor :updated_by, :new_strain
   

@@ -1,11 +1,13 @@
 <div class="page-header">
-  <h1>Dashboard></h1>
-</div
+  <h1>Dashboard</h1>
+</div>
 
-<% if current_user.tests.empty? %>
-	Welcome <%= full_name %>!  It looks like you don't have any tests yet.  
+<% if @tests.empty? %>
+	<p>Welcome <%= full_name %>!  It looks like you don't have any tests yet.</p>  
 <% else %>
-
+	<p>Here are up to five of your most recently updated tests that are either active or complete.</p>
+	<%- @model_class = Test -%>
+	<%= render :partial => 'results/listing_table' %>
 <% end %>
 
 <br>

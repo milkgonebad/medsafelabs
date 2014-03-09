@@ -14,6 +14,7 @@ class DashboardController < ApplicationController
     @received = current_user.tests.received
     @in_progress = current_user.tests.in_progress
     @complete = current_user.tests.complete
+    @tests = current_user.tests.used.order(updated_at: :desc).limit(5)
     render 'customer_view'
   end
   
