@@ -1,28 +1,33 @@
-<h1>Listing Tests for <%= @customer.first_name %> <%= @customer.last_name %></h1>
+<%- model_class = Test -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Created At</th>
-      <th>Status</th>
-      <th>Order ID</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:strain) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:order) %></th>
+      <th><%= model_class.human_attribute_name(:last_updated) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @tests.each do |test| %>
       <tr>
-      	<td><%= test.created_at %></td>
-      	<td><%= test.status %></td>
-      	<td><%= link_to test.order_id, purchase_path(test.order) %></td>
-        <td><%= link_to 'Show', result_path(test) %></td>
+        <td><%= link_to test.id, result_path(test) %></td>
+        <td><%= test.strain_name %></td>
+        <td><%= test.status %></td>
+        <td><%= test.order_id %></td>
+        <td><%=l test.updated_at %></td>
+        <td>
+          <%= link_to t('.view', :default => t("helpers.links.view")),
+                      result_path(test), :class => 'btn btn-mini' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
 

@@ -1,5 +1,12 @@
-<h1>Dashboard</h1>
+<div class="page-header">
+  <h1>Dashboard></h1>
+</div
 
-Customer view!  Perhaps we'll show the latest test results here.
+<% if current_user.tests.empty? %>
+	Welcome <%= full_name %>!  It looks like you don't have any tests yet.  
+<% else %>
+
+<% end %>
+
 <br>
 <br>

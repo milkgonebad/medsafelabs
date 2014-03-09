@@ -90,6 +90,11 @@ class Test < ActiveRecord::Base
     '/results/' + id.to_s
   end
   
+  # FIXME:  This should go a in a helper too
+  def strain_name
+    strain.present? ? strain.name : ""
+  end
+  
   protected
   
   #FIXME:  Yep, ugly!

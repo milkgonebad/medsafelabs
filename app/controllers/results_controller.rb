@@ -8,7 +8,7 @@ class ResultsController < ApplicationController
   end
 
   def index
-    @tests = current_user.tests
+    @tests = current_user.tests.order(updated_at: :desc)
     @customer = current_user
   end
   
