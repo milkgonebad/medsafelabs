@@ -20,7 +20,7 @@ class QrCodesController < ApplicationController
     24.times do
       @codes << Qr.create_brand_new
     end
-    format_codes
+    #format_codes
     respond_to do |format|
       format.html { render "qr_codes/print_codes"}
       format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }
@@ -43,8 +43,9 @@ class QrCodesController < ApplicationController
   end
   
   def image
-    image = QrImage.find(params[:id])
-    send_data image.data, :type => 'image/png', :disposition => 'inline'
+    qr = Qr.find(params[:id])
+    data = RQRCode.render_qrcode(qr.generate, :png, {:unit => 3})
+    send_data data, :type => 'image/png', :disposition => 'inline'
   end
 
   private
@@ -53,7 +54,7 @@ class QrCodesController < ApplicationController
     @qr_info = []
     #s3 = AWS::S3.new
     #bucket = s3.buckets[ENV['S3_BUCKET_NAME']]
-    QrImage.destroy_all # cleanup
+    #QrImage.destroy_all # cleanup
     @codes.each_with_index do |qr, i|
       img_name = 'qr_code' + i.to_s + '.png'
       data = RQRCode.render_qrcode(qr.generate, :png, {:unit => 3})
@@ -61,9 +62,9 @@ class QrCodesController < ApplicationController
       #url = img.url_for(:read)
       #logger.info "Created the following QR image:  " << img_name << " with url:  " << url.to_s
       #@qr_info << ['MedSafeLabs ' + qr.qr_code.to_s, url.to_s]
-      @qr_info << QrImage.create!(count: i, qr_id: qr.id, name: 'MedSafeLabs ' + qr.qr_code.to_s, data: data)  
+      @qr_info << QrImage.create!(count: i, qr_id: qr.id, name: 'MedSafeLabs ' + qr.qr_code.to_s, data: data) 
+       
     end
-    puts @qr_info.inspect
   end
 
   def qr_code_params
