@@ -44,6 +44,10 @@ git push heroku master - prod http://medsafelabs.herokuapp.com
 heroku run rake db:migrate --remote staging
 heroku run rake db:migrate --remote heroku
 
+heroku run rake db:rollback --remote staging
+heroku run rake db:rollback --remote heroku
+
+
 get logs
 heroku logs --remote staging
 

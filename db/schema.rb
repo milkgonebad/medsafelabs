@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309220113) do
+ActiveRecord::Schema.define(version: 20140310235525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delayed_jobs", force: true do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "orders", force: true do |t|
     t.text     "memo"
@@ -25,15 +41,6 @@ ActiveRecord::Schema.define(version: 20140309220113) do
     t.integer  "quantity"
     t.float    "total"
     t.integer  "created_by"
-  end
-
-  create_table "qr_images", force: true do |t|
-    t.integer  "count"
-    t.integer  "qr_id"
-    t.string   "name"
-    t.binary   "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "qrs", force: true do |t|

@@ -29,7 +29,7 @@ class QrCodesController < ApplicationController
   
   def print_existing_codes
     @codes = Qr.available.limit(24)
-    format_codes
+    #format_codes
     respond_to do |format|
       format.html { render "qr_codes/print_codes"}
       format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }
