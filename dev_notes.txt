@@ -49,7 +49,8 @@ heroku run rake db:rollback --remote heroku
 
 
 get logs
-heroku logs --remote staging
+heroku logs --remote staging  #staging
+heroku logs --remote heroku   #production
 
 show number of lines:
 heroku logs -n 500 --remote staging
