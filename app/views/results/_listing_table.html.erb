@@ -5,7 +5,9 @@
       <th><%= @model_class.human_attribute_name(:strain) %></th>
       <th><%= @model_class.human_attribute_name(:status) %></th>
       <th><%= @model_class.human_attribute_name(:order) %></th>
-      <th><%= @model_class.human_attribute_name(:last_updated) %></th>
+      <% unless params[:controller] == 'dashboard' %>
+      	<th><%= @model_class.human_attribute_name(:last_updated) %></th>
+      <% end %>
       <th><%= t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -16,7 +18,9 @@
         <td><%= test.strain_name %></td>
         <td><%= test.status %></td>
         <td><%= test.order_id %></td>
-        <td><%=l test.updated_at %></td>
+        <% unless params[:controller] == 'dashboard' %>
+        	<td><%=l test.updated_at %></td>
+        <% end %>
         <td>
           <%= link_to t('.view', :default => t("helpers.links.view")),
                       result_path(test), :class => 'btn btn-mini' %>
