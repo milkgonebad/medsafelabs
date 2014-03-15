@@ -61,6 +61,8 @@ heroku run console --remote staging
 heroku restart --remote staging
 
 
+test
+
 
 
 
