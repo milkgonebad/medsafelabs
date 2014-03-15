@@ -16,6 +16,7 @@ module MedSafeLabs
       Devise::UnlocksController.layout "home"            
       Devise::PasswordsController.layout "home" 
       Devise::InvitationsController.layout "home"
+      Devise::Mailer.layout "mailer"
     end
     
   end
