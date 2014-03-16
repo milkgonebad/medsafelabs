@@ -23,8 +23,10 @@ class QrCodesController < ApplicationController
       @codes << Qr.create_brand_new
     end
     if params[:format] == 'pdf'
-      Qr.delay.generate_pdf_file(@codes, current_user.email)
-      flash[:notice] = "Check your email for the qr codes pdf file."
+      codes = []
+      @codes.each {|c| codes << c.id}
+      Delayed::Job.enqueue PdfJob.new(codes, current_user.email)
+      flash[:notice] = "Check your email for the qr codes pdf file.  This was mailed to:  " << current_user.email
       redirect_to :action => :index and return
     else
       respond_to do |format|
@@ -37,7 +39,9 @@ class QrCodesController < ApplicationController
   def print_existing_codes
     @codes = Qr.available.limit(24)
     if params[:format] == 'pdf'
-      Qr.delay.generate_pdf_file(@codes, current_user.email)
+      codes = []
+      @codes.each {|c| codes << c.id}
+      Delayed::Job.enqueue PdfJob.new(codes, current_user.email)
       flash[:notice] = "Check your email for the qr codes pdf file.  This was mailed to:  " << current_user.email
       redirect_to :action => :index and return
     else

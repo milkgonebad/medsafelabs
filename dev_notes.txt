@@ -45,3 +45,7 @@ heroku run console --remote staging
 
 Restart
 heroku restart --remote staging
+
+Testing Delayed job
+
+Delayed::Job.last.invoke_job

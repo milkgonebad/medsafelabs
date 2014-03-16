@@ -9,7 +9,7 @@
 <br/>
 <p><b>Generate PDF version of QR codes in the background</b></p>
 <p>A link will be emailed to you.  Check your mail soon as the link will expire in one hour.</p>
-<p><%= link_to "Render New QR Codes in PDF", url_for(:action => :print_new_codes, :format => :pdf) %></p>
+<p><%= link_to "Generate New QR Codes in PDF", url_for(:action => :print_new_codes, :format => :pdf) %></p>
 <% unless @qr.nil? %>
 	<p><%= link_to "Render Existing QR Codes in PDF", url_for(:action => :print_existing_codes, :format => :pdf) %></p>
 <% end %>
