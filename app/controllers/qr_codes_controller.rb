@@ -15,24 +15,36 @@ class QrCodesController < ApplicationController
     end
   end
   
+  #FIXME:  Please dry these up
+  
   def print_new_codes
     @codes = []
     24.times do
       @codes << Qr.create_brand_new
     end
-    #format_codes
-    respond_to do |format|
-      format.html { render "qr_codes/print_codes"}
-      format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }
+    if params[:format] == 'pdf'
+      Qr.delay.generate_pdf_file(@codes, current_user.email)
+      flash[:notice] = "Check your email for the qr codes pdf file."
+      redirect_to :action => :index and return
+    else
+      respond_to do |format|
+        format.html { render "qr_codes/print_codes"}
+        #format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }
+      end
     end
   end
   
   def print_existing_codes
     @codes = Qr.available.limit(24)
-    #format_codes
-    respond_to do |format|
-      format.html { render "qr_codes/print_codes"}
-      format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }
+    if params[:format] == 'pdf'
+      Qr.delay.generate_pdf_file(@codes, current_user.email)
+      flash[:notice] = "Check your email for the qr codes pdf file."
+      redirect_to :action => :index and return
+    else
+      respond_to do |format|
+        format.html { render "qr_codes/print_codes"}
+        # format.pdf  { render :pdf => "print_codes", :template => "qr_codes/print_codes.pdf.erb" }
+      end
     end
   end
   
@@ -52,18 +64,15 @@ class QrCodesController < ApplicationController
 
   def format_codes
     @qr_info = []
-    #s3 = AWS::S3.new
-    #bucket = s3.buckets[ENV['S3_BUCKET_NAME']]
-    #QrImage.destroy_all # cleanup
+    s3 = AWS::S3.new
+    bucket = s3.buckets[ENV['S3_BUCKET_NAME']]
     @codes.each_with_index do |qr, i|
       img_name = 'qr_code' + i.to_s + '.png'
       data = RQRCode.render_qrcode(qr.generate, :png, {:unit => 3})
-      #img = bucket.objects[img_name].write(data)
-      #url = img.url_for(:read)
+      img = bucket.objects[img_name].write(data)
+      url = img.url_for(:read)
       #logger.info "Created the following QR image:  " << img_name << " with url:  " << url.to_s
-      #@qr_info << ['MedSafeLabs ' + qr.qr_code.to_s, url.to_s]
-      @qr_info << QrImage.create!(count: i, qr_id: qr.id, name: 'MedSafeLabs ' + qr.qr_code.to_s, data: data) 
-       
+      @qr_info << ['MedSafeLabs ' + qr.qr_code.to_s, url.to_s] 
     end
   end
 
