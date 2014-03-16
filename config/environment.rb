@@ -4,15 +4,15 @@ require File.expand_path('../application', __FILE__)
 # Initialize the Rails application.
 MedSafeLabs::Application.initialize!
 
-if ENV['MAILTRAP_HOST'].present?
-    ActionMailer::Base.smtp_settings = {
-      :user_name => ENV['MAILTRAP_USER_NAME'],
-      :password => ENV['MAILTRAP_PASSWORD'],
-      :address => ENV['MAILTRAP_HOST'],
-      :port => ENV['MAILTRAP_PORT'],
-      :authentication => :plain
-  }
-else
+# if ENV['MAILTRAP_HOST'].present?
+    # ActionMailer::Base.smtp_settings = {
+      # :user_name => ENV['MAILTRAP_USER_NAME'],
+      # :password => ENV['MAILTRAP_PASSWORD'],
+      # :address => ENV['MAILTRAP_HOST'],
+      # :port => ENV['MAILTRAP_PORT'],
+      # :authentication => :plain
+  # }
+# else
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
@@ -22,4 +22,4 @@ else
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
-end
+# end
