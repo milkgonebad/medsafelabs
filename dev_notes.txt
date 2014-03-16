@@ -34,6 +34,12 @@ heroku logs -n 500 --remote staging
 Or tail
 heroku logs --tail --remote staging
 
+View Worker logs
+heroku logs -p worker --remote staging
+
+Check which dynos/workers are running
+heroku ps --remote staging
+
 Console mode
 heroku run console --remote staging
 

@@ -46,7 +46,7 @@ class Qr < ActiveRecord::Base
     end
     # now using the codes, generate the pdf
     # create an instance of ActionView, so we can use the render method outside of a controller
-    av = ActionView::Base.new()
+    av = ActionView::Base.new
     av.view_paths = ActionController::Base.view_paths
 
     # need these in case your view constructs any links or references any helper methods.

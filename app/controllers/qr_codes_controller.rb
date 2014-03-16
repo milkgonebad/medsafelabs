@@ -38,7 +38,7 @@ class QrCodesController < ApplicationController
     @codes = Qr.available.limit(24)
     if params[:format] == 'pdf'
       Qr.delay.generate_pdf_file(@codes, current_user.email)
-      flash[:notice] = "Check your email for the qr codes pdf file."
+      flash[:notice] = "Check your email for the qr codes pdf file.  This was mailed to:  " << current_user.email
       redirect_to :action => :index and return
     else
       respond_to do |format|
