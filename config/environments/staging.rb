@@ -92,17 +92,6 @@ MedSafeLabs::Application.configure do
   
 end
 
-if ENV['MAILTRAP_HOST'].present?
-    ActionMailer::Base.delivery_method = :smtp
-    ActionMailer::Base.smtp_settings = {
-      :user_name => ENV['MAILTRAP_USER_NAME'],
-      :password => ENV['MAILTRAP_PASSWORD'],
-      :address => ENV['MAILTRAP_HOST'],
-      :port => ENV['MAILTRAP_PORT'],
-      :authentication => :plain
-  }
-end
-
 MedSafeLabs::Application.config.middleware.use ExceptionNotification::Rack,
   :email => {
     :email_prefix => "[ERROR MedSafeLabs STAGING] ",
