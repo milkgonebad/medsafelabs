@@ -59,7 +59,7 @@
               <% end %>
               <% if current_user.customer? %>
               	<li><%= link_to "My Tests", results_path %></li>
-              	<li><%= link_to "My Orders", "/dashboard" %></li>
+              	<li><%= link_to "My Orders", my_orders_path %></li>
               <% end %>
               <% if current_user.admin? %>
               	<li><%= link_to "QR Codes", qr_codes_path %></li>

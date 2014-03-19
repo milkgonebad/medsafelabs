@@ -34,7 +34,7 @@ MedSafeLabs::Application.routes.draw do
   get '/admin/users/:id/reactivate', to: 'users#reactivate', as: :reactivate
   get '/admin/administrators/:id/reactivate', to: 'administrators#reactivate', as: :reactivate_administrator
   
-  resources :results, :purchases, :strains
+  resources :results, :purchases, :strains, :my_orders
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

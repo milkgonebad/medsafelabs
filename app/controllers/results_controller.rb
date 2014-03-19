@@ -4,11 +4,14 @@ class ResultsController < ApplicationController
   
   # this is the url that we'll put in the email with results
   def show
-    render 'tests/show'
   end
 
   def index
-    @tests = current_user.tests.order(updated_at: :desc)
+    if params[:order_id].present?
+      @tests = current_user.tests.where(order_id: params[:order_id]).order(updated_at: :desc)
+    else  
+      @tests = current_user.tests.order(updated_at: :desc)
+    end
     @customer = current_user
   end
   
@@ -30,7 +33,7 @@ class ResultsController < ApplicationController
   end
   
   def results_params
-    params.require(:id)
+    params.require(:id, :order_id)
   end
   
 end

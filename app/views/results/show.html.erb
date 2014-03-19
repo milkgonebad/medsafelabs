@@ -1,2 +1,108 @@
-<h1>Results#show</h1>
-<p>Find me in app/views/results/show.html.erb</p>
+<h1>Test Results</h1>
+
+<p>
+  <strong>Order #</strong>
+  <%= link_to @test.order_id, my_order_path(@test.order) %>
+</p>
+
+<p>
+  <strong>Status</strong>
+  <%= @test.status %>
+</p>
+
+<p>
+  <strong>Strain</strong>
+  <%= @test.strain.name unless @test.strain.nil? %>
+</p>
+
+<p>
+  <strong>Notes</strong>
+  <%= @test.notes %>
+</p>
+
+<p>
+  <strong>Customer Notes</strong>
+  <%= @test.customer_notes %>
+</p>
+
+<p>
+  <strong>Sample Type</strong>
+  <%= @test.sample_type %>
+</p>
+
+<% unless @test.not_received? %>
+	<p>
+	  <strong>QR Code</strong>
+	  <%= @test.qr.qr_code %>
+	</p>
+<% end %>
+
+<% if @test.complete? or @test.in_progress? %>
+	<p>
+	  <strong>CBD</strong>
+	  <%= @test.cbd %>%
+	</p>
+	<p>
+	  <strong>CBN</strong>
+	  <%= @test.cbn %>%
+	</p>
+	<p>
+	  <strong>THC</strong>
+	  <%= @test.thc %>%
+	</p>
+	<p>
+	  <strong>THCV</strong>
+	  <%= @test.thcv %>%
+	</p>
+	<p>
+	  <strong>CBG</strong>
+	  <%= @test.cbg %>%
+	</p>
+	<p>
+	  <strong>CBC</strong>
+	  <%= @test.cbc %>%
+	</p>
+	<p>
+	  <strong>THCA</strong>
+	  <%= @test.thca %>%
+	</p>
+	
+<% end %>
+
+<% if @test.plate.file? %>
+	<%= image_tag @test.plate.url %>
+<% end %>
+
+<p>
+  <strong>Created At</strong>
+  <%= @test.created_at %>
+</p>
+
+<p>
+  <strong>Updated At</strong>
+  <%= @test.updated_at %>
+</p>
+
+<% if @test.received_at %>
+	<p>
+	  <strong>Received At</strong>
+	  <%= @test.received_at %>
+	</p>
+<% end %>
+
+<% if @test.in_progress_at %>
+	<p>
+	  <strong>In Progress At</strong>
+	  <%= @test.in_progress_at %>
+	</p>
+<% end %>
+
+<% if @test.completed_at %>
+	<p>
+	  <strong>Completed At</strong>
+	  <%= @test.completed_at %>
+	  <br>
+	</p>
+<% end %>
+
+<%= link_to 'Back', :back %>
