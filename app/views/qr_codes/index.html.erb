@@ -1,16 +1,16 @@
 <h1>QR Codes</h1>
 <p>Each link will render 24 codes.</p>
 <p><b>Display HTML version of QR codes in another window</b></p>
-<p>These can be slow so please be patient.</p>
+<p>This can be slow so please be patient.</p>
 <p><%= link_to "Generate New QR Codes in HTML", url_for(:action => :print_new_codes), :target => '_blank' %></p>
-<% unless @qr.nil? %>
+<% if !@qr.nil? and current_user.super_admin? %>
 	<p><%= link_to "Display Existing QR Codes in HTML", url_for(:action => :print_existing_codes), :target => '_blank' %></p>
 <% end %>
 <br/>
 <p><b>Generate PDF version of QR codes in the background</b></p>
 <p>A link will be emailed to you.  Check your mail soon as the link will expire in one hour.</p>
 <p><%= link_to "Generate New QR Codes in PDF", url_for(:action => :print_new_codes, :format => :pdf) %></p>
-<% unless @qr.nil? %>
+<% if !@qr.nil? and current_user.super_admin?%>
 	<p><%= link_to "Render Existing QR Codes in PDF", url_for(:action => :print_existing_codes, :format => :pdf) %></p>
 <% end %>
 <br/>
