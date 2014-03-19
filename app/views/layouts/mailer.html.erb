@@ -9,11 +9,8 @@
 <body bgcolor="#ffffff">
 <div align="center">
 <table width="500" cellpadding="0" cellspacing="0" bgcolor="#f1f1f1">
-	<tr>
-		<td><a href="<%= root_url %>"><img src="<%= asset_url("header.jpg") %>" width="500" height="126" alt="MedSafe Labs LLC - Independent Maine Medical Marijuana Testing Lab" border="0" /></a></td>
-	</tr>
-	<tr>
-		<td style="width=460px;padding:0px 20px 20px 20px;">
+	<tr><td><a href="<%= root_url %>"><img src="<%= asset_url("header.jpg") %>" width="500" height="126" alt="MedSafe Labs LLC - Independent Maine Medical Marijuana Testing Lab" border="0" /></a></td></tr>
+	<tr><td style="width=460px;padding:0px 20px 20px 20px;">
 		<font face="Arial" size="2" color="#000000">
 			<%= yield %>
 			<br />
@@ -25,21 +22,30 @@
 		</font>
 		</td>
 	</tr>
-	<tr>
-		<td bgcolor="#333333" style="width=460px;padding:20px 20px 20px 20px;" align="right">
-			<a href="https://www.facebook.com/medsafelabs"><img src="<%= asset_url("icon-fb.png") %>" width="30" height="30" alt="Follow Us on Facebook" align="left" /></a>&nbsp;
-			<a href="https://plus.google.com/b/105189195439573441791/105189195439573441791/posts?hl=en"><img src="<%= asset_url("icon-gp.png") %>" width="30" height="30" alt="Follow Us on Google+" align="left" /></a>&nbsp;
-			<a href="https://twitter.com/medsafe72916497"><img src="<%= asset_url("icon-tw.png") %>" width="30" height="30" alt="Follow Us on Twitter" align="left" /></a>&nbsp;
-			<a href="#"><img src="<%= asset_url("icon-yt.png") %>" width="30" height="30" alt="Follow Us on YouTube" align="left" /></a>&nbsp;
-			<a href="http://instagram.com/medsafe_labs"><img src="<%= asset_url("icon-ph.png") %>" width="30" height="30" alt="Follow Us on Instagram" align="left" /></a>&nbsp;
+	<tr><td bgcolor="#333333" style="width=460px;padding:20px 20px 20px 20px;" align="right">
+			<a href="https://www.facebook.com/medsafelabs">
+				<img src="<%= asset_url("icon-fb.png") %>" width="30" height="30" alt="Follow Us on Facebook" align="left" />
+			</a>&nbsp;
+			<a href="https://plus.google.com/b/105189195439573441791/105189195439573441791/posts?hl=en">
+				<img src="<%= asset_url("icon-gp.png") %>" width="30" height="30" alt="Follow Us on Google+" align="left" />
+			</a>&nbsp;
+			<a href="https://twitter.com/medsafe72916497">
+				<img src="<%= asset_url("icon-tw.png") %>" width="30" height="30" alt="Follow Us on Twitter" align="left" />
+			</a>&nbsp;
+			<a href="#">
+				<img src="<%= asset_url("icon-yt.png") %>" width="30" height="30" alt="Follow Us on YouTube" align="left" />
+			</a>&nbsp;
+			<a href="http://instagram.com/medsafe_labs">
+				<img src="<%= asset_url("icon-ph.png") %>" width="30" height="30" alt="Follow Us on Instagram" align="left" />
+			</a>&nbsp;
 			<font face="Arial" size="2" color="#ffffff">
-			<br /><br />
-			You are receiving this message because<br />
-			this email address was signed up for an account<br />
-			at <a href="<%= root_url %>" class="linkFoot">www.medsafelabs.com</a>.
+				<br /><br />
+				You are receiving this message because<br />
+				this email address was signed up for an account<br />
+				at <a href="<%= root_url %>" class="linkFoot">www.medsafelabs.com</a>.
+			</font>
 			<br /><br />
 			<font size="1">Copyright MedSafe Labs LLC. All Rights Reserved.</font>
-			</font>
 		</td>
 	</tr>
 </table>
