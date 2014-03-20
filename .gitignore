@@ -10,7 +10,7 @@ rdoc
 spec/reports
 test/tmp
 test/version_tmp
-tmp
+tmp/
 
 # YARD artifacts
 .yardoc
@@ -20,3 +20,5 @@ doc/
 .project
 log/*.log
 *.log
+tmp
+log/
