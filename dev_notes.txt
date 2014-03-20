@@ -49,5 +49,3 @@ heroku restart --remote staging
 Testing Delayed job
 
 Delayed::Job.last.invoke_job
-
-test
