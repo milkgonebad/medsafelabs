@@ -16,7 +16,7 @@
   	<% end %>
   	
   	<%= f.input :strain_id, :collection => Strain.all, :selected => @test.strain_id, :include_blank => true %>
-  	<%= f.input :new_strain, label: "New Strain*", hint:  "*Only use this field when the specified strain isn't in our list."%>
+  	<%= f.input :new_strain, label: "New Strain (Only use this field when the specified strain isn't in our list.)" %>
   	<%= f.input :notes %>
   	<%= f.input :sample_type, :label => "Sample Type", :collection => Test::SAMPLE_TYPES, :selected => @test.sample_type, :include_blank => true %>
   	
@@ -28,9 +28,19 @@
 	  	<%= f.input :cbg, label: "CBG %" %>
 	  	<%= f.input :cbc, label: "CBC %" %>
 	  	<%= f.input :thca, label:  "THCA %" %>
+	  	<% if @test.plate.file? %>
+			<div><%= image_tag @test.plate.url %></div>
+		<% end %>
 	  	<div class="field">
   			<%= f.label :plate, "Plate Image" %><br/>
   			<%= f.file_field :plate %>
+		</div>
+		<% if @test.sample.file? %>
+			<div><%= image_tag @test.sample.url %></div>
+		<% end %>
+		<div class="field">
+  			<%= f.label :sample, "Sample Image" %><br/>
+  			<%= f.file_field :sample %>
 		</div>
 	<% end %>
 	<% if defined? @has_qr %>

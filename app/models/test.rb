@@ -14,6 +14,12 @@ class Test < ActiveRecord::Base
       square: '200x200>',
       medium: '300x300>'
     }
+  has_attached_file :sample,  :default_url => "/images/:style/missing.png",
+    styles: {
+      thumb: '100x100>',
+      square: '200x200>',
+      medium: '300x300>'
+    }
   
   validates :order, :status, :user, :creator, presence: true # tests cannot exist without an order
   validates :qr_id, presence: true, if: :received?
@@ -26,7 +32,13 @@ class Test < ActiveRecord::Base
   validates :plate, :attachment_presence => true, if: :complete?
   validates_attachment_content_type :plate, :content_type => %w(image/jpeg image/jpg image/png image/gif), if: :complete?
   validates_attachment_file_name :plate, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/], if: :complete?
-  validates_attachment_size :plate, :in => 0..10.kilobytes, if: :complete?
+  validates_attachment_size :plate, :in => 0..100.kilobytes, if: :complete?
+  
+  #FIXME this could be DRYed up
+  validates :sample, :attachment_presence => true, if: :complete?
+  validates_attachment_content_type :sample, :content_type => %w(image/jpeg image/jpg image/png image/gif), if: :complete?
+  validates_attachment_file_name :sample, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/], if: :complete?
+  validates_attachment_size :sample, :in => 0..100.kilobytes, if: :complete?
 
   STATUSES = {not_received: 'NOT_RECEIVED', received: 'RECEIVED', in_progress: 'IN_PROGRESS', complete: 'COMPLETE'}
   SAMPLE_TYPES = ['Flower', 'Concentrate', 'Oil', 'Edible']

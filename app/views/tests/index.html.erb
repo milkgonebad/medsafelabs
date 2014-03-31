@@ -7,6 +7,10 @@
 	<div>Viewing:  <em>Tests for Order <%= params[:order_id] %></em></div>
 <% end %>
 
+<% if @customer.has_unused_tests? %>
+	<p><%= link_to 'Scan New Test Sample', scan_user_tests_path(@customer), :class => 'btn btn-mini' %></p>
+<% end %>
+
 <table class="table table-striped">
   <thead>
     <tr>

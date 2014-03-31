@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :ensure_admin
+  before_filter :ensure_can_manage_customers, except: [:index, :show]
   before_action :set_user, only: [:show, :edit, :update, :destroy, :reinvite, :reactivate]
 
   def index
-    @users = params[:all_customers] ? User.all_customers : User.customers
+    sort = params[:sort].present? ? params[:sort] : 'last_name'
+    @users = params[:all_customers] ? User.all_customers.order(sort) : User.customers.order(sort)
   end
 
   def show
@@ -68,7 +70,7 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :address1, :address2, :city, :state, :postal_code, :role,
-        :registration_number, :control_number, :expires_on, :active, :terms, :ccm_handle)
+        :registration_number, :control_number, :expires_on, :active, :terms, :ccm_handle, :publish, :credentials_image)
     end
 
 end

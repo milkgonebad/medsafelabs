@@ -1,6 +1,6 @@
-class OrdersController < ApplicationController
- 
+class OrdersController < ApplicationController 
   before_filter :authenticate_user!, :ensure_admin
+  before_filter :ensure_can_manage_customers, except: [:index, :show]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :set_customer
 

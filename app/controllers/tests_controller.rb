@@ -55,6 +55,9 @@ class TestsController < ApplicationController
       redirect_to user_tests, alert: 'Test was not successfully destroyed.'
     end
   end
+  
+  def scan
+  end
 
   private
   
@@ -78,7 +81,7 @@ class TestsController < ApplicationController
     def test_params
       params.require(:test).permit(
         :status, :strain_id, :new_strain, :notes, :qr_id, :sample_type, :cbd, 
-        :cbn, :thc, :thcv, :cbg, :cbc, :thca, :plate, :update_status)
+        :cbn, :thc, :thcv, :cbg, :cbc, :thca, :plate, :update_status, :sample)
     end
 
 end

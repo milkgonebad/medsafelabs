@@ -49,6 +49,11 @@
 </p>
 
 <p>
+  <strong>Test results can be made public?</strong>
+  <%= @user.publish %>
+</p>
+
+<p>
   <strong>Patient/State Caregiver/Dispensary Registration #:</strong>
   <%= @user.registration_number %>
 </p>
@@ -62,6 +67,10 @@
   <strong>Registration Expires:</strong>
   <%= @user.expires_on %>
 </p>
+
+<% if @user.credentials_image.file? %>
+	<%= image_tag @user.credentials_image.url %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

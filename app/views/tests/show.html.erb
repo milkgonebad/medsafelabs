@@ -73,6 +73,10 @@
 	<%= image_tag @test.plate.url %>
 <% end %>
 
+<% if @test.sample.file? %>
+	<%= image_tag @test.sample.url %>
+<% end %>
+
 <p>
   <strong>Created At</strong>
   <%= @test.created_at %>
@@ -119,8 +123,8 @@
 	<p><strong><%= link_to "Direct link to results page", result_path(@test) %></strong></p>
 <% end %>
 
-<% if current_user.admin? %>
-	
+<% if current_user.admin? and @test.editable? %>
 	<%= link_to 'Edit', edit_user_test_path(@customer, @test) %> |
 <% end %>
+
 <%= link_to 'Back', :back %>

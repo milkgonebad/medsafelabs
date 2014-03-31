@@ -1,0 +1,10 @@
+<h1>SCAN NEW TEST SAMPLE</h1>
+
+<% if @customer.has_unused_tests? %>
+	<p>Please scan the new code in using your QR code reader on your device.  It will be associated with customer:  <strong><%= @customer.first_name %> <%= @customer.last_name %></strong></p>
+	<p>The next unused test for this user will be set to RECEIVED.</p>
+<% else %>
+	<p>It seems this <%= @customer.firstname %> <%= @customer.last_name %> doesn't have any new tests.   Please add some tests via <%= link_to 'creating a new order',  new_user_order_path(@customer) %>.</p>
+<% end %>
+
+<p>If you meant to start testing a previously received sample, go ahead and scan it in.  You will get redirected to the correct test record.</p>

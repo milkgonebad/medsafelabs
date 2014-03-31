@@ -3,19 +3,19 @@
   <h1><%=t '.title', :default => "Customers" %></h1>
 </div>
 <% if params[:all_customers] %>
-	<div>Viewing:  <em>All Customers</em></div>
-	<div><%= link_to 'View Only Active Customers', users_path %></div>
+	<h3>Viewing:  <em>All Customers</em></h3>
+	<h3<%= link_to 'View Only Active Customers', users_path %></h3>
 <% else %>
-	<div>Viewing:  <em>Active Customers</em></div>
-	<div><%= link_to 'View All Customers', users_path(:all_customers => true) %></div>
+	<h3>Viewing:  <em>Only Active Customers</em></h3>
+	<h3><%= link_to 'View All Customers', users_path(:all_customers => true) %></h3>
 <% end %>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= link_to model_class.human_attribute_name(:id), users_path(:sort => 'id') %></th>
+      <th><%= link_to model_class.human_attribute_name(:last_name), users_path(:sort => 'last_name') %></th>
+      <th><%= link_to model_class.human_attribute_name(:first_name), users_path(:sort => 'first_name') %></th>
+      <th><%= link_to model_class.human_attribute_name(:email), users_path(:sort => 'email') %></th>
       <th>Orders</th>
       <th>Tests</th>
       <th>Re-Invite</th>
@@ -29,8 +29,18 @@
         <td><%= user.last_name %></td>
         <td><%= user.first_name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'View Orders', user_orders_path(user) %>
-        <td><%= link_to 'View Tests', user_tests_path(user) %></td>
+        <td><%= link_to 'Create Order',
+                      new_user_order_path(user), :class => 'btn btn-mini' %>
+            <%= link_to 'View Orders',
+                      user_orders_path(user), :class => 'btn btn-mini' %>
+        </td>
+        <td><% if user.has_unused_tests? %>
+        		<%= link_to 'Scan New Test Sample',
+                      scan_user_tests_path(user), :class => 'btn btn-mini' %>
+            <% end %>
+            <%= link_to 'View Tests',
+                      user_tests_path(user), :class => 'btn btn-mini' %>
+        </td>
         <td><% if !user.registered? and user.active? %>
         		<%= link_to 'Re-Invite', reinvite_path(user), :class => 'btn btn-mini'%>
         	<% end %>

@@ -12,8 +12,13 @@ MedSafeLabs::Application.routes.draw do
   scope '/admin' do # scope the user admin pages so they don't conflict with devise
     resources :users do
       resources :orders
-      resources :tests
+      resources :tests do
+        collection do
+          get :scan
+        end
+      end
     end
+    resources :faq
     resources :invitations
     resources :administrators
     resources :strains

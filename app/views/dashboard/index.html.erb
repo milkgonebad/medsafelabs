@@ -1,17 +1,3 @@
 <h1>Admin Dashboard</h1>
 
-<p><b>Quick Links</b></p>
-<%= link_to "Create a Customer", new_user_path %><br>
-<br>
-<%= link_to "Search for a Customer", users_path  %><br>
-<br>
-<br>
-<p><b>Testing Process...</b></p>
-<ol>
-	<li>Step 1:  Create or find a customer.  The customer you're working with will appear in the top nav.</li>
-	<li>Step 2:  Create an order for the customer:  Set the number of tests, amount, and take payment.</li>
-	<li>Step 3:  Receive a sample:  Either scan a new QR code or add one to the url hostname/qr/(number)</li>
-	<li>Step 4:  You can either navigage to the test or scan the code to bring up the test.  Update the test fields and set it to In Progress.</li>
-	<li>Step 5:  Run the test!  Update the test with the results and pict of the test plate.</li>
-	<li>Step 6:  Set the test to complete and the results will be emailed to the customer.  Note:  Customers need to confirm their site invitation before viewing results.  (Yes there is a ticket for this.)</li>
-<br>
+<%= render :partial => 'faq/testing_process' %>

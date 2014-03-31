@@ -23,21 +23,39 @@ class ApplicationController < ActionController::Base
   
   def ensure_admin
     unless current_user.admin?
-      flash[:error] = 'You are not authorized to perform this action.'
+      set_flash
       redirect_to :back
     end 
   end
   
-    def ensure_super_admin
+  def ensure_super_admin
     unless current_user.super_admin?
-      flash[:error] = 'You are not authorized to perform this action.'
+      set_flash
       redirect_to :back
     end 
+  end
+  
+  def ensure_can_run_tests
+    unless current_user.can_run_tests?
+      set_flash
+      redirect_to :back
+    end 
+  end
+  
+  def ensure_can_manage_customers
+    unless current_user.can_manage_customers?
+      set_flash
+      redirect_to :back
+    end 
+  end
+  
+  def set_flash
+    flash[:error] = 'You are not authorized to perform this action.'
   end
   
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :email, :address1, :address2, :city, :state, :postal_code,
-        :registration_number, :control_number, :expires_on, :terms, :ccm_handle]
+        :registration_number, :control_number, :expires_on, :terms, :ccm_handle, :publish, :terms]
     devise_parameter_sanitizer.for(:sign_up) << [:terms]
   end
   

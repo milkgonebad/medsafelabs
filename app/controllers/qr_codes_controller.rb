@@ -1,5 +1,6 @@
 class QrCodesController < ApplicationController
   before_filter :authenticate_user!, :ensure_admin
+  before_filter :ensure_can_manage_customers
 
   def index
     @qr = Qr.available.first

@@ -49,3 +49,45 @@ heroku restart --remote staging
 Testing Delayed job
 
 Delayed::Job.last.invoke_job
+
+WAITING
+- Ask to test printing QR codes
+- Change the super user password on production
+- Populate images for existing users
+
+
+TODO
+- Separate lab tech from customer rep
+- Search for customers
+- Way to confirm account and view first test results
+- Add new admin user type for lab techs
+
+
+WHEN ONLINE
+- add tagging
+- Resize image
+- PDF download of results page - ajax call in the background
+- Add password validation
+- Devise invitations terms fails - see intializer
+- Prevent deactivated users from logging in
+Locally set up the amazon info
+
+
+DONE
+- fix urls in generated email
+- Sorting customer 
+- Add an image for taking a pict of the user's credentials
+- add publish test results flag to the users page
+- Add an image for collecting a pict of the sample
+
+
+What can a customer rep do?
+- Create/admin customers
+- create orders
+- scan in tests for receiving only
+
+
+What can a lab tech do?
+- Can run a test and complete it
+
+

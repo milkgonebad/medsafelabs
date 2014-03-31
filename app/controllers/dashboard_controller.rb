@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
     if current_user.admin?
       admin_view
     else
-       customer_view
+      customer_view
     end
   end
 
