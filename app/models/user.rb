@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
   end
   
   def administrator?
-    role == ROLES[:administrator
+    role == ROLES[:administrator]
   end
   
   def lab_tech?
