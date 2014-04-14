@@ -5,9 +5,11 @@
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :email %>
-    <%= f.input :password %>
-    <%= f.input :password_confirmation %>
-    <%= f.input :active %>
+    <%= f.input :role, collection: User.assignable_admin_types, selected: @administrator.role, include_blank: true, required: true %>
+    <% if @administrator.new_record? %> 
+    	<%= f.input :password %>
+    	<%= f.input :password_confirmation %>
+    <% end %>
   </div>
 
   <div class="form-actions">

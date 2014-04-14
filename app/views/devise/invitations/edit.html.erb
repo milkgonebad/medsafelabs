@@ -3,14 +3,10 @@
 <%= simple_form_for resource, :as => resource_name, :url => '/users/invitation', :html => { :method => :put } do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :invitation_token %>
-
   <%= f.input :password %>
   <%= f.input :password_confirmation, label: "Password Confirmation" %>
   <%= f.hint "Passwords must be at least 8 chars long and should include a number and a letter." %>
-  
-  
   <%= f.input :terms, as: :boolean, checked_value: true, unchecked_value: false, label:  "Acceptance of Terms" %>
   <%= f.hint "By checking this box, I accept the Terms of Service.  Which are TBD." %>
-
   <%= f.submit t("devise.invitations.edit.submit_button") %>
 <% end %>

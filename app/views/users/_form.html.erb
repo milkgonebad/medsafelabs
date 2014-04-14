@@ -19,8 +19,8 @@
 		<%= image_tag @user.credentials_image.url %>
 	<% end %>
   	<div class="field">
-  		<%= f.label :credentials_image, "Image of Customer Credentials" %><br/>
-  		<%= f.file_field :credentials_image %>
+  		<%= f.label :credentials_image, "Image of Customer Credentials", :input_html => {style: 'required'} %><br/>
+  		<%= f.file_field :credentials_image, required: true %>
 	</div>
   </div>
 

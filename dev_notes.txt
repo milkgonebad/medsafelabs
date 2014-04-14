@@ -57,10 +57,10 @@ WAITING
 
 
 TODO
+- Confirmation via invitation seems funky - doesn't bring you to the correct form
 - Separate lab tech from customer rep
 - Search for customers
 - Way to confirm account and view first test results
-- Add new admin user type for lab techs
 
 
 WHEN ONLINE
@@ -70,10 +70,12 @@ WHEN ONLINE
 - Add password validation
 - Devise invitations terms fails - see intializer
 - Prevent deactivated users from logging in
-Locally set up the amazon info
+- Locally set up the amazon info
+- When trying to log in and have not confirmed yet, give a better error message than a wrong password (Invalid email or password.)
 
 
 DONE
+- Add new admin user type for lab techs
 - fix urls in generated email
 - Sorting customer 
 - Add an image for taking a pict of the user's credentials

@@ -19,7 +19,6 @@ class AdministratorsController < ApplicationController
 
   def create
     @administrator = User.new(administrator_params)
-    @administrator.role = User::ROLES[:administrator]
     if @administrator.save
       @administrator.confirm!
       redirect_to administrators_path, notice: 'Administrator was successfully created.'
@@ -46,7 +45,6 @@ class AdministratorsController < ApplicationController
     redirect_to administrators_path, notice: 'Administrator was successfully reactivated.'
   end
   
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_administrator

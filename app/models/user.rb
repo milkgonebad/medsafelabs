@@ -33,8 +33,8 @@ class User < ActiveRecord::Base
   
   scope :customers, -> { where(role: nil, active: true).order(:last_name, :first_name) } # note "->" is the same thing as "lamda" - very annoying
   scope :all_customers, -> { where(role: nil).order(:last_name, :first_name) }
-  scope :administrators, -> { where(role: 1, active: true).order(:last_name, :first_name) }
-  scope :all_administrators, -> { where(role: 1).order(:last_name, :first_name) }
+  scope :administrators, -> { where("role in (1,2,3) and active = true").order(:last_name, :first_name) }
+  scope :all_administrators, -> { where("role in (1,2,3)").order(:last_name, :first_name) }
   
   # administrators can do both lab_tech and customer_rep tasks
   ROLES = {:customer => nil, :super_administrator => 0, :administrator => 1, :lab_tech => 2, :customer_rep => 3}
@@ -47,6 +47,14 @@ class User < ActiveRecord::Base
   # default the user to active
   after_create do |u|
     u.update_attribute(:active, true) if u.active.nil?
+  end
+  
+  def self.assignable_admin_types
+    {administrator: 1, lab_tech: 2, customer_rep: 3}
+  end
+  
+  def role_name
+    ROLES.each { |k,v| return k.to_s if v == role } 
   end
   
   def admin?
@@ -67,6 +75,10 @@ class User < ActiveRecord::Base
   
   def lab_tech?
     role == ROLES[:lab_tech]
+  end
+  
+  def customer_rep?
+    role == ROLES[:customer_rep]
   end
   
   def can_run_tests?
@@ -90,8 +102,8 @@ class User < ActiveRecord::Base
   end
   
   def has_unused_tests?
-    return false if self.tests.empty? 
-    self.tests.not_received.empty? ? false : true
+    return false if tests.empty? 
+    tests.not_received.empty? ? false : true
   end
 
   def inactive_message
