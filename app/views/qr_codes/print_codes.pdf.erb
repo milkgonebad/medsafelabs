@@ -68,7 +68,7 @@
 		<tr><td colspan="8" height="40">&nbsp;</td></tr>
 		<tr align="center">
 			<td width="30">&nbsp;</td>
-			<% qr_info[20..23].each do |q, i| %>
+			<% qr_info[20..23].each_with_index do |q, i| %>
 				<td><%= image_tag q[1] %>
 					<br/>
 					<font size="1" face="arial"><%= q[0] %></font>
