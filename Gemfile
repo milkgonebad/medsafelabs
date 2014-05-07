@@ -31,7 +31,7 @@ group :assets do
 end
 
 group :development do
-  gem 'quiet_assets'
+  #gem 'quiet_assets' not supported yet https://github.com/cldwalker/debugger-ruby_core_source/tree/master/lib/debugger/ruby_core_source
 end
 
 group :test do
@@ -47,7 +47,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'debugger'
+  #gem 'debugger'
 end
 
 group :production, :staging do
@@ -59,4 +59,4 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-ruby '2.0.0'
+#ruby '2.1'
