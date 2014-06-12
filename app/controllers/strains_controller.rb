@@ -1,4 +1,5 @@
 class StrainsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_strain, only: [:show, :edit, :update, :destroy]
 
   def index
